@@ -5,22 +5,25 @@ export function LogoCloud() {
     ["zoho", "hubspot", "salesforce", "odoo", "react", "nodejs", "nextjs", "python"].includes(t.slug),
   );
   return (
-    <section className="border-y border-line bg-paper/70">
-      <div className="container-xl py-12">
-        <p className="text-center text-sm font-bold uppercase tracking-[0.2em] text-muted">
-          Technology that powers modern businesses
-        </p>
-        <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-muted">
-          Platforms and engineering tools we commonly work with. Listed as capabilities — not as official partnerships
-          unless separately confirmed.
-        </p>
-        <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {featured.map((t) => (
-            <li key={t.slug} className="rounded-2xl border border-line bg-white px-5 py-5 text-center text-sm font-bold">
-              {t.name}
-            </li>
-          ))}
-        </ul>
+    <section className="logo-marquee border-y border-line bg-paper/70" aria-label="Technology stack">
+      <div className="container-xl py-7">
+        <div className="flex items-center gap-6 overflow-hidden">
+          <p className="hidden shrink-0 text-xs font-bold uppercase tracking-[0.18em] text-accent sm:block">
+            Our stack
+          </p>
+          <div className="logo-marquee-window min-w-0 flex-1 overflow-hidden">
+            <div className="logo-track flex w-max items-center gap-3">
+              {[...featured, ...featured].map((technology, index) => (
+                <span
+                  key={`${technology.slug}-${index}`}
+                  className="logo-pill shrink-0 border border-line bg-[var(--surface)] px-5 py-3 text-sm font-bold text-ink"
+                >
+                  {technology.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

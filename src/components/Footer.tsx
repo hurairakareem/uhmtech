@@ -23,10 +23,10 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="site-footer">
-      <div className="container-xl site-footer-grid py-16 md:grid-cols-2 lg:grid-cols-6">
-        <div className="lg:col-span-2">
+      <div className="container-xl site-footer-grid py-16 md:grid-cols-2 lg:grid-cols-5">
+        <div>
           <Link href="/" className="inline-flex items-center gap-3">
-            <Image src="/brand/uhm-logo.png" alt={siteConfig.name} width={48} height={48} className="h-12 w-12 rounded-lg bg-white object-contain p-1" />
+            <Image src="/brand/uhm-logo-transparent.png" alt={siteConfig.name} width={48} height={48} className="brand-logo h-12 w-12 object-contain" />
             <span>
               <span className="block font-extrabold">UHM Technologies</span>
               <span className="text-xs uppercase tracking-[0.16em] text-white/60">Digital transformation</span>

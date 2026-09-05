@@ -1,6 +1,7 @@
 import { CTASection } from "@/components/CTASection";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
+import { LogoCloud } from "@/components/LogoCloud";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ServiceGrid } from "@/components/ServiceCard";
 import { CaseStudyCard, ProductCard } from "@/components/Cards";
@@ -16,6 +17,7 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd(faqs)} />
       <Hero />
+      <LogoCloud />
       <section className="border-b border-line bg-white">
         <div className="container-xl grid gap-6 py-8 text-sm font-semibold text-muted md:grid-cols-[1fr_auto] md:items-center">
           <p>Technology partner for teams building what comes next.</p>

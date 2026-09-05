@@ -99,6 +99,16 @@ textarea {
   backdrop-filter: blur(16px);
 }
 
+.site-header .brand,
+.site-header .site-nav a {
+  color: var(--ink);
+}
+
+.site-header .site-nav a:hover,
+.site-header .site-nav a[aria-expanded="true"] {
+  color: var(--accent);
+}
+
 .site-header-inner {
   display: flex;
   height: 4.25rem;
@@ -113,6 +123,17 @@ textarea {
   gap: 0.75rem;
 }
 
+.brand-logo {
+  object-fit: contain;
+}
+
+html[data-theme="dark"] .brand-logo {
+  padding: 0.2rem;
+  border-radius: 0.65rem;
+  background: linear-gradient(145deg, #1b4d59, #12313d);
+  filter: saturate(1.45) brightness(1.2) drop-shadow(0 0 0.5rem rgb(143 207 199 / 22%));
+}
+
 .site-nav {
   display: none;
   align-items: center;
@@ -124,12 +145,24 @@ textarea {
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
+  color: color-mix(in srgb, var(--ink) 84%, transparent);
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.header-actions .btn-primary {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  white-space: nowrap;
 }
 
 .menu-toggle {
@@ -187,6 +220,30 @@ textarea {
     linear-gradient(to right, color-mix(in srgb, var(--accent) 8%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in srgb, var(--accent) 8%, transparent) 1px, transparent 1px);
   background-size: 44px 44px;
+}
+
+.logo-marquee {
+  overflow: hidden;
+}
+
+.logo-marquee-window:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.logo-track {
+  animation: marquee 28s linear infinite;
+}
+
+.logo-pill {
+  border-radius: 999px;
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.logo-pill:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 16%, transparent);
 }
 
 .circuit {
@@ -257,7 +314,7 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.2rem;
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 90%, var(--line));
 }
 
 .theme-switcher button {
@@ -272,13 +329,39 @@ textarea {
 }
 
 .theme-switcher button[aria-selected="true"] {
-  background: var(--ink);
-  color: var(--white);
+  background: var(--accent);
+  color: white;
+}
+
+.mega-panel {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.mobile-menu {
+  background: var(--surface);
+  color: var(--ink);
 }
 
 html[data-theme="dark"] .hero,
 html[data-theme="dark"] .bg-white {
   background-color: var(--paper);
+}
+
+html[data-theme="dark"] .site-header {
+  background: rgb(12 23 29 / 94%);
+  border-bottom-color: #30464d;
+}
+
+html[data-theme="dark"] .site-header .brand,
+html[data-theme="dark"] .site-header .site-nav a,
+html[data-theme="dark"] .site-header .menu-toggle {
+  color: #edf4f1;
+}
+
+html[data-theme="dark"] .site-header .site-nav a:hover,
+html[data-theme="dark"] .site-header .site-nav a[aria-expanded="true"] {
+  color: var(--cyan);
 }
 
 html[data-theme="dark"] .hero {
@@ -347,13 +430,28 @@ html[data-theme="dark"] .btn-secondary {
 }
 
 @media (min-width: 1024px) {
+  .site-nav {
+    gap: 0;
+  }
+
+  .site-nav a {
+    padding-inline: 0.55rem;
+    font-size: 0.8rem;
+  }
+
   .hero-grid {
     grid-template-columns: 1.05fr 0.95fr;
     padding: 6rem 0;
   }
 
   .site-footer-grid {
-    grid-template-columns: 1.4fr 0.8fr 0.8fr 0.8fr 0.8fr;
+    grid-template-columns: 1.6fr repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1240px) {
+  .header-actions .theme-switcher {
+    display: none;
   }
 }
 
@@ -374,6 +472,15 @@ html[data-theme="dark"] .btn-secondary {
   }
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .rise {
   animation: rise 700ms ease both;
 }
@@ -384,7 +491,8 @@ html[data-theme="dark"] .btn-secondary {
   }
   .rise,
   .card,
-  .btn {
+  .btn,
+  .logo-track {
     animation: none;
     transition: none;
   }

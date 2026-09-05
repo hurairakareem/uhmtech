@@ -57,7 +57,7 @@ export function Navbar() {
       </a>
       <div className="container-xl site-header-inner">
         <Link href="/" className="brand" aria-label={`${siteConfig.name} home`}>
-          <Image src="/brand/uhm-logo.png" alt="" width={44} height={44} className="h-10 w-10 object-contain" priority />
+          <Image src="/brand/uhm-logo-transparent.png" alt="" width={44} height={44} className="brand-logo h-10 w-10 object-contain" priority />
           <span className="leading-tight">
             <span className="block text-sm font-extrabold tracking-tight text-ink">UHM</span>
             <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-muted">Technologies</span>
@@ -85,7 +85,7 @@ export function Navbar() {
                 </Link>
                 {mega ? (
                   <div className="absolute left-1/2 top-full z-50 w-[720px] -translate-x-1/3 pt-3">
-                    <div className="grid grid-cols-2 gap-2 rounded-2xl border border-line bg-white p-4 shadow-2xl">
+                    <div className="mega-panel grid grid-cols-2 gap-2 rounded-2xl border border-line p-4 shadow-2xl">
                       {services.map((s) => (
                         <Link
                           key={s.slug}
@@ -139,7 +139,7 @@ export function Navbar() {
       </div>
 
       {open ? (
-        <div className="border-t border-line bg-white lg:hidden">
+        <div className="mobile-menu border-t border-line lg:hidden">
           <nav className="container-xl mobile-nav lg:hidden" aria-label="Mobile">
             {links.map((link) => (
               <Link key={link.href} href={link.href} className="rounded-xl px-3 py-2 font-semibold">

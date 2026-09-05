@@ -13,6 +13,14 @@
   --ring: #16766f;
 }
 
+html[data-theme="dark"] {
+  --ink: #edf4f1;
+  --line: #30464d;
+  --muted: #a8b7b6;
+  --paper: #101c23;
+  --white: #0c171d;
+}
+
 
 *,
 *::before,
@@ -107,6 +115,12 @@ textarea {
   gap: 0.5rem;
 }
 
+.header-actions .btn-primary {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  white-space: nowrap;
+}
+
 .menu-toggle {
   display: inline-flex;
   height: 2.5rem;
@@ -139,6 +153,17 @@ textarea {
   .mobile-nav {
     display: none;
   }
+}
+
+html[data-theme="dark"] .site-header {
+  background: rgb(12 23 29 / 94%);
+  border-bottom-color: #30464d;
+}
+
+html[data-theme="dark"] .site-header .brand,
+html[data-theme="dark"] .site-header .site-nav a,
+html[data-theme="dark"] .site-header .menu-toggle {
+  color: #edf4f1;
 }
 
 .container-xl {
