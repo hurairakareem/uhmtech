@@ -6,11 +6,13 @@ import { products } from "@/content/products";
 import { services } from "@/content/services";
 import { siteConfig } from "@/content/site";
 
+type ChangeFrequency = NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url.replace(/\/$/, "");
   const now = new Date();
 
-  const staticRoutes: MetadataRoute.Sitemap = [
+  const staticPages: { path: string; priority: number; changeFrequency: ChangeFrequency }[] = [
     { path: "", priority: 1, changeFrequency: "weekly" },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" },
     { path: "/services", priority: 0.9, changeFrequency: "weekly" },
@@ -24,7 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
     { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
     { path: "/cookies", priority: 0.3, changeFrequency: "yearly" },
-  ].map(({ path, priority, changeFrequency }) => ({
+  ];
+
+  const staticRoutes: MetadataRoute.Sitemap = staticPages.map(({ path, priority, changeFrequency }) => ({
     url: `${base}${path || "/"}`,
     lastModified: now,
     changeFrequency,
