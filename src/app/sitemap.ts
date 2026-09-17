@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/blog";
 import { caseStudies } from "@/content/caseStudies";
 import { industries } from "@/content/industries";
@@ -10,39 +10,68 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url.replace(/\/$/, "");
   const now = new Date();
 
-  const staticRoutes = [
-    "",
-    "/about",
-    "/services",
-    "/solutions",
-    "/industries",
-    "/products",
-    "/case-studies",
-    "/technologies",
-    "/blog",
-    "/contact",
-    "/privacy",
-    "/terms",
-    "/cookies",
-  ].map((path) => ({
+  const staticRoutes: MetadataRoute.Sitemap = [
+    { path: "", priority: 1, changeFrequency: "weekly" },
+    { path: "/about", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/services", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/solutions", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/industries", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/products", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/case-studies", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/technologies", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/blog", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/contact", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/cookies", priority: 0.3, changeFrequency: "yearly" },
+  ].map(({ path, priority, changeFrequency }) => ({
     url: `${base}${path || "/"}`,
     lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : 0.7,
+    changeFrequency,
+    priority,
   }));
 
-  const extra = [
-    ...services.map((s) => `/services/${s.slug}`),
-    ...industries.map((i) => `/industries/${i.slug}`),
-    ...products.map((p) => `/products/${p.slug}`),
-    ...caseStudies.map((c) => `/case-studies/${c.slug}`),
-    ...blogPosts.map((b) => `/blog/${b.slug}`),
-  ].map((path) => ({
-    url: `${base}${path}`,
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
+    url: `${base}/services/${s.slug}`,
     lastModified: now,
-    changeFrequency: "monthly" as const,
+    changeFrequency: "monthly",
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...extra];
+  const industryRoutes: MetadataRoute.Sitemap = industries.map((i) => ({
+    url: `${base}/industries/${i.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const productRoutes: MetadataRoute.Sitemap = products.map((p) => ({
+    url: `${base}/products/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((c) => ({
+    url: `${base}/case-studies/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((b) => ({
+    url: `${base}/blog/${b.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...industryRoutes,
+    ...productRoutes,
+    ...caseStudyRoutes,
+    ...blogRoutes,
+  ];
 }
