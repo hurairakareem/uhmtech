@@ -5,9 +5,9 @@ import { createMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
 export const metadata = createMetadata({
-  title: "Solutions",
+  title: "Digital Transformation Solutions for Business",
   description:
-    "Digital transformation, revenue operations, customer operations, and product engineering solutions from UHM Technologies.",
+    "Digital transformation, revenue operations, customer operations, and product engineering solutions from UHM Tech.",
   path: "/solutions",
 });
 

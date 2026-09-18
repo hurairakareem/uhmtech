@@ -5,9 +5,9 @@ import { getPrimaryServices, services } from "@/content/services";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Services",
+  title: "Technology, Automation & CRM Services",
   description:
-    "Explore UHM Technologies services: business automation, CRM, software and SaaS development, AI, call center, chat, email, APIs, and management systems.",
+    "Explore UHM Tech services: business automation, CRM, software and SaaS development, AI, call center, chat, email, APIs, and management systems.",
   path: "/services",
 });
 

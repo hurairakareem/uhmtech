@@ -1,6 +1,6 @@
-# UHM Technologies website
+# UHM Tech website
 
-Production website for **UHM Technologies** — a technology and digital transformation company covering automation, CRM, software, SaaS, integrations, and customer experience operations.
+Production website for **UHM Tech** — a technology and digital transformation company covering automation, CRM, software, SaaS, integrations, and customer experience operations.
 
 ## Stack
 

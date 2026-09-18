@@ -38,7 +38,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-extrabold text-ink">Intellectual property</h2>
           <p className="mt-3 leading-7">
-            The UHM Technologies name, logo, and site design are owned by the company. Do not copy the logo or present
+            The UHM Tech name, logo, and site design are owned by the company. Do not copy the logo or present
             it as your own.
           </p>
         </section>

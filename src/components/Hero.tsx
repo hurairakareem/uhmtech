@@ -7,7 +7,7 @@ export function Hero() {
       <div className="container-xl hero-grid relative items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
         <div className="rise">
           <div className="hero-rule" aria-hidden="true" />
-          <p className="eyebrow mt-6">UHM Technologies</p>
+          <p className="eyebrow mt-6">UHM Tech</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight md:text-5xl lg:text-6xl">
             Digital systems that make ambitious businesses easier to run.
           </h1>
@@ -45,7 +45,7 @@ const flow = [
 
 function HeroVisual() {
   return (
-    <div className="relative" aria-hidden="true">
+    <div className="hero-visual relative" aria-hidden="true">
       <div className="border border-ink/10 bg-white p-3 shadow-xl sm:p-4">
         <div className="bg-navy p-5 text-white sm:p-7">
           <div className="flex items-center justify-between border-b border-white/15 pb-4">

@@ -13,7 +13,7 @@ const paths: Record<string, string> = {
 
 export function ServiceIcon({ slug }: { slug: string }) {
   return (
-    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#eaf2ff,#d7e8ff)] text-accent">
+    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[color-mix(in_srgb,var(--accent)_18%,var(--line))] bg-[linear-gradient(180deg,rgba(14,122,108,0.08),rgba(14,122,108,0.03))] text-accent shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]">
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <path d={paths[slug] ?? "M5 12h14"} strokeLinecap="round" strokeLinejoin="round" />
       </svg>

@@ -4,9 +4,9 @@ import { blogCategories, blogPosts } from "@/content/blog";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Blog",
+  title: "Technology, Automation & CRM Insights",
   description:
-    "Insights from UHM Technologies on business automation, CRM, SaaS, AI, software development, and digital transformation.",
+    "Insights from UHM Tech on business automation, CRM, SaaS, AI, software development, and digital transformation.",
   path: "/blog",
 });
 

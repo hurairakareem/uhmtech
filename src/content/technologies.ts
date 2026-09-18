@@ -20,7 +20,7 @@ export const technologies: Technology[] = [
   { slug: "rest-apis", name: "REST APIs", category: "backend", summary: "Integration contracts between products and platforms." },
   { slug: "sql", name: "SQL", category: "data", summary: "Relational data modeling and reporting." },
   { slug: "mongodb", name: "MongoDB", category: "data", summary: "Document storage for product and operational data." },
-  { slug: "cloud", name: "Cloud technologies", category: "cloud", summary: "Hosted applications, environments, and scaling patterns." },
+  { slug: "cloud", name: "Cloud tech", category: "cloud", summary: "Hosted applications, environments, and scaling patterns." },
   { slug: "postgresql", name: "PostgreSQL", category: "data", summary: "Relational databases for products and operational systems." },
   { slug: "redis", name: "Redis", category: "data", summary: "Caching and short-lived operational data where it fits the architecture." },
   { slug: "webhooks", name: "Webhooks", category: "backend", summary: "Event delivery between platforms with retry and logging discipline." },

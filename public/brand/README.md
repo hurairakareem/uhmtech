@@ -1,3 +1,3 @@
-# UHM Technologies
+# UHM Tech
 
-UHM Technologies helps businesses automate operations, implement CRM platforms, build software and SaaS products, integrate systems, and deliver professional customer experiences.
+UHM Tech helps businesses automate operations, implement CRM platforms, build software and SaaS products, integrate systems, and deliver professional customer experiences.

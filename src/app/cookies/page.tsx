@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
   title: "Cookie Policy",
-  description: `How ${siteConfig.name} uses cookies and similar technologies.`,
+  description: `How ${siteConfig.name} uses cookies and similar tech.`,
   path: "/cookies",
 });
 

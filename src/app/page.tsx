@@ -92,7 +92,7 @@ export default function HomePage() {
         title="Have a complex process worth improving?"
         text="Bring us the messy version. We will help you find the clearest next step, whether that is automation, a product, or a better connected system."
         primary={{ href: "/contact", label: "Start a Conversation" }}
-        secondary={{ href: "/about", label: "Meet UHM Technologies" }}
+        secondary={{ href: "/about", label: "Meet UHM Tech" }}
       />
     </>
   );

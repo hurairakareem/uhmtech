@@ -5,6 +5,86 @@ import type { Product } from "@/content/products";
 import type { BlogPost } from "@/content/blog";
 import { formatDate } from "@/lib/utils";
 
+function ProductIcon({ slug }: { slug: string }) {
+  const commonProps = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.7,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  };
+
+  switch (slug) {
+    case "operations-console":
+      return (
+        <svg {...commonProps}>
+          <rect x="4" y="5" width="16" height="14" rx="2.5" />
+          <path d="M8 9.5h8M8 13h5" />
+        </svg>
+      );
+    case "lifecycle-crm-kit":
+      return (
+        <svg {...commonProps}>
+          <path d="M5 18V7.5A1.5 1.5 0 0 1 6.5 6H17.5A1.5 1.5 0 0 1 19 7.5V18" />
+          <path d="M8 10h8M8 14h8M10 6l1.2-2h1.6L14 6" />
+        </svg>
+      );
+    case "assist-desk":
+      return (
+        <svg {...commonProps}>
+          <path d="M5 8.5A2.5 2.5 0 0 1 7.5 6h9A2.5 2.5 0 0 1 19 8.5v7A2.5 2.5 0 0 1 16.5 18h-9A2.5 2.5 0 0 1 5 15.5v-7Z" />
+          <path d="M8 10h8M8 13.5h5" />
+        </svg>
+      );
+    case "flowline":
+      return (
+        <svg {...commonProps}>
+          <path d="M6 7.5h12M6 16.5h12M7.5 7.5v9M16.5 7.5v9" />
+          <circle cx="7.5" cy="7.5" r="1.5" fill="currentColor" stroke="none" />
+          <circle cx="16.5" cy="7.5" r="1.5" fill="currentColor" stroke="none" />
+          <circle cx="7.5" cy="16.5" r="1.5" fill="currentColor" stroke="none" />
+          <circle cx="16.5" cy="16.5" r="1.5" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "signal-ai":
+      return (
+        <svg {...commonProps}>
+          <path d="M7 17 12 7l5 10" />
+          <path d="M9.5 13.5h5" />
+          <path d="M12 4v-1.5M12 20v-1.5" />
+        </svg>
+      );
+    case "portal-hub":
+      return (
+        <svg {...commonProps}>
+          <path d="M5 8.5h14M5 15.5h14M8 5.5v13M16 5.5v13" />
+        </svg>
+      );
+    case "schedule-desk":
+      return (
+        <svg {...commonProps}>
+          <rect x="5" y="6" width="14" height="13" rx="2" />
+          <path d="M8 4.5v3M16 4.5v3M5 10h14" />
+        </svg>
+      );
+    case "ledger-link":
+      return (
+        <svg {...commonProps}>
+          <path d="M5 7.5h14M5 12h14M5 16.5h9" />
+          <path d="M17 16.5h2" />
+        </svg>
+      );
+    default:
+      return (
+        <svg {...commonProps}>
+          <circle cx="12" cy="12" r="7" />
+        </svg>
+      );
+  }
+}
+
 export function IndustryCard({ industry }: { industry: Industry }) {
   return (
     <Link href={`/industries/${industry.slug}`} className="card block px-7 py-8 text-ink">
@@ -17,8 +97,13 @@ export function IndustryCard({ industry }: { industry: Industry }) {
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/products/${product.slug}`} className="card group block px-6 py-7 sm:px-7 sm:py-8">
-      <p className="text-xs font-bold uppercase tracking-widest text-accent">{product.category}</p>
-      <h3 className="mt-3 text-lg font-bold leading-snug">{product.name}</h3>
+      <div className="mb-4 flex items-center gap-3">
+        <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-paper text-accent">
+          <ProductIcon slug={product.slug} />
+        </span>
+        <p className="text-xs font-bold uppercase tracking-widest text-accent">{product.category}</p>
+      </div>
+      <h3 className="text-lg font-bold leading-snug">{product.name}</h3>
       <p className="mt-3 text-sm leading-7 text-muted">{product.summary}</p>
       <div className="mt-6 flex items-center justify-between border-t border-line pt-4 text-xs font-bold uppercase tracking-widest text-muted">
         <span>{product.status.replace("-", " ")}</span>

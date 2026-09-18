@@ -5,9 +5,9 @@ import { caseStudies } from "@/content/caseStudies";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Case Studies",
+  title: "Digital Transformation Case Studies",
   description:
-    "Illustrative engagement profiles from UHM Technologies. Real client names, metrics, and screenshots are published only with permission.",
+    "Illustrative engagement profiles from UHM Tech. Real client names, metrics, and screenshots are published only with permission.",
   path: "/case-studies",
 });
 
@@ -17,7 +17,7 @@ export default function CaseStudiesPage() {
       <PageHero
         eyebrow="Case studies"
         title="How we structure real delivery stories"
-        description="Until clients approve public case studies, these pages show the format: challenge, solution, technologies, automation, and results notes — without invented numbers."
+        description="Until clients approve public case studies, these pages show the format: challenge, solution, tech, automation, and results notes — without invented numbers."
         crumbs={[
           { name: "Home", href: "/" },
           { name: "Case Studies", href: "/case-studies" },

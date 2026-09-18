@@ -1,7 +1,7 @@
 export const faqs = [
   {
     q: "Do you only implement Zoho or one CRM platform?",
-    a: "No. UHM Technologies is a technology and digital transformation partner. CRM is one capability among automation, software, SaaS, integrations, and customer experience operations. We work with Zoho, HubSpot, Salesforce, Odoo, and custom systems.",
+    a: "No. UHM Tech is a technology and digital transformation partner. CRM is one capability among automation, software, SaaS, integrations, and customer experience operations. We work with Zoho, HubSpot, Salesforce, Odoo, and custom systems.",
   },
   {
     q: "Can you add a new service or industry later?",

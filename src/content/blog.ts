@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
       "A practical way to choose the first business processes to automate without creating fragile workflows.",
     category: "Business Automation",
     tags: ["automation", "operations", "crm"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-08-12",
     featured: true,
     content: [
@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Connect before you replace",
         paragraphs: [
           "Many teams assume they must change platforms before they can automate. Often the first gain comes from connecting the tools already in use and removing duplicate entry.",
-          "UHM Technologies typically maps the process, implements the first workflow, then expands. New services and systems can be added later without redesigning the whole operating model.",
+          "UHM Tech typically maps the process, implements the first workflow, then expands. New services and systems can be added later without redesigning the whole operating model.",
         ],
       },
     ],
@@ -64,7 +64,7 @@ export const blogPosts: BlogPost[] = [
       "How to score and route inquiries so sales sees intent — not every website visit dressed up as a deal.",
     category: "Business Automation",
     tags: ["automation", "sales", "crm", "qualification"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-08-28",
     featured: true,
     content: [
@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Keep the score explainable",
         paragraphs: [
           "If nobody can say why a lead is “hot,” the score will be ignored. Start with a handful of signals: budget conversation, timeline, product fit, and response quality.",
-          "UHM Technologies designs qualification as a workflow you can train — not as a hidden formula.",
+          "UHM Tech designs qualification as a workflow you can train — not as a hidden formula.",
         ],
       },
     ],
@@ -97,7 +97,7 @@ export const blogPosts: BlogPost[] = [
       "Why CRM implementations stall when the data model is copied from columns instead of from the customer journey.",
     category: "CRM",
     tags: ["crm", "implementation", "data-model"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-07-21",
     featured: true,
     content: [
@@ -122,7 +122,7 @@ export const blogPosts: BlogPost[] = [
       "A decision frame based on process complexity, team size, and integration needs — not brand preference.",
     category: "CRM",
     tags: ["crm", "zoho", "hubspot", "salesforce", "odoo"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-08-04",
     featured: true,
     content: [
@@ -142,7 +142,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Integration load is a first-class requirement",
         paragraphs: [
           "List the systems that already hold truth: billing, inventory, support, website, telephony. The CRM that cannot connect those systems cleanly will become another silo.",
-          "UHM Technologies helps teams choose by fit and then implement without locking the company to a single-vendor story.",
+          "UHM Tech helps teams choose by fit and then implement without locking the company to a single-vendor story.",
         ],
       },
     ],
@@ -154,7 +154,7 @@ export const blogPosts: BlogPost[] = [
       "How to design Zoho blueprints, layouts, and assignment so the process is visible without becoming a maze.",
     category: "Zoho",
     tags: ["zoho", "crm", "automation"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-07-02",
     featured: false,
     content: [
@@ -174,7 +174,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Connect the rest of Zoho with intent",
         paragraphs: [
           "Desk, Books, Campaigns, and Analytics earn their place when they share identifiers with CRM. Connecting everything on week one usually creates duplicate records.",
-          "UHM Technologies typically sequences Zoho modules the same way we sequence any platform: process first, then the next app.",
+          "UHM Tech typically sequences Zoho modules the same way we sequence any platform: process first, then the next app.",
         ],
       },
     ],
@@ -186,7 +186,7 @@ export const blogPosts: BlogPost[] = [
       "Lifecycle and deal stages fail when marketing, sales, and service use different definitions of “customer.”",
     category: "HubSpot",
     tags: ["hubspot", "crm", "revenue-operations"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-06-25",
     featured: false,
     content: [
@@ -206,7 +206,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Do not turn every hub on at once",
         paragraphs: [
           "Sales Hub without a clean CRM foundation creates sequences on messy data. Service Hub without shared contacts creates a second customer database.",
-          "UHM Technologies implements HubSpot in layers: properties and pipelines, then workflows, then the hubs that those workflows need.",
+          "UHM Tech implements HubSpot in layers: properties and pipelines, then workflows, then the hubs that those workflows need.",
         ],
       },
     ],
@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
       "Flow, objects, and dashboards stay useful when they are documented and scoped — not when every request becomes another automation.",
     category: "Salesforce",
     tags: ["salesforce", "automation", "crm"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-06-11",
     featured: false,
     content: [
@@ -238,7 +238,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Report from the same definitions",
         paragraphs: [
           "Dashboards should answer operating questions: what is waiting, who owns it, and what is blocked. Vanity reports that nobody can reconcile to the records will be ignored.",
-          "UHM Technologies treats Salesforce customization as product work: versioned, documented, and tested against real user paths.",
+          "UHM Tech treats Salesforce customization as product work: versioned, documented, and tested against real user paths.",
         ],
       },
     ],
@@ -250,7 +250,7 @@ export const blogPosts: BlogPost[] = [
       "Odoo’s strength is a connected suite. Custom modules should extend that suite, not fight the standard flows.",
     category: "Odoo",
     tags: ["odoo", "erp", "customization"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-05-28",
     featured: false,
     content: [
@@ -270,7 +270,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Keep upgrades in mind",
         paragraphs: [
           "Heavy core overrides make version upgrades expensive. Isolate custom logic, name it, and test the standard flow still works.",
-          "UHM Technologies implements Odoo as an operations platform with a bias toward configuration first and modules when they create durable value.",
+          "UHM Tech implements Odoo as an operations platform with a bias toward configuration first and modules when they create durable value.",
         ],
       },
     ],
@@ -282,7 +282,7 @@ export const blogPosts: BlogPost[] = [
       "Architecture choices that keep an MVP honest while leaving room for multi-tenant growth.",
     category: "SaaS",
     tags: ["saas", "mvp", "architecture"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-06-18",
     featured: true,
     content: [
@@ -295,7 +295,7 @@ export const blogPosts: BlogPost[] = [
         heading: "What to include in the first release",
         paragraphs: [
           "Authentication, roles, the core workflow, an admin view, and an audit trail of important actions. Billing can be manual at first if the entitlement model is already designed.",
-          "UHM Technologies helps product teams make those tradeoffs explicit so the second release is an extension, not a rewrite.",
+          "UHM Tech helps product teams make those tradeoffs explicit so the second release is an extension, not a rewrite.",
         ],
       },
     ],
@@ -307,7 +307,7 @@ export const blogPosts: BlogPost[] = [
       "Tenant isolation, roles, configuration, and data paths that need to exist before you sell the second customer.",
     category: "SaaS",
     tags: ["saas", "architecture", "security"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-07-30",
     featured: false,
     content: [
@@ -327,7 +327,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Admin and customer surfaces are different products",
         paragraphs: [
           "Internal operators need impersonation controls, logs, and support tools. Customers need a portal that only shows their world. Building both as one screen usually fails both audiences.",
-          "UHM Technologies designs these surfaces together so the MVP can add tenants without a second architecture project.",
+          "UHM Tech designs these surfaces together so the MVP can add tenants without a second architecture project.",
         ],
       },
     ],
@@ -339,7 +339,7 @@ export const blogPosts: BlogPost[] = [
       "A calm way to decide between a custom internal system and another subscription that the team will not fully use.",
     category: "Software Development",
     tags: ["software", "internal-tools", "architecture"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-05-14",
     featured: false,
     content: [
@@ -359,7 +359,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Plan the integration either way",
         paragraphs: [
           "A purchased suite still needs APIs, identity, and reporting. A custom tool still needs to talk to finance and support. The integration work does not disappear when you pick a side.",
-          "UHM Technologies helps you choose, then implements the thinner path — custom, platform, or a mix.",
+          "UHM Tech helps you choose, then implements the thinner path — custom, platform, or a mix.",
         ],
       },
     ],
@@ -371,7 +371,7 @@ export const blogPosts: BlogPost[] = [
       "Wrap, replace, and migrate in slices so operations keep running while the architecture improves.",
     category: "Software Development",
     tags: ["software", "legacy", "apis"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-04-22",
     featured: false,
     content: [
@@ -391,7 +391,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Do not freeze the business",
         paragraphs: [
           "Modernization programs stall when every change waits for the perfect target architecture. Ship the next module with tests and a rollback.",
-          "UHM Technologies treats legacy work as product delivery with an explicit strangler path.",
+          "UHM Tech treats legacy work as product delivery with an explicit strangler path.",
         ],
       },
     ],
@@ -403,7 +403,7 @@ export const blogPosts: BlogPost[] = [
       "A grounded view of chatbots, summarization, and routing in support operations.",
     category: "AI",
     tags: ["ai", "support", "chat"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-05-09",
     featured: true,
     content: [
@@ -416,7 +416,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Start with classification and summaries",
         paragraphs: [
           "Routing and conversation summaries often create value before a fully automated chatbot. Agents get context; customers still get a human when the case is unclear.",
-          "This is how UHM Technologies typically introduces AI into chat, email, and ticket workflows — as an expandable layer, not a replacement for service design.",
+          "This is how UHM Tech typically introduces AI into chat, email, and ticket workflows — as an expandable layer, not a replacement for service design.",
         ],
       },
     ],
@@ -428,7 +428,7 @@ export const blogPosts: BlogPost[] = [
       "Extraction and classification can speed operations if a person still owns exceptions and the source file stays attached.",
     category: "AI",
     tags: ["ai", "documents", "automation"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-08-19",
     featured: false,
     content: [
@@ -448,7 +448,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Connect to the system of record",
         paragraphs: [
           "Extracted data only helps if it lands in CRM, ERP, or the case file with validation. A clever parser that dumps into email is another inbox.",
-          "UHM Technologies designs document AI as a workflow step with retries, confidence thresholds, and human review.",
+          "UHM Tech designs document AI as a workflow step with retries, confidence thresholds, and human review.",
         ],
       },
     ],
@@ -460,7 +460,7 @@ export const blogPosts: BlogPost[] = [
       "Logging, retries, ownership, and contracts — the unglamorous work that keeps CRM, payments, and operations in sync.",
     category: "Business Technology",
     tags: ["apis", "integrations", "webhooks"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-07-09",
     featured: false,
     content: [
@@ -480,7 +480,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Prefer events over nightly spreadsheets",
         paragraphs: [
           "Webhooks and APIs should move the events the business already understands: order created, ticket closed, payment failed. Batch files are a fallback, not an architecture.",
-          "UHM Technologies builds integration layers that operations can observe — so the next change is a controlled edit, not archaeology.",
+          "UHM Tech builds integration layers that operations can observe — so the next change is a controlled edit, not archaeology.",
         ],
       },
     ],
@@ -492,7 +492,7 @@ export const blogPosts: BlogPost[] = [
       "Dashboards do not fix inconsistent ownership, duplicate customers, or stages that mean different things to each team.",
     category: "Business Technology",
     tags: ["analytics", "crm", "operations"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-04-08",
     featured: false,
     content: [
@@ -511,7 +511,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Fewer metrics, clearer owners",
         paragraphs: [
-          "A small set of operating metrics with named owners beats a gallery of charts. UHM Technologies designs reporting as part of CRM and operations work, not as a separate decoration.",
+          "A small set of operating metrics with named owners beats a gallery of charts. UHM Tech designs reporting as part of CRM and operations work, not as a separate decoration.",
         ],
       },
     ],
@@ -523,7 +523,7 @@ export const blogPosts: BlogPost[] = [
       "How to sequence CRM, automation, software, and customer channels so the company is not asked to change everything at once.",
     category: "Digital Transformation",
     tags: ["digital-transformation", "strategy", "operations"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-03-26",
     featured: true,
     content: [
@@ -543,7 +543,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Each phase should leave a working company",
         paragraphs: [
           "If a phase only works when the next phase lands, you have designed a cliff. Ship something staff can run on Monday.",
-          "UHM Technologies uses this sequencing for startups, SMEs, and larger teams so transformation is a portfolio of deliveries, not a single cutover weekend.",
+          "UHM Tech uses this sequencing for startups, SMEs, and larger teams so transformation is a portfolio of deliveries, not a single cutover weekend.",
         ],
       },
     ],
@@ -555,7 +555,7 @@ export const blogPosts: BlogPost[] = [
       "Why email, chat, and phone need ownership, SLAs, and CRM context before you add another channel.",
     category: "Customer Experience",
     tags: ["email", "support", "customer-experience"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-03-12",
     featured: false,
     content: [
@@ -574,7 +574,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The channel is not the system of record",
         paragraphs: [
-          "CRM or a ticketing layer should hold the customer. Channels should attach. UHM Technologies designs blended support — call, chat, email — around that rule.",
+          "CRM or a ticketing layer should hold the customer. Channels should attach. UHM Tech designs blended support — call, chat, email — around that rule.",
         ],
       },
     ],
@@ -586,7 +586,7 @@ export const blogPosts: BlogPost[] = [
       "Transactional mail, follow-ups, and campaigns work when they are triggered by real events and easy to stop.",
     category: "Customer Experience",
     tags: ["email", "automation", "crm"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-02-18",
     featured: false,
     content: [
@@ -605,7 +605,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Write for the next operator",
         paragraphs: [
-          "Templates need owners, version notes, and a place in the journey map. UHM Technologies connects email to CRM so follow-up is a process, not a personal habit.",
+          "Templates need owners, version notes, and a place in the journey map. UHM Tech connects email to CRM so follow-up is a process, not a personal habit.",
         ],
       },
     ],
@@ -617,7 +617,7 @@ export const blogPosts: BlogPost[] = [
       "Messaging channels convert when they are routed, logged, and optional — not when they become a second unofficial CRM in someone’s phone.",
     category: "Customer Experience",
     tags: ["whatsapp", "sms", "crm", "integrations"],
-    author: "UHM Technologies",
+    author: "UHM Tech",
     publishedAt: "2026-01-29",
     featured: false,
     content: [
@@ -637,7 +637,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Log the thread where the rest of the work lives",
         paragraphs: [
           "If the CRM cannot show that a WhatsApp conversation happened, the next agent will ask the customer to repeat themselves.",
-          "UHM Technologies treats messaging as another CX channel with CRM integration, not as a side app.",
+          "UHM Tech treats messaging as another CX channel with CRM integration, not as a side app.",
         ],
       },
     ],

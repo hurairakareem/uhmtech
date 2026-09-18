@@ -12,6 +12,8 @@ const initial: ContactPayload = {
   budget: "To be discussed",
   details: "",
   website: "",
+  attachment: "",
+  attachmentName: "",
 };
 
 export function ContactForm() {
@@ -24,17 +26,43 @@ export function ContactForm() {
     setForm((f) => ({ ...f, [key]: value }));
   }
 
+  async function readFileAsDataUrl(file: File) {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result ?? ""));
+      reader.onerror = () => reject(new Error("Unable to read file."));
+      reader.readAsDataURL(file);
+    });
+  }
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
     setErrors({});
     setMessage("");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const hasAttachment = Boolean(form.attachment && form.attachmentName);
+      let res: Response;
+
+      if (hasAttachment) {
+        const payload = new FormData();
+        Object.entries(form).forEach(([key, value]) => {
+          if (typeof value === "string" && value) {
+            payload.append(key, value);
+          }
+        });
+        res = await fetch("/api/contact", {
+          method: "POST",
+          body: payload,
+        });
+      } else {
+        res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+      }
+
       const data = (await res.json()) as { ok?: boolean; errors?: Record<string, string>; message?: string };
       if (!res.ok) {
         setErrors(data.errors ?? {});
@@ -74,7 +102,7 @@ export function ContactForm() {
           <input className={field} type="email" name="email" autoComplete="email" required value={form.email} onChange={(e) => update("email", e.target.value)} />
         </Field>
         <Field label="Phone" error={errors.phone}>
-          <input className={field} type="tel" name="phone" autoComplete="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} />
+          <input className={field} type="tel" name="phone" autoComplete="tel" required value={form.phone} onChange={(e) => update("phone", e.target.value)} />
         </Field>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -103,8 +131,33 @@ export function ContactForm() {
           onChange={(e) => update("details", e.target.value)}
         />
       </Field>
+      <div className="grid gap-2">
+        <label className="block text-sm font-semibold">
+          Attach requirements
+        </label>
+        <input
+          className={`${field} cursor-pointer file:mr-3 file:rounded-full file:border-0 file:bg-accent file:px-3 file:py-1.5 file:text-sm file:font-semibold file:text-white`}
+          type="file"
+          accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt,.zip"
+          onChange={async (e) => {
+            const file = e.target.files?.[0];
+            if (!file) {
+              setForm((f) => ({ ...f, attachment: "", attachmentName: "" }));
+              return;
+            }
+
+            try {
+              const dataUrl = await readFileAsDataUrl(file);
+              setForm((f) => ({ ...f, attachment: dataUrl, attachmentName: file.name }));
+            } catch {
+              setMessage("Something went wrong while reading the attachment.");
+            }
+          }}
+        />
+        {form.attachmentName ? <p className="text-xs text-muted">Selected file: {form.attachmentName}</p> : null}
+      </div>
       <button className="btn btn-primary" type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "Talk to an Expert"}
+        {status === "loading" ? "Sending…" : "Submit"}
       </button>
       {message ? (
         <p className={`text-sm ${status === "success" ? "text-green-700" : "text-red-700"}`} role="status">

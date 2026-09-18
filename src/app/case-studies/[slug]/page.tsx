@@ -49,7 +49,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </section>
         <aside className="space-y-5">
           <div className="card p-6">
-            <h2 className="font-bold">Technologies</h2>
+            <h2 className="font-bold">Tech</h2>
             <ul className="mt-3 space-y-2 text-sm text-muted">
               {item.technologies.map((t) => (
                 <li key={t}>{t}</li>

@@ -9,7 +9,7 @@ export function organizationJsonLd(): JsonLd {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: absoluteUrl("/brand/uhm-logo.png"),
+    logo: absoluteUrl("/brand/New_logo.png"),
     email: siteConfig.email,
     description: siteConfig.description,
     sameAs: Object.values(siteConfig.social).filter(Boolean),

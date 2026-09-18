@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { BrandLink } from "@/components/Brand";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { getNavServices } from "@/content/services";
-import { siteConfig } from "@/content/site";
 
 const links = [
   { href: "/", label: "Home" },
@@ -16,20 +15,22 @@ const links = [
   { href: "/industries", label: "Industries" },
   { href: "/products", label: "Products" },
   { href: "/case-studies", label: "Case Studies" },
-  { href: "/technologies", label: "Technologies" },
+  { href: "/technologies", label: "Tech" },
   { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const services = getNavServices();
 
   useEffect(() => {
     setOpen(false);
     setMega(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -39,16 +40,6 @@ export function Navbar() {
     };
   }, [open]);
 
-  useEffect(() => {
-    const savedTheme = window.localStorage.getItem("uhm-theme") as "light" | "dark" | null;
-    const preferredTheme = savedTheme ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    setTheme(preferredTheme);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem("uhm-theme", theme);
-  }, [theme]);
 
   return (
     <header className="site-header">
@@ -56,13 +47,7 @@ export function Navbar() {
         Skip to content
       </a>
       <div className="container-xl site-header-inner">
-        <Link href="/" className="brand" aria-label={`${siteConfig.name} home`}>
-          <Image src="/brand/uhm-logo-transparent.png" alt="" width={44} height={44} className="brand-logo h-10 w-10 object-contain" priority />
-          <span className="leading-tight">
-            <span className="block text-sm font-extrabold tracking-tight text-ink">UHM</span>
-            <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-muted">Technologies</span>
-          </span>
-        </Link>
+        <BrandLink className="mr-8" />
 
         <nav className="site-nav" aria-label="Primary">
           {links.map((link) =>
@@ -104,7 +89,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-full px-3 py-2 text-sm font-semibold ${
+                className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold ${
                   pathname === link.href ? "text-accent" : "text-ink/80 hover:text-accent"
                 }`}
               >
@@ -115,17 +100,6 @@ export function Navbar() {
         </nav>
 
         <div className="header-actions">
-          <div className="theme-switcher hidden sm:inline-flex" role="tablist" aria-label="Color theme">
-            <button type="button" role="tab" aria-selected={theme === "light"} onClick={() => setTheme("light")}>
-              Light
-            </button>
-            <button type="button" role="tab" aria-selected={theme === "dark"} onClick={() => setTheme("dark")}>
-              Dark
-            </button>
-          </div>
-          <Link href="/contact" className="btn btn-primary hidden px-4 py-2 text-sm sm:inline-flex">
-            Start a Project
-          </Link>
           <button
             type="button"
             className="menu-toggle lg:hidden"
@@ -141,28 +115,41 @@ export function Navbar() {
       {open ? (
         <div className="mobile-menu border-t border-line lg:hidden">
           <nav className="container-xl mobile-nav lg:hidden" aria-label="Mobile">
-            {links.map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-xl px-3 py-2 font-semibold">
-                {link.label}
-              </Link>
-            ))}
-            <p className="mt-3 px-3 text-xs font-bold uppercase tracking-widest text-muted">Services</p>
-            {services.map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="rounded-xl px-3 py-2 text-sm">
-                {s.shortName ?? s.name}
-              </Link>
-            ))}
-            <div className="theme-switcher mt-3 self-start" role="tablist" aria-label="Color theme">
-              <button type="button" role="tab" aria-selected={theme === "light"} onClick={() => setTheme("light")}>
-                Light
-              </button>
-              <button type="button" role="tab" aria-selected={theme === "dark"} onClick={() => setTheme("dark")}>
-                Dark
-              </button>
-            </div>
-            <Link href="/contact" className="btn btn-primary mt-3">
-              Contact Us
-            </Link>
+            {links.map((link) =>
+              link.mega ? (
+                <div key={link.href} className="rounded-xl">
+                  <Link
+                    href={link.href}
+                    className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left font-semibold text-ink"
+                    aria-expanded={mobileServicesOpen}
+                    aria-controls="mobile-services-menu"
+                    onClick={(event) => {
+                      if (window.innerWidth < 1024) {
+                        event.preventDefault();
+                        setMobileServicesOpen((value) => !value);
+                      }
+                    }}
+                  >
+                    <span>{link.label}</span>
+                  </Link>
+
+                  {mobileServicesOpen ? (
+                    <div id="mobile-services-menu" className="mt-1 space-y-1 pl-3">
+                      {services.map((s) => (
+                        <Link key={s.slug} href={`/services/${s.slug}`} className="block rounded-xl px-3 py-2 text-sm">
+                          {s.shortName ?? s.name}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              ) : (
+                <Link key={link.href} href={link.href} className="rounded-xl px-3 py-2 font-semibold">
+                  {link.label}
+                </Link>
+              ),
+            )}
+
           </nav>
         </div>
       ) : null}

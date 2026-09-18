@@ -31,6 +31,8 @@ export type ContactPayload = {
   budget: string;
   details: string;
   website?: string;
+  attachment?: string;
+  attachmentName?: string;
 };
 
 export function validateContact(input: ContactPayload) {
@@ -42,8 +44,8 @@ export function validateContact(input: ContactPayload) {
   if (!emailRe.test(input.email.trim())) {
     errors.email = "Please enter a valid email address.";
   }
-  if (input.phone && input.phone.replace(/\D/g, "").length < 7) {
-    errors.phone = "Please enter a valid phone number or leave it blank.";
+  if (!input.phone.trim() || input.phone.replace(/\D/g, "").length < 7) {
+    errors.phone = "Please enter a valid phone number.";
   }
   if (!input.service) {
     errors.service = "Please select a service.";

@@ -5,9 +5,9 @@ import { industries } from "@/content/industries";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Industries",
+  title: "Industry-Specific Technology Solutions",
   description:
-    "UHM Technologies works with healthcare, real estate, ecommerce, financial services, education, retail, manufacturing, logistics, professional services, technology, startups, SMBs, and enterprise teams.",
+    "UHM Tech works with healthcare, real estate, ecommerce, financial services, education, retail, manufacturing, logistics, professional services, technology, startups, SMBs, and enterprise teams.",
   path: "/industries",
 });
 

@@ -3,8 +3,15 @@ import { sanitize, validateContact, type ContactPayload } from "@/lib/contact";
 
 export async function POST(request: Request) {
   let body: ContactPayload;
+  const contentType = request.headers.get("content-type") ?? "";
+
   try {
-    body = (await request.json()) as ContactPayload;
+    if (contentType.includes("multipart/form-data")) {
+      const formData = await request.formData();
+      body = Object.fromEntries(formData.entries()) as ContactPayload;
+    } else {
+      body = (await request.json()) as ContactPayload;
+    }
   } catch {
     return NextResponse.json({ ok: false, message: "Invalid request." }, { status: 400 });
   }
@@ -21,6 +28,8 @@ export async function POST(request: Request) {
     service: sanitize(body.service ?? ""),
     budget: sanitize(body.budget ?? ""),
     details: sanitize(body.details ?? ""),
+    attachment: body.attachment ? String(body.attachment) : "",
+    attachmentName: body.attachmentName ? sanitize(body.attachmentName) : "",
   };
 
   const errors = validateContact(payload);

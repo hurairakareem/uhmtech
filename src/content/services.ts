@@ -25,7 +25,7 @@ export const services: ServiceItem[] = [
       "We design and implement automation that follows how your business actually works — from lead capture and approvals to operations, reporting, and customer lifecycle workflows.",
     heroHeadline: "Automate operations without losing control of the process.",
     heroSupport:
-      "UHM Technologies maps your workflows, then builds reliable automation across CRM, operations, finance, and support systems — including custom logic where platforms fall short.",
+      "UHM Tech maps your workflows, then builds reliable automation across CRM, operations, finance, and support systems — including custom logic where platforms fall short.",
     outcomes: [
       "Fewer manual handoffs between teams",
       "Faster cycle times for sales, support, and operations",
@@ -242,7 +242,7 @@ export const services: ServiceItem[] = [
       "We design and develop custom software when platforms are not enough — from internal tools and portals to full products and modernizations of legacy systems.",
     heroHeadline: "Software built around your business, not a forced template.",
     heroSupport:
-      "UHM Technologies delivers web, mobile, cloud, and API-driven systems with architecture that can grow — including MVPs, enterprise applications, and product development.",
+      "UHM Tech delivers web, mobile, cloud, and API-driven systems with architecture that can grow — including MVPs, enterprise applications, and product development.",
     outcomes: [
       "Applications that match operational reality",
       "APIs and data models that other systems can use",
@@ -262,7 +262,7 @@ export const services: ServiceItem[] = [
       { title: "Legacy system modernization", description: "Replace or wrap aging systems without freezing the business." },
     ],
     faqs: [
-      { q: "Do you only work with a fixed technology list?", a: "No. We commonly use React, Next.js, Node.js, TypeScript, Python, SQL, MongoDB, and cloud services — and we add technologies when the product requires it." },
+      { q: "Do you only work with a fixed technology list?", a: "No. We commonly use React, Next.js, Node.js, TypeScript, Python, SQL, MongoDB, and cloud services — and we add tech when the product requires it." },
     ],
     related: ["saas-development", "management-systems", "api-integrations"],
   },
@@ -306,7 +306,7 @@ export const services: ServiceItem[] = [
       "We apply AI where it improves a real process — chat, classification, document handling, assistants, and workflow decisions — with human oversight where it matters.",
     heroHeadline: "Intelligent automation that is useful, governed, and expandable.",
     heroSupport:
-      "UHM Technologies designs AI into support, sales, operations, and products — from chatbots and assistants to document processing and workflow intelligence.",
+      "UHM Tech designs AI into support, sales, operations, and products — from chatbots and assistants to document processing and workflow intelligence.",
     outcomes: [
       "Faster handling of repetitive customer and internal requests",
       "AI features connected to CRM and operational systems",

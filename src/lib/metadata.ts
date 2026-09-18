@@ -26,13 +26,13 @@ export function createMetadata({
       url,
       siteName: siteConfig.name,
       type: ogType,
-      images: [{ url: absoluteUrl("/brand/uhm-logo.png"), alt: `${siteConfig.name} logo` }],
+      images: [{ url: absoluteUrl("/brand/New_logo.png"), alt: `${siteConfig.name} logo` }],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [absoluteUrl("/brand/uhm-logo.png")],
+      images: [absoluteUrl("/brand/New_logo.png")],
     },
   };
 }

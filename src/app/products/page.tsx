@@ -5,9 +5,9 @@ import { products } from "@/content/products";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Products",
+  title: "Business Software & Automation Products",
   description:
-    "UHM Technologies product lines for operations, CRM, support, automation, and AI — structured so new products can be added over time.",
+    "UHM Tech product lines for operations, CRM, support, automation, and AI — structured so new products can be added over time.",
   path: "/products",
 });
 

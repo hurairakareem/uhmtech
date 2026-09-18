@@ -4,9 +4,9 @@ import { siteConfig } from "@/content/site";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Contact",
+  title: "Contact Us for Technology Solutions",
   description:
-    "Contact UHM Technologies to discuss automation, CRM, software, SaaS, integrations, or customer experience operations.",
+    "Contact UHM Tech to discuss automation, CRM, software, SaaS, integrations, or customer experience operations.",
   path: "/contact",
 });
 
@@ -24,7 +24,7 @@ export default function ContactPage() {
       />
       <section className="container-xl grid gap-10 py-16 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="card p-7 md:p-9">
-          <h2 className="text-xl font-extrabold">Start a conversation</h2>
+          <h2 className="text-xl font-extrabold">Start A Conversation</h2>
           <p className="mt-2 text-sm text-muted">We read every request. Include the systems you already use if you know them.</p>
           <div className="mt-6">
             <ContactForm />

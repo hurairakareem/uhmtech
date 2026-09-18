@@ -4,9 +4,9 @@ import { technologies, technologyCategories } from "@/content/technologies";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Technologies",
+  title: "Technology Stack & Platforms We Use",
   description:
-    "Platforms and engineering technologies UHM Technologies works with, including Zoho, HubSpot, Salesforce, Odoo, React, Next.js, Node.js, and more.",
+    "Platforms and engineering tech UHM Tech works with, including Zoho, HubSpot, Salesforce, Odoo, React, Next.js, Node.js, and more.",
   path: "/technologies",
 });
 
@@ -14,12 +14,12 @@ export default function TechnologiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Technologies"
+        eyebrow="Tech"
         title="A stack that can grow"
         description="This list is representative, not restrictive. New platforms and languages can be added as content records when the company adopts them."
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Technologies", href: "/technologies" },
+          { name: "Tech", href: "/technologies" },
         ]}
       />
       <section className="container-xl space-y-12 py-16">

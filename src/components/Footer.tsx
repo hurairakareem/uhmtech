@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { getNavServices } from "@/content/services";
 import { industries } from "@/content/industries";
 import { siteConfig } from "@/content/site";
@@ -7,7 +7,7 @@ import { siteConfig } from "@/content/site";
 const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/case-studies", label: "Case Studies" },
-  { href: "/technologies", label: "Technologies" },
+  { href: "/technologies", label: "Tech" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -24,22 +24,6 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="container-xl site-footer-grid py-16 md:grid-cols-2 lg:grid-cols-5">
-        <div>
-          <Link href="/" className="inline-flex items-center gap-3">
-            <Image src="/brand/uhm-logo-transparent.png" alt={siteConfig.name} width={48} height={48} className="brand-logo h-12 w-12 object-contain" />
-            <span>
-              <span className="block font-extrabold">UHM Technologies</span>
-              <span className="text-xs uppercase tracking-[0.16em] text-white/60">Digital transformation</span>
-            </span>
-          </Link>
-          <p className="mt-5 max-w-sm text-sm leading-7 text-white/70">{siteConfig.tagline}</p>
-          <p className="mt-5 text-sm text-white/70">
-            <a className="font-semibold text-cyan hover:text-white" href={`mailto:${siteConfig.email}`}>
-              {siteConfig.email}
-            </a>
-          </p>
-          {siteConfig.phone ? <p className="text-sm text-white/70">{siteConfig.phone}</p> : null}
-        </div>
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan">Services</p>
           <ul className="mt-4 space-y-2 text-sm text-white/75">
@@ -96,6 +80,27 @@ export function Footer() {
             ))}
           </ul>
         </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan">Contact Us</p>
+          <address className="mt-4 space-y-2 text-sm not-italic text-white/75">
+            <p className="flex items-start gap-2">
+              <MapPin size={16} strokeWidth={2} className="mt-0.5 shrink-0 text-cyan" aria-hidden="true" />
+              <span>24 Blue Avenue, Islamabad, Pakistan</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <Mail size={16} strokeWidth={2} className="shrink-0 text-cyan" aria-hidden="true" />
+              <a href="mailto:contact@uhmtech.com" className="hover:text-white">
+                contact@uhmtech.com
+              </a>
+            </p>
+            <p className="flex items-center gap-2">
+              <Phone size={16} strokeWidth={2} className="shrink-0 text-cyan" aria-hidden="true" />
+              <a href="tel:+923016963173" className="hover:text-white">
+                +92 301 6963173
+              </a>
+            </p>
+          </address>
+        </div>
       </div>
       <div className="border-t border-white/10">
         <div className="container-xl flex flex-col gap-3 py-6 text-xs text-white/55 md:flex-row md:items-center md:justify-between">
@@ -103,13 +108,15 @@ export function Footer() {
             © {year} {siteConfig.name}. All rights reserved.
           </p>
           <ul className="flex flex-wrap gap-4">
-            {legal.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="hover:text-white">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+            {legal
+              .filter((l) => l.href !== "/sitemap.xml")
+              .map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-white">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
