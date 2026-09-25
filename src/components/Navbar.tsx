@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BrandLink } from "@/components/Brand";
-import { ServiceIcon } from "@/components/ServiceIcon";
+import { ServiceMark } from "@/components/ServiceCard";
 import { getNavServices } from "@/content/services";
 
 const links = [
@@ -77,7 +77,7 @@ export function Navbar() {
                           href={`/services/${s.slug}`}
                           className="flex items-center gap-3 rounded-xl p-3 hover:bg-paper"
                         >
-                          <ServiceIcon slug={s.slug} />
+                          <ServiceMark slug={s.slug} name={s.shortName ?? s.name} />
                           <span className="text-sm font-bold">{s.shortName ?? s.name}</span>
                         </Link>
                       ))}

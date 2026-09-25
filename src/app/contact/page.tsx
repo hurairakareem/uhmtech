@@ -1,5 +1,6 @@
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
+import { SocialLinks } from "@/components/SocialLinks";
 import { siteConfig } from "@/content/site";
 import { createMetadata } from "@/lib/metadata";
 
@@ -23,7 +24,7 @@ export default function ContactPage() {
         ]}
       />
       <section className="container-xl grid gap-10 py-16 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="card p-7 md:p-9">
+        <div className="card card-static p-7 md:p-9">
           <h2 className="text-xl font-extrabold">Start A Conversation</h2>
           <p className="mt-2 text-sm text-muted">We read every request. Include the systems you already use if you know them.</p>
           <div className="mt-6">
@@ -39,15 +40,22 @@ export default function ContactPage() {
                 {siteConfig.email}
               </a>
             </p>
-            {siteConfig.phone ? <p className="mt-2 text-sm">Phone: {siteConfig.phone}</p> : <p className="mt-2 text-sm text-muted">Phone number can be added in environment configuration.</p>}
-            {siteConfig.address ? <p className="mt-2 text-sm">{siteConfig.address}</p> : <p className="mt-2 text-sm text-muted">Office location can be added when a public address is confirmed.</p>}
-            <p className="mt-2 text-sm text-muted">{siteConfig.hours}</p>
+            {siteConfig.phone ? (
+              <p className="mt-2 text-sm">
+                Phone:{" "}
+                <a className="text-accent" href={`tel:${siteConfig.phoneHref}`}>
+                  {siteConfig.phone}
+                </a>
+              </p>
+            ) : null}
+            {siteConfig.address ? <p className="mt-2 text-sm">{siteConfig.address}</p> : null}
           </div>
           <div className="card px-7 py-8">
             <h2 className="font-bold">Social</h2>
-            <p className="mt-3 text-sm text-muted">
-              LinkedIn, X, and GitHub links are ready in site configuration and appear in the footer when URLs are provided.
-            </p>
+            <p className="mt-3 text-sm text-muted">Follow UHM Tech on Facebook, LinkedIn, and Instagram.</p>
+            <div className="mt-5">
+              <SocialLinks />
+            </div>
           </div>
         </aside>
       </section>

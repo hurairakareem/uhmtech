@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 import { sanitize, validateContact, type ContactPayload } from "@/lib/contact";
+import { parseDataUrl, sendContactEmail } from "@/lib/email";
+import { saveInquiry } from "@/lib/inquiries";
+
+export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   let body: ContactPayload;
@@ -33,8 +37,29 @@ export async function POST(request: Request) {
   };
 
   const errors = validateContact(payload);
+  if (payload.attachment) {
+    if (!parseDataUrl(payload.attachment) || !payload.attachmentName) {
+      errors.attachment = "The attachment could not be read. Please try a smaller file (max 8 MB).";
+    }
+  }
   if (Object.keys(errors).length) {
     return NextResponse.json({ ok: false, errors, message: "Please correct the highlighted fields." }, { status: 422 });
+  }
+
+  try {
+    await saveInquiry(payload);
+  } catch (error) {
+    console.error("Inquiry store failed", error);
+  }
+
+  try {
+    await sendContactEmail(payload);
+  } catch (error) {
+    console.error("Contact email failed", error);
+    return NextResponse.json(
+      { ok: false, message: "We could not send your request. Please email info@uhmtech.com directly." },
+      { status: 502 },
+    );
   }
 
   const webhook = process.env.CRM_WEBHOOK_URL;
@@ -46,14 +71,18 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           source: "uhm-website",
           submittedAt: new Date().toISOString(),
-          ...payload,
+          name: payload.name,
+          company: payload.company,
+          email: payload.email,
+          phone: payload.phone,
+          service: payload.service,
+          budget: payload.budget,
+          details: payload.details,
+          attachmentName: payload.attachmentName || undefined,
         }),
       });
     } catch {
-      return NextResponse.json(
-        { ok: false, message: "We could not deliver your request. Please email us directly." },
-        { status: 502 },
-      );
+      // The inquiry already reached info@uhmtech.com; do not fail the visitor.
     }
   }
 

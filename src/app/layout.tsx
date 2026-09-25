@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import Link from "next/link";
-import { Analytics } from "@/components/Analytics";
-import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
+import { SiteChrome } from "@/components/SiteChrome";
 import { siteConfig } from "@/content/site";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -114,13 +111,7 @@ html[data-theme=dark] .site-header .brand,html[data-theme=dark] .site-header .si
             __html: JSON.stringify([organizationJsonLd(), websiteJsonLd()]),
           }}
         />
-        <Navbar />
-        <Link href="/contact" className="btn btn-primary sticky-project-button">
-          Start a Project
-        </Link>
-        <main id="main">{children}</main>
-        <Footer />
-        <Analytics />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

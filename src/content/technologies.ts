@@ -43,3 +43,94 @@ export const technologyCategories: { id: Technology["category"]; label: string }
   { id: "cloud", label: "Cloud" },
   { id: "automation", label: "Automation & iPaaS" },
 ];
+
+const aliases: Record<string, string> = {
+  zoho: "zoho",
+  "zoho crm": "zoho",
+  "zoho creator": "zoho",
+  "zoho books": "zoho",
+  "zoho projects": "zoho",
+  "zoho flow": "zoho-flow",
+  "zoho analytics": "zoho",
+  "zoho campaigns": "zoho",
+  "zoho desk": "zoho",
+  "zoho sign": "zoho",
+  "zoho forms": "zoho",
+  "zoho salesiq": "zoho",
+  "zoho flow & apis": "zoho-flow",
+  hubspot: "hubspot",
+  "hubspot crm": "hubspot",
+  salesforce: "salesforce",
+  odoo: "odoo",
+  react: "react",
+  "next.js": "nextjs",
+  nextjs: "nextjs",
+  javascript: "javascript",
+  typescript: "typescript",
+  "node.js": "nodejs",
+  nodejs: "nodejs",
+  express: "express",
+  python: "python",
+  "rest apis": "rest-apis",
+  "rest api": "rest-apis",
+  apis: "rest-apis",
+  sql: "sql",
+  mongodb: "mongodb",
+  "cloud hosting": "cloud",
+  "cloud tech": "cloud",
+  cloud: "cloud",
+  postgresql: "postgresql",
+  redis: "redis",
+  webhooks: "webhooks",
+  docker: "docker",
+  aws: "aws",
+  "amazon web services": "aws",
+  azure: "azure",
+  "microsoft azure": "azure",
+  stripe: "stripe",
+  twilio: "twilio",
+  whatsapp: "whatsapp-api",
+  "whatsapp business api": "whatsapp-api",
+  "chat or whatsapp integration": "whatsapp-api",
+  make: "make",
+  "make / similar ipaas": "make",
+  n8n: "n8n",
+};
+
+export function getTechnology(slug: string) {
+  return technologies.find((t) => t.slug === slug);
+}
+
+export function resolveTech(label: string) {
+  const key = label.trim().toLowerCase();
+  const slug = aliases[key] ?? technologies.find((t) => t.name.toLowerCase() === key)?.slug;
+  if (!slug) return null;
+  const tech = getTechnology(slug);
+  return tech ? { slug: tech.slug, name: tech.name, label } : { slug, name: label, label };
+}
+
+export const serviceBrandLogo: Record<string, string> = {
+  "zoho-crm": "zoho",
+  hubspot: "hubspot",
+  salesforce: "salesforce",
+  odoo: "odoo",
+};
+
+export const serviceTechLogos: Record<string, string[]> = {
+  "business-automation": ["zoho", "hubspot", "salesforce", "odoo", "n8n"],
+  "crm-solutions": ["zoho", "hubspot", "salesforce", "odoo"],
+  "software-development": ["react", "nextjs", "nodejs", "typescript", "python"],
+  "app-development": ["react", "nextjs", "javascript", "typescript"],
+  "apps-customization": ["odoo", "zoho", "salesforce", "hubspot"],
+  "saas-development": ["nextjs", "react", "nodejs", "postgresql"],
+  "call-center-services": ["twilio", "salesforce", "hubspot"],
+  "chat-support": ["whatsapp-api", "hubspot", "zoho"],
+  "email-services": ["hubspot", "zoho", "salesforce"],
+  "ai-automation": ["python", "n8n"],
+  "api-integrations": ["rest-apis", "stripe", "twilio", "webhooks"],
+  "management-systems": ["odoo", "postgresql", "react"],
+  "zoho-crm": ["zoho"],
+  hubspot: ["hubspot"],
+  salesforce: ["salesforce"],
+  odoo: ["odoo"],
+};

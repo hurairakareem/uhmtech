@@ -82,7 +82,7 @@ export function ContactForm() {
   const field = "mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-accent";
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4" noValidate>
+    <form onSubmit={onSubmit} className="contact-form grid gap-4" noValidate>
       <div className="hidden" aria-hidden="true">
         <label>
           Website

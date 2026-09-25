@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { TechList } from "@/components/TechPills";
 import { caseStudies, getCaseStudy } from "@/content/caseStudies";
 import { createMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo";
@@ -48,13 +49,9 @@ export default async function CaseStudyPage({ params }: Props) {
           <p className="mt-3 leading-7 text-muted">{item.resultsNote}</p>
         </section>
         <aside className="space-y-5">
-          <div className="card p-6">
+          <div className="card px-7 py-8">
             <h2 className="font-bold">Tech</h2>
-            <ul className="mt-3 space-y-2 text-sm text-muted">
-              {item.technologies.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
+            <TechList items={item.technologies} />
           </div>
           <div className="card p-6">
             <h2 className="font-bold">Automation implemented</h2>

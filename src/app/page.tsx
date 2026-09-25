@@ -1,4 +1,5 @@
 import { CTASection } from "@/components/CTASection";
+import { Cta } from "@/components/Cta";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
 import { LogoCloud } from "@/components/LogoCloud";
@@ -51,7 +52,9 @@ export default function HomePage() {
               <CaseStudyCard key={item.slug} item={item} />
             ))}
           </div>
-          <div className="mt-8 text-center"><a href="/case-studies" className="text-sm font-bold text-cyan hover:text-white">View all project profiles <span className="ml-1">↗</span></a></div>
+          <div className="mt-8 text-center">
+            <Cta href="/case-studies">View all project profiles <span aria-hidden="true">↗</span></Cta>
+          </div>
         </div>
       </section>
 
@@ -66,7 +69,9 @@ export default function HomePage() {
             <ProductCard key={product.slug} product={product} />
           ))}
         </div>
-        <div className="mt-8 text-center"><a href="/products" className="text-sm font-bold text-accent hover:text-ink">Explore the product catalog <span className="ml-1">↗</span></a></div>
+        <div className="mt-8 text-center">
+          <Cta href="/products">Explore the product catalog <span aria-hidden="true">↗</span></Cta>
+        </div>
       </section>
 
       <section className="bg-paper py-20 md:py-28">

@@ -1,5 +1,6 @@
 import { CTASection } from "@/components/CTASection";
 import { PageHero } from "@/components/PageHero";
+import { TechLogo } from "@/components/TechLogo";
 import { technologies, technologyCategories } from "@/content/technologies";
 import { createMetadata } from "@/lib/metadata";
 
@@ -30,9 +31,12 @@ export default function TechnologiesPage() {
               {technologies
                 .filter((t) => t.category === cat.id)
                 .map((t) => (
-                  <article key={t.slug} className="card px-7 py-7">
-                    <h3 className="font-bold">{t.name}</h3>
-                    <p className="mt-3 text-sm leading-7 text-muted">{t.summary}</p>
+                  <article key={t.slug} className="card flex items-start gap-4 px-7 py-7">
+                    <TechLogo slug={t.slug} name={t.name} />
+                    <div className="min-w-0">
+                      <h3 className="font-bold leading-snug">{t.name}</h3>
+                      <p className="mt-2 text-sm leading-7 text-muted">{t.summary}</p>
+                    </div>
                   </article>
                 ))}
             </div>

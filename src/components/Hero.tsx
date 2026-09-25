@@ -1,4 +1,5 @@
 import { Cta } from "@/components/Cta";
+import { TechLogo } from "@/components/TechLogo";
 
 export function Hero() {
   return (
@@ -9,7 +10,7 @@ export function Hero() {
           <div className="hero-rule" aria-hidden="true" />
           <p className="eyebrow mt-6">UHM Tech</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight md:text-5xl lg:text-6xl">
-            Digital systems that make ambitious businesses easier to run.
+            We Build Technology, Automate Businesses & Generate Growth.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-7 text-muted md:text-lg">
             We design the automation, software, CRM, and customer operations behind modern companies. Practical strategy, careful engineering, and systems built to keep moving.
@@ -58,7 +59,15 @@ function HeroVisual() {
             {capabilities.map((item) => (
               <div key={item.label} className="border border-white/10 bg-white/5 px-3 py-3">
                 <p className="text-sm font-bold">{item.label}</p>
-                <p className="mt-1 text-xs leading-5 text-white/55">{item.detail}</p>
+                {item.label === "CRM" ? (
+                  <div className="mt-2 flex items-center gap-1.5">
+                    <TechLogo slug="zoho" name="Zoho" size={18} compact />
+                    <TechLogo slug="hubspot" name="HubSpot" size={18} compact />
+                    <TechLogo slug="salesforce" name="Salesforce" size={18} compact />
+                  </div>
+                ) : (
+                  <p className="mt-1 text-xs leading-5 text-white/55">{item.detail}</p>
+                )}
               </div>
             ))}
           </div>

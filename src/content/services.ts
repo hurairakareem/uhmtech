@@ -298,6 +298,62 @@ export const services: ServiceItem[] = [
     related: ["software-development", "ai-automation", "api-integrations"],
   },
   {
+    slug: "app-development",
+    name: "App Development",
+    navGroup: "build",
+    summary: "Build modern web and mobile applications that support operations, customer experience, and growth.",
+    description:
+      "We design and build custom applications for business workflows, customer-facing experiences, and internal systems — with a focus on speed, usability, and long-term maintainability.",
+    heroHeadline: "Applications designed around your real business workflow.",
+    heroSupport:
+      "From internal tools to customer apps and product experiences, we build applications that connect to your data, workflows, and growth goals.",
+    outcomes: [
+      "Applications that fit operational reality instead of forcing workarounds",
+      "Faster delivery of digital experiences to customers and teams",
+      "A scalable foundation for future feature expansion",
+    ],
+    offerings: [
+      { title: "Custom app development", description: "Purpose-built applications for internal teams, customers, or operations." },
+      { title: "Web application development", description: "Responsive applications that power daily work and customer journeys." },
+      { title: "Mobile application development", description: "iOS and Android experiences connected to your systems and data." },
+      { title: "Business apps", description: "Operational and management tools tailored to your process." },
+      { title: "Client portals", description: "Secure interfaces for customers, vendors, partners, and staff." },
+      { title: "Dashboard & reporting apps", description: "Practical business views for visibility, tracking, and decision-making." },
+    ],
+    faqs: [
+      { q: "Do you build apps only from scratch?", a: "No. We can also improve, modernize, or extend existing applications and business workflows." },
+    ],
+    related: ["software-development", "apps-customization", "api-integrations"],
+  },
+  {
+    slug: "apps-customization",
+    name: "Apps Customization",
+    navGroup: "build",
+    summary: "Customize existing applications so they match your workflows, processes, and business rules.",
+    description:
+      "Many businesses already have software in place, but it does not fit the way they really work. We customize those apps to improve process flow, usability, and business performance.",
+    heroHeadline: "Tailored app experiences that fit the way your team actually works.",
+    heroSupport:
+      "We adjust the features, workflows, permissions, and integrations of existing applications so they support business operations instead of creating friction.",
+    outcomes: [
+      "Better fit between software and team process",
+      "Fewer workarounds and disconnected manual steps",
+      "More value from the tools you already have",
+    ],
+    offerings: [
+      { title: "Workflow customization", description: "Update process flows so the app aligns to your real operational steps." },
+      { title: "Module & feature enhancement", description: "Add the capabilities your business needs without replacing the system." },
+      { title: "User role & permission tuning", description: "Improve access control and team-specific workflows." },
+      { title: "Report & dashboard customization", description: "Create views that answer operational questions more clearly." },
+      { title: "Integration upgrades", description: "Connect the app to CRM, payments, communication, and internal services." },
+      { title: "UX & interface adjustments", description: "Improve usability for teams, customers, and administrators." },
+    ],
+    faqs: [
+      { q: "Can we customize apps without a full rebuild?", a: "Yes. In many cases, targeted customization gives better ROI than replacing a working system." },
+    ],
+    related: ["app-development", "software-development", "management-systems"],
+  },
+  {
     slug: "ai-automation",
     name: "AI & Intelligent Automation",
     navGroup: "build",
@@ -329,7 +385,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "call-center-services",
-    name: "Call Center Services",
+    name: "Services Provider",
     navGroup: "experience",
     summary:
       "Deliver reliable customer support and sales operations through professional call center solutions.",
@@ -344,12 +400,13 @@ export const services: ServiceItem[] = [
       "CRM records that reflect what happened on the call",
     ],
     offerings: [
-      { title: "Inbound & outbound calls", description: "Support, sales, and operational calling with defined scripts and outcomes." },
-      { title: "Customer & technical support", description: "Issue handling with escalation paths and knowledge support." },
-      { title: "Lead qualification & appointment setting", description: "Structured conversations that feed sales calendars and pipelines." },
-      { title: "Telemarketing & sales support", description: "Outbound programs with compliance-aware process design." },
-      { title: "Call management", description: "Routing, queues, and operating procedures." },
-      { title: "Recording, monitoring & analytics", description: "Quality review and performance visibility." },
+      { title: "Customer Support", description: "Responsive support for customer questions, requests, and issue resolution." },
+      { title: "Technical Support", description: "Troubleshooting and guided assistance for product, service, and system-related issues." },
+      { title: "Live Chat Support", description: "Real-time chat support that improves response time and customer experience." },
+      { title: "AI + Human Chat Support", description: "A blended support model that combines automation with live agent escalation when needed." },
+      { title: "Appointment Setting", description: "Scheduling and follow-up support that helps convert interest into confirmed meetings." },
+      { title: "Email Outreach", description: "Proactive customer communication and follow-up through structured, high-converting email campaigns." },
+      { title: "Lead Generation & Sales", description: "Outbound sales support focused on qualified leads, conversions, and pipeline growth." },
     ],
     faqs: [
       { q: "Can calling be combined with chat and email?", a: "Yes. Many clients run a blended customer experience with shared CRM context." },
@@ -479,6 +536,8 @@ export const primaryServiceSlugs = [
   "business-automation",
   "crm-solutions",
   "software-development",
+  "app-development",
+  "apps-customization",
   "saas-development",
   "call-center-services",
   "chat-support",

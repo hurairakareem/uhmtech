@@ -5,14 +5,18 @@ export const siteConfig = {
   description:
     "UHM Tech helps businesses automate operations, implement CRM platforms, build software and SaaS products, integrate systems, and deliver professional customer experiences.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://uhmtech.com",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@uhmtech.com",
-  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "",
-  address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@uhmtech.com",
+  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "03080007173",
+  phoneHref: `+92${(process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "03080007173").replace(/\D/g, "").replace(/^0/, "")}`,
+  address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "24 Blue Avenue, Islamabad, Pakistan",
   hours: "Monday – Friday, 9:00 AM – 6:00 PM (local time)",
   social: {
-    linkedin: "",
-    twitter: "",
-    github: "https://github.com/1234usamas",
+    linkedin: "https://www.linkedin.com/company/uhm-tech/",
+    twitter: "https://x.com/uhmtech",
+    facebook: "https://www.facebook.com/people/UHM-Tech/61594981400937/",
+    instagram: "https://www.instagram.com/uhmtech/",
+    youtube: "https://www.youtube.com/@uhmtech",
+    github: "https://github.com/uhmtech",
   },
 } as const;
 

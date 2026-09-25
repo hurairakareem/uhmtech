@@ -5,6 +5,9 @@ import { FAQ } from "@/components/FAQ";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
+import { TechLogo } from "@/components/TechLogo";
+import { TechPills } from "@/components/TechPills";
+import { resolveTech } from "@/content/technologies";
 import { getService, services } from "@/content/services";
 import { createMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/utils";
@@ -122,19 +125,26 @@ export default async function ServicePage({ params }: Props) {
           <h2 className="text-2xl font-extrabold">{service.name}</h2>
           <p className="mt-4 leading-7 text-muted">{service.description}</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {service.offerings.map((item) => (
+            {service.offerings.map((item) => {
+              const tech = resolveTech(item.title);
+              return (
               <article key={item.title} className="card px-7 py-7 sm:px-8 sm:py-8">
                 <div className="mb-4 flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-paper text-accent">
-                    <span className="flex h-5 w-5 items-center justify-center">
-                      <OfferingIcon title={item.title} />
+                  {tech ? (
+                    <TechLogo slug={tech.slug} name={tech.name} />
+                  ) : (
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-line bg-paper text-accent">
+                      <span className="flex h-5 w-5 items-center justify-center">
+                        <OfferingIcon title={item.title} />
+                      </span>
                     </span>
-                  </span>
+                  )}
                   <h3 className="text-base font-bold leading-snug">{item.title}</h3>
                 </div>
                 <p className="text-sm leading-7 text-muted">{item.description}</p>
               </article>
-            ))}
+              );
+            })}
           </div>
         </div>
         <aside className="card h-fit px-7 py-8 sm:p-8">
@@ -154,18 +164,18 @@ export default async function ServicePage({ params }: Props) {
           <div className="container-xl">
             <h2 className="text-2xl font-extrabold">Platforms and modules</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {service.platforms.map((p) => (
+              {service.platforms.map((p) => {
+                const tech = resolveTech(p.name);
+                return (
                 <article key={p.name} className="card px-7 py-8">
-                  <h3 className="font-bold">{p.name}</h3>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {p.items.map((item) => (
-                      <li key={item} className="rounded-full bg-paper px-3 py-1 text-sm">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  <h3 className="flex items-center gap-3 font-bold">
+                    {tech ? <TechLogo slug={tech.slug} name={tech.name} /> : null}
+                    {p.name}
+                  </h3>
+                  <TechPills items={p.items} />
                 </article>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

@@ -29,7 +29,14 @@ Open [http://localhost:3000](http://localhost:3000).
 | `NEXT_PUBLIC_CONTACT_PHONE` | Public phone (optional) |
 | `NEXT_PUBLIC_CONTACT_ADDRESS` | Public address (optional) |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics (optional) |
-| `CRM_WEBHOOK_URL` | Server-only CRM / form webhook |
+| `CONTACT_TO_EMAIL` | Inbox that receives form submissions (`info@uhmtech.com`) |
+| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` | Gmail SMTP (`smtp.gmail.com` / `usamarayan80@gmail.com` / App Password) |
+| `SMTP_FROM` | From header, e.g. `UHM Tech <usamarayan80@gmail.com>` |
+| `SMTP_SECURE` | `true` for port 465, otherwise leave `false` and use 587 |
+| `RESEND_API_KEY` | Optional alternative to SMTP (Resend) |
+| `CRM_WEBHOOK_URL` | Optional extra CRM / form webhook |
+| `ADMIN_USERNAME` / `ADMIN_PASSWORD` | Private console login (`/uhm-console`) |
+| `ADMIN_SESSION_SECRET` | Long random string used to sign the admin session cookie |
 
 Do not put API keys in client components.
 
