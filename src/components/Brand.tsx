@@ -8,9 +8,9 @@ export function BrandLink({ light = false, className = "" }: { light?: boolean; 
       <Image
         src="/brand/New_logo.png"
         alt={siteConfig.name}
-        width={82}
-        height={124}
-        className="brand-logo h-12 w-auto object-contain"
+        width={500}
+        height={596}
+        className="brand-logo"
         priority
       />
     </Link>

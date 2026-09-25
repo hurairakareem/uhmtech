@@ -16,7 +16,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     <div className="admin-app">
       <header className="admin-topbar">
         <Link href={ADMIN_PATH} className="admin-brand">
-          <Image src="/brand/New_logo.png" alt="UHM Tech" width={82} height={124} className="h-11 w-auto object-contain" />
+          <Image src="/brand/New_logo.png" alt="UHM Tech" width={500} height={596} className="brand-logo" />
           <span>
             <small>Private console</small>
           </span>

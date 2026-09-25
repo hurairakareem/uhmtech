@@ -75,8 +75,9 @@ img{max-width:100%;height:auto}
 .skip-link{position:absolute;left:-999px;top:0;z-index:100;padding:.6rem 1rem;background:#fff;font-weight:700}
 .skip-link:focus{left:1rem;top:1rem}
 .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--white) 94%,transparent)}
-.site-header-inner{display:flex;height:4.75rem;align-items:center;justify-content:space-between;gap:1rem}
-.brand{display:flex;align-items:center;gap:.75rem}
+.site-header-inner{display:flex;height:4.5rem;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:inline-flex;align-items:center;height:3.75rem;overflow:hidden}
+.brand-logo,.site-header .brand img{display:block!important;height:3.75rem!important;width:auto!important;max-width:none!important;max-height:3.75rem!important;object-fit:contain}
 .site-nav{display:none;align-items:center;gap:.15rem}
 .site-nav a{border-radius:999px;padding:.5rem .75rem;font-size:.875rem;font-weight:600}
 .header-actions{display:flex;align-items:center;gap:.5rem}
