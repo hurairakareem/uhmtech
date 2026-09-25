@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AdminLogoutButton } from "@/components/AdminLogoutButton";
 import { ADMIN_PATH } from "@/lib/admin-auth";
-import { siteConfig } from "@/content/site";
 
 export function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -17,9 +16,8 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     <div className="admin-app">
       <header className="admin-topbar">
         <Link href={ADMIN_PATH} className="admin-brand">
-          <Image src="/brand/New_logo.png" alt="" width={36} height={36} />
+          <Image src="/brand/New_logo.png" alt="UHM Tech" width={82} height={124} className="h-11 w-auto object-contain" />
           <span>
-            <strong>{siteConfig.name}</strong>
             <small>Private console</small>
           </span>
         </Link>

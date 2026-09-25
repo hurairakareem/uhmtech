@@ -8,15 +8,11 @@ export function BrandLink({ light = false, className = "" }: { light?: boolean; 
       <Image
         src="/brand/New_logo.png"
         alt={siteConfig.name}
-        width={44}
-        height={44}
-        className="brand-logo h-10 w-10 object-contain"
+        width={82}
+        height={124}
+        className="brand-logo h-12 w-auto object-contain"
         priority
       />
-      <span className={`leading-tight ${light ? "text-white" : "text-ink"}`}>
-        <span className="block text-sm font-extrabold tracking-tight">UHM</span>
-        <span className="block text-[10px] font-bold uppercase tracking-[0.18em]">Tech</span>
-      </span>
     </Link>
   );
 }

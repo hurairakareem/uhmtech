@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ADMIN_PORTAL, EMPLOYEE_PORTAL } from "@/lib/portal-auth";
-import { siteConfig } from "@/content/site";
 
 const adminLinks = [
   { href: ADMIN_PORTAL, label: "Dashboard" },
@@ -49,9 +48,8 @@ export function PortalShell({
     <div className="admin-app">
       <header className="admin-topbar">
         <Link href={home} className="admin-brand">
-          <Image src="/brand/New_logo.png" alt="" width={36} height={36} />
+          <Image src="/brand/New_logo.png" alt="UHM Tech" width={82} height={124} className="h-11 w-auto object-contain" />
           <span>
-            <strong>UHM Tech</strong>
             <small>{role === "admin" ? "Admin portal" : "Employee portal"}</small>
           </span>
         </Link>

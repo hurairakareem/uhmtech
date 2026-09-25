@@ -59,7 +59,7 @@ export function buildContactEmail(payload: ContactPayload, siteUrl: string) {
                 <table role="presentation" cellpadding="0" cellspacing="0">
                   <tr>
                     <td style="vertical-align:middle;padding-right:14px;">
-                      <img src="${LOGO_URL}" alt="UHM Tech" width="44" height="44" style="display:block;border:0;border-radius:8px;background:#ffffff;" />
+                      <img src="${LOGO_URL}" alt="UHM Tech" width="72" height="108" style="display:block;border:0;border-radius:8px;background:#ffffff;padding:4px;" />
                     </td>
                     <td style="vertical-align:middle;">
                       <div style="color:#ffffff;font-size:18px;font-weight:800;letter-spacing:-0.02em;">UHM Tech</div>
