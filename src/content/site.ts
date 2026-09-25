@@ -8,7 +8,7 @@ export const siteConfig = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@uhmtech.com",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "03080007173",
   phoneHref: `+92${(process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "03080007173").replace(/\D/g, "").replace(/^0/, "")}`,
-  address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "24 Blue Avenue, Islamabad, Pakistan",
+  address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "Lahore, Pakistan",
   hours: "Monday – Friday, 9:00 AM – 6:00 PM (local time)",
   social: {
     linkedin: "https://www.linkedin.com/company/uhm-tech/",

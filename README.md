@@ -42,22 +42,55 @@ Do not put API keys in client components.
 
 ## Deploy on Netlify
 
-This is a Next.js app with a contact API and staff console, so do **not** upload a static folder. Connect the GitHub repo and let Netlify run the build.
+This is a Next.js app with a contact API and staff console. Do **not** drag-and-drop a folder. Use the GitHub repo [hurairakareem/uhmtech](https://github.com/hurairakareem/uhmtech).
 
-1. Push this project to GitHub.
-2. In [Netlify](https://app.netlify.com), **Add new site → Import an existing project** and select the repo.
-3. Build settings (also in `netlify.toml`):
+### 1. Connect the repo
+
+1. Open [https://app.netlify.com](https://app.netlify.com) and sign in.
+2. **Add new site → Import an existing project → GitHub**.
+3. Authorize Netlify, then choose **hurairakareem / uhmtech**, branch **main**.
+4. Confirm:
    - Build command: `npm run build`
    - Publish directory: `.next`
-4. In **Site configuration → Environment variables**, add the same keys as `.env.local`, including:
-   - `NEXT_PUBLIC_SITE_URL` (use `https://uhmtech.com` or your `*.netlify.app` URL)
-   - `NEXT_PUBLIC_CONTACT_EMAIL`
-   - `CONTACT_TO_EMAIL`
-   - `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`
-   - `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`
-5. Deploy, then attach the **uhmtech.com** domain under **Domain management**.
+   - Node: `22` (set in `netlify.toml`)
+5. Click **Deploy**. The first build may fail until environment variables are saved; that is expected.
 
-The contact form still emails **info@uhmtech.com**. The staff inbox file is not a durable database on Netlify, so treat email as the source of truth until a database is added.
+If the site is already linked to this repo, skip to environment variables, then **Deploys → Trigger deploy**.
+
+### 2. Add environment variables
+
+Go to **Site configuration → Environment variables → Add a variable**.  
+Scope: **All scopes**. Deploy contexts: **All**. Add each of these:
+
+| Key | Value |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | `https://uhmtech.com` (or your `https://….netlify.app` URL until the domain is attached) |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | `info@uhmtech.com` |
+| `NEXT_PUBLIC_CONTACT_PHONE` | `03080007173` |
+| `NEXT_PUBLIC_CONTACT_ADDRESS` | `Lahore, Pakistan` |
+| `CONTACT_TO_EMAIL` | `info@uhmtech.com` |
+| `SMTP_HOST` | `smtp.gmail.com` |
+| `SMTP_PORT` | `587` |
+| `SMTP_SECURE` | `false` |
+| `SMTP_USER` | `usamarayan80@gmail.com` |
+| `SMTP_PASS` | Gmail App Password from local `.env.local` |
+| `SMTP_FROM` | `UHM Tech <info@uhmtech.com>` |
+| `ADMIN_USERNAME` | `uhmadmin` |
+| `ADMIN_PASSWORD` | console password from `.env.local` |
+| `ADMIN_SESSION_SECRET` | session secret from `.env.local` |
+
+Do not commit `.env.local` to GitHub.
+
+After saving, **Deploys → Trigger deploy → Deploy site**.
+
+### 3. Domain
+
+**Domain management → Add custom domain → `uhmtech.com`**, then add the DNS records Netlify shows.
+
+Public site: `https://uhmtech.com`  
+Staff console: `https://uhmtech.com/uhm-console`
+
+Gmail SMTP sometimes fails from Netlify. If the form does not send, the site can still be live; sending can be switched to an HTTP email API.
 
 ## Scripts
 
