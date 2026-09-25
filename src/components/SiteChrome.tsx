@@ -5,11 +5,10 @@ import { usePathname } from "next/navigation";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { ADMIN_PATH } from "@/lib/admin-auth";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  if (pathname.startsWith(ADMIN_PATH)) {
+  if (pathname.startsWith("/admin-portal") || pathname.startsWith("/employee-portal") || pathname.startsWith("/uhm-console")) {
     return <>{children}</>;
   }
 

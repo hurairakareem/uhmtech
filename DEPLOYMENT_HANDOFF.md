@@ -1,7 +1,7 @@
 # Hostinger Deployment Handoff
 
 ## Project
-UHM Technologies website
+UHM Tech website
 
 ## Build status
 The production build was verified successfully using the Webpack build path required for this Windows environment.

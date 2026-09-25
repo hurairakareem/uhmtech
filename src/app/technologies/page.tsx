@@ -11,7 +11,7 @@ export const metadata = createMetadata({
   path: "/technologies",
 });
 
-export default function TechnologiesPage() {
+export default function TechPage() {
   return (
     <>
       <PageHero
