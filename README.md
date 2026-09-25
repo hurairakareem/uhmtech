@@ -40,6 +40,25 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Do not put API keys in client components.
 
+## Deploy on Netlify
+
+This is a Next.js app with a contact API and staff console, so do **not** upload a static folder. Connect the GitHub repo and let Netlify run the build.
+
+1. Push this project to GitHub.
+2. In [Netlify](https://app.netlify.com), **Add new site → Import an existing project** and select the repo.
+3. Build settings (also in `netlify.toml`):
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+4. In **Site configuration → Environment variables**, add the same keys as `.env.local`, including:
+   - `NEXT_PUBLIC_SITE_URL` (use `https://uhmtech.com` or your `*.netlify.app` URL)
+   - `NEXT_PUBLIC_CONTACT_EMAIL`
+   - `CONTACT_TO_EMAIL`
+   - `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`
+   - `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`
+5. Deploy, then attach the **uhmtech.com** domain under **Domain management**.
+
+The contact form still emails **info@uhmtech.com**. The staff inbox file is not a durable database on Netlify, so treat email as the source of truth until a database is added.
+
 ## Scripts
 
 - `npm run dev` — development
