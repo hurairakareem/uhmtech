@@ -5,6 +5,7 @@ import { requirePortalSession } from "@/lib/portal-session";
 import { ADMIN_PORTAL } from "@/lib/portal-auth";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 export default async function AdminDashboardPage() {
   await requirePortalSession("admin");
@@ -37,7 +38,7 @@ export default async function AdminDashboardPage() {
           <strong>{mail.unread}</strong>
         </article>
         <article>
-          <p>Website inquiries</p>
+          <p>Inbox emails</p>
           <strong>{mail.total}</strong>
         </article>
       </section>
@@ -65,7 +66,7 @@ export default async function AdminDashboardPage() {
         </section>
         <section className="admin-panel">
           <div className="admin-panel-head">
-            <h2>Latest website emails</h2>
+            <h2>Latest inbox emails</h2>
             <Link href={`${ADMIN_PORTAL}/inquiries`}>View all</Link>
           </div>
           {items.slice(0, 5).length ? (
@@ -77,13 +78,13 @@ export default async function AdminDashboardPage() {
                       <b>{item.name}</b>
                       <small>{item.email}</small>
                     </span>
-                    <em>{item.service}</em>
+                    <em>{item.subject || item.service}</em>
                   </Link>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="admin-empty">No contact-form emails yet.</p>
+            <p className="admin-empty">No emails in the inbox yet.</p>
           )}
         </section>
       </div>

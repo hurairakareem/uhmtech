@@ -1,20 +1,24 @@
 import Link from "next/link";
-import { listInquiries } from "@/lib/inquiries";
+import { listInquiryMailbox } from "@/lib/inquiries";
 import { ADMIN_PATH } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 function formatWhen(iso: string) {
   return new Date(iso).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" });
 }
 
 export default async function AdminInquiriesPage() {
-  const items = await listInquiries();
+  const { items, mailbox, error } = await listInquiryMailbox();
 
   return (
     <main>
       <h1 className="admin-title">Emails</h1>
-      <p className="admin-lead">{items.length} contact-form {items.length === 1 ? "message" : "messages"}.</p>
+      <p className="admin-lead">
+        Inbox for {mailbox}. {items.length} {items.length === 1 ? "message" : "messages"} shown.
+      </p>
+      {error ? <p className="admin-empty">Could not load Gmail: {error}</p> : null}
       {items.length ? (
         <div className="admin-panel">
           <table className="admin-table">
@@ -22,7 +26,7 @@ export default async function AdminInquiriesPage() {
               <tr>
                 <th>Received</th>
                 <th>From</th>
-                <th>Service</th>
+                <th>Subject</th>
                 <th>Status</th>
               </tr>
             </thead>
@@ -36,16 +40,16 @@ export default async function AdminInquiriesPage() {
                       <span>{item.email}</span>
                     </Link>
                   </td>
-                  <td>{item.service}</td>
+                  <td>{item.subject || item.service || "—"}</td>
                   <td>{item.status === "new" ? "Unread" : "Read"}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      ) : (
-        <p className="admin-empty">No emails stored yet.</p>
-      )}
+      ) : !error ? (
+        <p className="admin-empty">No emails in this inbox yet.</p>
+      ) : null}
     </main>
   );
 }

@@ -3,6 +3,8 @@ import path from "node:path";
 import { randomUUID } from "node:crypto";
 import type { ContactPayload } from "@/lib/contact";
 
+import { getGmailMessage, isGmailInquiryId, listGmailInbox, markGmailRead } from "@/lib/gmail-inbox";
+
 export type Inquiry = {
   id: string;
   createdAt: string;
@@ -15,6 +17,14 @@ export type Inquiry = {
   budget: string;
   details: string;
   attachmentName: string;
+  source?: "form" | "gmail";
+  subject?: string;
+};
+
+export type InquiryList = {
+  items: Inquiry[];
+  mailbox: string;
+  error: string | null;
 };
 
 const dataDir = path.join(process.cwd(), "data");
@@ -55,16 +65,32 @@ export async function saveInquiry(payload: ContactPayload): Promise<Inquiry> {
   return inquiry;
 }
 
-export async function listInquiries() {
-  return readAll();
+export async function listInquiries(): Promise<Inquiry[]> {
+  const listed = await listInquiryMailbox();
+  return listed.items;
+}
+
+export async function listInquiryMailbox(): Promise<InquiryList> {
+  const [local, gmail] = await Promise.all([readAll(), listGmailInbox()]);
+  const items = [...gmail.items, ...local.map((item) => ({ ...item, source: item.source ?? ("form" as const) }))].sort(
+    (a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt),
+  );
+  return { items, mailbox: gmail.mailbox, error: gmail.error };
 }
 
 export async function getInquiry(id: string) {
+  if (isGmailInquiryId(id)) {
+    return getGmailMessage(id);
+  }
   const items = await readAll();
   return items.find((item) => item.id === id) ?? null;
 }
 
 export async function markInquiryRead(id: string) {
+  if (isGmailInquiryId(id)) {
+    await markGmailRead(id);
+    return getGmailMessage(id);
+  }
   const items = await readAll();
   const next = items.map((item) => (item.id === id ? { ...item, status: "read" as const } : item));
   await writeAll(next);

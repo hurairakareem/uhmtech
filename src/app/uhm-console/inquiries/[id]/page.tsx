@@ -4,6 +4,7 @@ import { getInquiry, markInquiryRead } from "@/lib/inquiries";
 import { ADMIN_PATH } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 function formatWhen(iso: string) {
   return new Date(iso).toLocaleString("en-US", { dateStyle: "full", timeStyle: "short" });
@@ -17,6 +18,9 @@ export default async function AdminInquiryPage({ params }: { params: Promise<{ i
     await markInquiryRead(id);
   }
 
+  const subject = item.subject || item.service;
+  const isGmail = item.source === "gmail";
+
   return (
     <main>
       <p className="admin-back">
@@ -27,29 +31,37 @@ export default async function AdminInquiryPage({ params }: { params: Promise<{ i
       <section className="admin-panel admin-detail">
         <dl>
           <div>
-            <dt>Email</dt>
+            <dt>From</dt>
             <dd>
               <a href={`mailto:${item.email}`}>{item.email}</a>
             </dd>
           </div>
           <div>
-            <dt>Phone</dt>
-            <dd>
-              <a href={`tel:${item.phone}`}>{item.phone}</a>
-            </dd>
+            <dt>Subject</dt>
+            <dd>{subject || "—"}</dd>
           </div>
-          <div>
-            <dt>Company</dt>
-            <dd>{item.company || "—"}</dd>
-          </div>
-          <div>
-            <dt>Service</dt>
-            <dd>{item.service}</dd>
-          </div>
-          <div>
-            <dt>Budget</dt>
-            <dd>{item.budget || "—"}</dd>
-          </div>
+          {!isGmail ? (
+            <>
+              <div>
+                <dt>Phone</dt>
+                <dd>
+                  {item.phone ? <a href={`tel:${item.phone}`}>{item.phone}</a> : "—"}
+                </dd>
+              </div>
+              <div>
+                <dt>Company</dt>
+                <dd>{item.company || "—"}</dd>
+              </div>
+              <div>
+                <dt>Service</dt>
+                <dd>{item.service || "—"}</dd>
+              </div>
+              <div>
+                <dt>Budget</dt>
+                <dd>{item.budget || "—"}</dd>
+              </div>
+            </>
+          ) : null}
           {item.attachmentName ? (
             <div>
               <dt>Attachment</dt>
@@ -58,8 +70,8 @@ export default async function AdminInquiryPage({ params }: { params: Promise<{ i
           ) : null}
         </dl>
         <h2>Message</h2>
-        <p className="admin-message">{item.details}</p>
-        <a className="btn btn-primary" href={`mailto:${item.email}?subject=${encodeURIComponent(`Re: ${item.service} inquiry`)}`}>
+        <p className="admin-message">{item.details || "No text body in this message."}</p>
+        <a className="btn btn-primary" href={`mailto:${item.email}?subject=${encodeURIComponent(`Re: ${subject || "your message"}`)}`}>
           Reply by email
         </a>
       </section>

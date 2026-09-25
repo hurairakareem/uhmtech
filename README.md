@@ -29,7 +29,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `NEXT_PUBLIC_CONTACT_PHONE` | Public phone (optional) |
 | `NEXT_PUBLIC_CONTACT_ADDRESS` | Public address (optional) |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics (optional) |
-| `CONTACT_TO_EMAIL` | Inbox that receives form submissions (`info@uhmtech.com`) |
+| `GMAIL_IMAP_USER` / `GMAIL_IMAP_PASS` | Gmail inbox for `/admin-portal/inquiries` (`infouhmtech@gmail.com` + App Password) |
 | `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` | Gmail SMTP (`smtp.gmail.com` / `usamarayan80@gmail.com` / App Password) |
 | `SMTP_FROM` | From header, e.g. `UHM Tech <usamarayan80@gmail.com>` |
 | `SMTP_SECURE` | `true` for port 465, otherwise leave `false` and use 587 |
@@ -74,7 +74,8 @@ Scope: **All scopes**. Deploy contexts: **All**. Add each of these:
 | `SMTP_SECURE` | `false` |
 | `SMTP_USER` | `usamarayan80@gmail.com` |
 | `SMTP_PASS` | Gmail App Password from local `.env.local` |
-| `SMTP_FROM` | `UHM Tech <info@uhmtech.com>` |
+| `GMAIL_IMAP_USER` | `infouhmtech@gmail.com` |
+| `GMAIL_IMAP_PASS` | Gmail App Password for that inbox |
 | `ADMIN_USERNAME` | `uhmadmin` |
 | `ADMIN_PASSWORD` | console password from `.env.local` |
 | `ADMIN_SESSION_SECRET` | session secret from `.env.local` |
