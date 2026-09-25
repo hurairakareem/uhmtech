@@ -167,21 +167,23 @@ function seedPayroll(employees: Employee[]): PayrollRecord[] {
 export async function ensurePortalDb() {
   const db = await readDb();
   const adminUser = (process.env.ADMIN_USERNAME ?? "uhmadmin").toLowerCase();
-  const adminPass = process.env.ADMIN_PASSWORD ?? "UhmConsole#5821";
-  const adminHash = hashPassword(adminPass);
+  const adminPass = process.env.ADMIN_PASSWORD ?? "";
 
-  const admin = db.users.find((user) => user.username === adminUser && user.role === "admin");
-  if (admin) {
-    admin.salt = adminHash.salt;
-    admin.passwordHash = adminHash.passwordHash;
-  } else {
-    db.users.push({
-      id: randomUUID(),
-      username: adminUser,
-      role: "admin",
-      employeeId: "",
-      ...adminHash,
-    });
+  if (adminPass) {
+    const adminHash = hashPassword(adminPass);
+    const admin = db.users.find((user) => user.username === adminUser && user.role === "admin");
+    if (admin) {
+      admin.salt = adminHash.salt;
+      admin.passwordHash = adminHash.passwordHash;
+    } else {
+      db.users.push({
+        id: randomUUID(),
+        username: adminUser,
+        role: "admin",
+        employeeId: "",
+        ...adminHash,
+      });
+    }
   }
 
   if (!db.employees.length) {
@@ -190,8 +192,9 @@ export async function ensurePortalDb() {
     db.payroll = seedPayroll(db.employees);
   }
 
-  if (!db.users.some((user) => user.username === "aisha")) {
-    const emp = hashPassword("Emp#2026");
+  const employeePass = process.env.EMPLOYEE_DEMO_PASSWORD ?? "";
+  if (employeePass && !db.users.some((user) => user.username === "aisha")) {
+    const emp = hashPassword(employeePass);
     db.users.push({
       id: randomUUID(),
       username: "aisha",

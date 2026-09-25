@@ -14,9 +14,6 @@ export default function PortalLoginPage() {
         <h1>Staff portal</h1>
         <p>Admins and employees sign in here. This page is not listed on the public website.</p>
         <PortalLoginForm />
-        <p className="admin-lead" style={{ marginTop: "1.2rem" }}>
-          Admin: username from environment. Employee demo: <b>aisha</b> / <b>Emp#2026</b>
-        </p>
       </div>
     </main>
   );
