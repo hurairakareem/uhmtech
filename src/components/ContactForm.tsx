@@ -16,8 +16,11 @@ const initial: ContactPayload = {
   attachmentName: "",
 };
 
-export function ContactForm() {
-  const [form, setForm] = useState(initial);
+export function ContactForm({ defaultService = "" }: { defaultService?: string }) {
+  const initialService = serviceInterestOptions.includes(defaultService as (typeof serviceInterestOptions)[number])
+    ? defaultService
+    : "";
+  const [form, setForm] = useState({ ...initial, service: initialService });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");

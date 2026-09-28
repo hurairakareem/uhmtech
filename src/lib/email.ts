@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import type { ContactPayload } from "@/lib/contact";
+import { siteConfig } from "@/content/site";
 
 const PUBLIC_SITE_URL = "https://uhmtech.com";
 const LOGO_URL = `${PUBLIC_SITE_URL}/brand/New_logo.png`;
@@ -13,6 +14,53 @@ export function escapeHtml(value: string) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function linkStyle() {
+  return "color:#0b63ce;text-decoration:none;font-weight:600;";
+}
+
+function brandEmailSignature() {
+  const web = PUBLIC_SITE_URL.replace(/^https?:\/\//, "");
+  return `
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:28px;border-collapse:collapse;">
+      <tr>
+        <td colspan="2" style="padding-bottom:14px;">
+          <p style="margin:0;color:#60758c;font-size:12px;letter-spacing:0.02em;">Kind regards,</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align:top;padding-right:16px;border-right:2px solid #0b63ce;">
+          <a href="${PUBLIC_SITE_URL}" style="text-decoration:none;">
+            <img src="${LOGO_URL}" alt="${escapeHtml(siteConfig.name)}" width="46" height="55" style="display:block;border:0;width:46px;height:auto;background:#ffffff;" />
+          </a>
+        </td>
+        <td style="vertical-align:top;padding-left:16px;font-family:Segoe UI,Arial,sans-serif;">
+          <p style="margin:0;color:#082f6b;font-size:16px;font-weight:800;letter-spacing:-0.02em;">${escapeHtml(siteConfig.name)}</p>
+          <p style="margin:3px 0 10px;color:#0b63ce;font-size:12px;font-weight:600;">Technology, automation &amp; intelligent solutions</p>
+          <p style="margin:0;color:#102a4a;font-size:13px;line-height:1.7;">
+            <a href="mailto:${escapeHtml(siteConfig.email)}" style="${linkStyle()}">${escapeHtml(siteConfig.email)}</a><br />
+            ${escapeHtml(siteConfig.address)}<br />
+            <a href="${PUBLIC_SITE_URL}" style="${linkStyle()}">${escapeHtml(web)}</a>
+            &nbsp;·&nbsp;
+            <a href="${escapeHtml(siteConfig.social.linkedin)}" style="${linkStyle()}">LinkedIn</a>
+          </p>
+        </td>
+      </tr>
+    </table>
+  `;
+}
+
+function brandEmailSignatureText() {
+  return [
+    `Kind regards,`,
+    siteConfig.name,
+    `Technology, automation & intelligent solutions`,
+    `Email: ${siteConfig.email}`,
+    siteConfig.address,
+    PUBLIC_SITE_URL,
+    `LinkedIn: ${siteConfig.social.linkedin}`,
+  ].join("\n");
 }
 
 function row(label: string, value: string) {
@@ -94,6 +142,7 @@ export function buildContactEmail(payload: ContactPayload, siteUrl: string) {
                 <p style="margin:22px 0 0;">
                   <a href="mailto:${escapeHtml(payload.email)}" style="display:inline-block;background:#0b63ce;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 18px;border-radius:999px;">Reply to ${escapeHtml(payload.name)}</a>
                 </p>
+                ${brandEmailSignature()}
               </td>
             </tr>
             <tr>
@@ -123,6 +172,8 @@ export function buildContactEmail(payload: ContactPayload, siteUrl: string) {
     payload.details,
     ``,
     `Submitted: ${submittedAt}`,
+    ``,
+    brandEmailSignatureText(),
   ]
     .filter(Boolean)
     .join("\n");

@@ -5,10 +5,11 @@ import { FAQ } from "@/components/FAQ";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
+import { ServiceProblem, ServiceStory } from "@/components/ServiceStory";
 import { TechLogo } from "@/components/TechLogo";
 import { TechPills } from "@/components/TechPills";
 import { resolveTech } from "@/content/technologies";
-import { getService, services } from "@/content/services";
+import { getService, serviceContactHref, services } from "@/content/services";
 import { createMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/utils";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo";
@@ -84,8 +85,8 @@ export async function generateMetadata({ params }: Props) {
   const service = getService(slug);
   if (!service) return {};
   return createMetadata({
-    title: service.name,
-    description: service.summary,
+    title: service.seoTitle ?? service.name,
+    description: service.seoDescription ?? service.summary,
     path: `/services/${service.slug}`,
   });
 }
@@ -102,6 +103,8 @@ export default async function ServicePage({ params }: Props) {
   ];
 
   const related = service.related.map((s) => getService(s)).filter(Boolean);
+  const contactHref = serviceContactHref(service);
+  const coverHeading = service.problem ? "What we cover" : service.name;
 
   return (
     <>
@@ -120,9 +123,10 @@ export default async function ServicePage({ params }: Props) {
         description={service.heroSupport}
         crumbs={crumbs}
       />
+      <ServiceProblem service={service} />
       <section className="container-xl grid gap-10 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
         <div>
-          <h2 className="text-2xl font-extrabold">{service.name}</h2>
+          <h2 className="text-2xl font-extrabold">{coverHeading}</h2>
           <p className="mt-4 leading-7 text-muted">{service.description}</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {service.offerings.map((item) => {
@@ -155,7 +159,7 @@ export default async function ServicePage({ params }: Props) {
             ))}
           </ul>
           <div className="mt-6">
-            <Cta href="/contact">Book a Consultation</Cta>
+            <Cta href={contactHref}>{service.ctaLabel ?? "Book a Consultation"}</Cta>
           </div>
         </aside>
       </section>
@@ -180,6 +184,7 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </section>
       ) : null}
+      <ServiceStory service={service} />
       <section className="container-xl py-16">
         <h2 className="text-2xl font-extrabold">Questions</h2>
         <div className="mx-auto mt-8 max-w-3xl">
@@ -195,10 +200,23 @@ export default async function ServicePage({ params }: Props) {
         ) : null}
       </section>
       <CTASection
-        title={slug === "saas-development" ? "Build your SaaS product" : "Get a custom solution"}
-        text="Describe the process, product, or channel you want to improve. We will respond with a scoped conversation."
-        primary={{ href: "/contact", label: "Start a Project" }}
-        secondary={{ href: "/contact", label: "Request a Quote" }}
+        title={
+          service.ctaLabel
+            ? "Book a Technology Consultation"
+            : slug === "saas-development"
+              ? "Build your SaaS product"
+              : "Get a custom solution"
+        }
+        text={
+          service.ctaLabel
+            ? "Describe the systems you already use and the outcome you need. We will reply with a scoped conversation — not a generic pitch."
+            : "Describe the process, product, or channel you want to improve. We will respond with a scoped conversation."
+        }
+        primary={{
+          href: service.ctaLabel ? "/contact?service=Book%20a%20Technology%20Consultation" : "/contact",
+          label: service.ctaLabel ? "Book a Technology Consultation" : "Start a Project",
+        }}
+        secondary={{ href: contactHref, label: service.ctaLabel ?? "Request a Quote" }}
       />
     </>
   );

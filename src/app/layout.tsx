@@ -36,7 +36,10 @@ export const metadata: Metadata = {
     "Odoo",
     "call center",
     "AI automation",
-    "API integrations",
+    "technology consulting",
+    "business technology audit",
+    "CRM integration",
+    "business dashboards",
   ],
   authors: [{ name: siteConfig.name }],
   openGraph: {
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/brand/New_logo.png"],
   },
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   icons: { icon: "/brand/New_logo.png" },
 };
 

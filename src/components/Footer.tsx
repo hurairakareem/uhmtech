@@ -51,8 +51,8 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-white">
-                Products
+              <Link href="/services#technology-partnership" className="hover:text-white">
+                Technology partnership
               </Link>
             </li>
           </ul>

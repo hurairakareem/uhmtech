@@ -10,7 +10,7 @@ import { caseStudies } from "@/content/caseStudies";
 import { whyChoose } from "@/content/company";
 import { faqs } from "@/content/faqs";
 import { products } from "@/content/products";
-import { getPrimaryServices } from "@/content/services";
+import { getPartnerServices, getPrimaryServices } from "@/content/services";
 import { faqJsonLd } from "@/lib/seo";
 
 export default function HomePage() {
@@ -36,6 +36,16 @@ export default function HomePage() {
         />
         <div className="mt-12">
           <ServiceGrid services={getPrimaryServices()} />
+        </div>
+        <div className="mt-20">
+          <SectionHeader
+            eyebrow="Technology partnership"
+            title="Help for the systems you already run"
+            description="Audit, integrate, build internal tools, surface operations in dashboards, and keep technology working after launch."
+          />
+          <div className="mt-12">
+            <ServiceGrid services={getPartnerServices()} />
+          </div>
         </div>
       </section>
 

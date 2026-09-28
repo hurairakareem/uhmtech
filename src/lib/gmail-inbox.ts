@@ -111,7 +111,8 @@ export async function listGmailInbox(): Promise<GmailInboxResult> {
     const listed = await withClient(async (client, connectedMailbox) => {
       const lock = await client.getMailboxLock("INBOX");
       try {
-        const exists = client.mailbox?.exists ?? 0;
+        const mailbox = client.mailbox;
+        const exists = mailbox ? mailbox.exists : 0;
         if (!exists) return { items: [] as Inquiry[], mailbox: connectedMailbox };
         const start = Math.max(1, exists - LIST_LIMIT + 1);
         const collected: Inquiry[] = [];

@@ -11,8 +11,14 @@ export function ServiceMark({ slug }: { slug: string; name?: string }) {
   return <ServiceIcon slug={slug} />;
 }
 
+function capabilitiesFor(service: ServiceItem) {
+  if (service.capabilities?.length) return service.capabilities.slice(0, 5);
+  return service.offerings.slice(0, 4).map((item) => item.title);
+}
+
 export function ServiceCard({ service }: { service: ServiceItem }) {
   const logos = serviceTechLogos[service.slug] ?? [];
+  const capabilities = capabilitiesFor(service);
 
   return (
     <Link href={`/services/${service.slug}`} className="service-card card group block h-full px-6 py-6 sm:p-7">
@@ -21,6 +27,16 @@ export function ServiceCard({ service }: { service: ServiceItem }) {
         <h3 className="text-lg font-bold leading-snug">{service.shortName ?? service.name}</h3>
       </div>
       <p className="mt-5 text-sm leading-7 text-muted">{service.summary}</p>
+      {capabilities.length ? (
+        <ul className="mt-5 space-y-2 text-sm leading-6 text-ink/80">
+          {capabilities.map((item) => (
+            <li key={item} className="flex gap-2">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
       {logos.length ? (
         <div className="mt-5 flex flex-wrap items-center gap-2" aria-label="Related technologies">
           {logos.map((logoSlug) => {

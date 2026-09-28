@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BrandLink } from "@/components/Brand";
 import { ServiceMark } from "@/components/ServiceCard";
-import { getNavServices } from "@/content/services";
+import { getNavServices, getPartnerServices } from "@/content/services";
 
 const links = [
   { href: "/", label: "Home" },
@@ -26,6 +26,7 @@ export function Navbar() {
   const [mega, setMega] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const services = getNavServices();
+  const partnerServices = getPartnerServices();
 
   useEffect(() => {
     setOpen(false);
@@ -72,6 +73,19 @@ export function Navbar() {
                   <div className="absolute left-1/2 top-full z-50 w-[720px] -translate-x-1/3 pt-3">
                     <div className="mega-panel grid grid-cols-2 gap-2 rounded-2xl border border-line p-4 shadow-2xl">
                       {services.map((s) => (
+                        <Link
+                          key={s.slug}
+                          href={`/services/${s.slug}`}
+                          className="flex items-center gap-3 rounded-xl p-3 hover:bg-paper"
+                        >
+                          <ServiceMark slug={s.slug} name={s.shortName ?? s.name} />
+                          <span className="text-sm font-bold">{s.shortName ?? s.name}</span>
+                        </Link>
+                      ))}
+                      <p className="col-span-2 mt-2 px-3 text-xs font-bold uppercase tracking-[0.16em] text-muted">
+                        Technology partnership
+                      </p>
+                      {partnerServices.map((s) => (
                         <Link
                           key={s.slug}
                           href={`/services/${s.slug}`}
@@ -136,6 +150,12 @@ export function Navbar() {
                   {mobileServicesOpen ? (
                     <div id="mobile-services-menu" className="mt-1 space-y-1 pl-3">
                       {services.map((s) => (
+                        <Link key={s.slug} href={`/services/${s.slug}`} className="block rounded-xl px-3 py-2 text-sm">
+                          {s.shortName ?? s.name}
+                        </Link>
+                      ))}
+                      <p className="px-3 pt-2 text-xs font-bold uppercase tracking-[0.16em] text-muted">Partnership</p>
+                      {partnerServices.map((s) => (
                         <Link key={s.slug} href={`/services/${s.slug}`} className="block rounded-xl px-3 py-2 text-sm">
                           {s.shortName ?? s.name}
                         </Link>

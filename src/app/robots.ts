@@ -1,15 +1,24 @@
 import { MetadataRoute } from "next";
-import { siteConfig } from "@/content/site";
+import { publicSiteOrigin } from "@/lib/site-origin";
 
 export default function robots(): MetadataRoute.Robots {
+  const origin = publicSiteOrigin();
+  const privatePaths = ["/uhm-console", "/admin-portal", "/employee-portal", "/api/admin", "/api/portal"];
+
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/uhm-console", "/admin-portal", "/employee-portal", "/api/admin", "/api/portal"],
+        disallow: privatePaths,
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+        disallow: privatePaths,
       },
     ],
-    sitemap: `${siteConfig.url.replace(/\/$/, "")}/sitemap.xml`,
+    sitemap: `${origin}/sitemap.xml`,
+    host: origin,
   };
 }

@@ -1,4 +1,11 @@
 export const serviceInterestOptions = [
+  "Technology Health Check",
+  "Business System Integration",
+  "Custom Internal Tools",
+  "Business Intelligence & Dashboards",
+  "Managed Technology Support",
+  "Digital Operations Optimization",
+  "Book a Technology Consultation",
   "Business Automation",
   "CRM Solutions",
   "Software Development",

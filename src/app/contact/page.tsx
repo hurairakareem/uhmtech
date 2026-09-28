@@ -7,11 +7,16 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata = createMetadata({
   title: "Contact Us for Technology Solutions",
   description:
-    "Contact UHM Tech to discuss automation, CRM, software, SaaS, integrations, or customer experience operations.",
+    "Contact UHM Tech to discuss automation, CRM, software, SaaS, integrations, technology audits, or customer experience operations.",
   path: "/contact",
 });
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string }>;
+}) {
+  const params = await searchParams;
   return (
     <>
       <PageHero
@@ -28,7 +33,7 @@ export default function ContactPage() {
           <h2 className="text-xl font-extrabold">Start A Conversation</h2>
           <p className="mt-2 text-sm text-muted">We read every request. Include the systems you already use if you know them.</p>
           <div className="mt-6">
-            <ContactForm />
+            <ContactForm defaultService={params.service ?? ""} />
           </div>
         </div>
         <aside className="space-y-5">

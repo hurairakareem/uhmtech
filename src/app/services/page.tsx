@@ -1,13 +1,14 @@
 import { PageHero } from "@/components/PageHero";
 import { ServiceGrid } from "@/components/ServiceCard";
+import { SectionHeader } from "@/components/SectionHeader";
 import { CTASection } from "@/components/CTASection";
-import { getPrimaryServices, services } from "@/content/services";
+import { getPartnerServices, getPrimaryServices, services } from "@/content/services";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
   title: "Technology, Automation & CRM Services",
   description:
-    "Explore UHM Tech services: business automation, CRM, software and SaaS development, AI, call center, chat, email, APIs, and management systems.",
+    "UHM Tech services: automation, CRM, software, SaaS, plus technology health checks, system integration, internal tools, dashboards, managed support, and operations improvement.",
   path: "/services",
 });
 
@@ -25,6 +26,16 @@ export default function ServicesPage() {
       />
       <section className="container-xl py-16">
         <ServiceGrid services={getPrimaryServices()} />
+        <div id="technology-partnership" className="scroll-mt-28 mt-20">
+          <SectionHeader
+            eyebrow="Technology partnership"
+            title="Improve, connect, and look after the systems you already have"
+            description="UHM Tech also reviews existing stacks, integrates disconnected tools, builds internal software, creates dashboards, and stays on after launch."
+          />
+          <div className="mt-12">
+            <ServiceGrid services={getPartnerServices()} />
+          </div>
+        </div>
         <h2 className="mt-16 text-2xl font-extrabold">Platform landing pages</h2>
         <p className="mt-3 max-w-2xl text-muted">
           Dedicated SEO pages for Zoho, HubSpot, Salesforce, and Odoo sit alongside the main services. More platform

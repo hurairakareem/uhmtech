@@ -2,7 +2,7 @@ export type ServiceItem = {
   slug: string;
   name: string;
   shortName?: string;
-  navGroup: "core" | "experience" | "build";
+  navGroup: "core" | "experience" | "build" | "partner";
   summary: string;
   description: string;
   heroHeadline: string;
@@ -12,7 +12,21 @@ export type ServiceItem = {
   platforms?: { name: string; items: string[] }[];
   faqs: { q: string; a: string }[];
   related: string[];
+  capabilities?: string[];
+  problem?: string;
+  solution?: string;
+  workflow?: string[];
+  deliverables?: string[];
+  benefits?: string[];
+  engagement?: { title: string; text: string }[];
+  ctaLabel?: string;
+  seoTitle?: string;
+  seoDescription?: string;
 };
+
+export function serviceContactHref(service: Pick<ServiceItem, "name">) {
+  return `/contact?service=${encodeURIComponent(service.name)}`;
+}
 
 export const services: ServiceItem[] = [
   {
@@ -530,6 +544,404 @@ export const services: ServiceItem[] = [
     ],
     related: ["software-development", "odoo", "saas-development"],
   },
+  {
+    slug: "technology-health-check",
+    name: "Technology Health Check",
+    navGroup: "partner",
+    seoTitle: "Technology Health Check & Business Technology Audit",
+    seoDescription:
+      "UHM Tech reviews your website, CRM, software, integrations, and workflows, then delivers a Technology Health Report with risks and recommended next steps.",
+    summary:
+      "We analyze your existing technology ecosystem to identify what's working, what's slowing your business down, and what can be improved.",
+    description:
+      "Most companies accumulate a website, CRM, spreadsheets, accounting tools, and messaging apps over time. A Technology Health Check is a structured review of that stack — not a sales pitch to replace everything.",
+    heroHeadline: "Is Your Technology Helping Your Business — or Slowing It Down?",
+    heroSupport:
+      "UHM Tech reviews the systems you already run and produces a Technology Health Report: what works, what needs improvement, what can be upgraded, and the next steps worth taking.",
+    capabilities: [
+      "Website, CRM, and software review",
+      "Data flow and integration gaps",
+      "Workflow and automation opportunities",
+      "Basic security and performance notes",
+      "Prioritized Technology Health Report",
+    ],
+    problem:
+      "Businesses often have websites, CRMs, spreadsheets, accounting systems, messaging tools, and internal software that were added over time but don't work together efficiently. Teams fill the gaps with copy-paste, extra apps, and tribal knowledge.",
+    solution:
+      "UHM Tech reviews the existing technology ecosystem and provides a structured Technology Health Report. The aim is a clear picture of the current state — not a catalogue of tools you must buy.",
+    workflow: ["Current systems", "Technology audit", "Problems identified", "Recommendations", "Improved technology"],
+    offerings: [
+      { title: "Website", description: "How the site captures, routes, and represents the business — including forms and follow-up." },
+      { title: "CRM", description: "Whether customer records, pipelines, and handoffs match the way teams actually sell and serve." },
+      { title: "Business software", description: "The operational tools in daily use, including spreadsheets standing in for systems." },
+      { title: "Data flow", description: "Where information is entered more than once, delayed, or lost between teams." },
+      { title: "Integrations", description: "Which tools already talk to each other, and where people are still the integration layer." },
+      { title: "Employee workflows", description: "How work actually moves, compared with what the software assumes." },
+      { title: "Automation opportunities", description: "Repeatable steps that can be connected without disrupting the process." },
+      { title: "System performance", description: "Friction, bottlenecks, and reliability issues that slow the business down." },
+      { title: "Basic security practices", description: "Access, sharing, and obvious risk areas — not a substitute for a specialist security audit." },
+      { title: "Technology gaps", description: "Missing capabilities that matter for the next stage of the business." },
+    ],
+    deliverables: [
+      "Current technology assessment",
+      "Workflow analysis",
+      "Integration review",
+      "Basic security review",
+      "Identified bottlenecks",
+      "Improvement opportunities",
+      "Upgrade recommendations",
+      "Prioritized next steps",
+    ],
+    benefits: [
+      "A shared view of the stack for owners and managers",
+      "Decisions based on the current system, not a generic tool list",
+      "A practical sequence of work instead of a full rebuild",
+    ],
+    outcomes: [
+      "A Technology Health Report covering what works, what needs improvement, and what can be upgraded",
+      "Potential risks called out in plain language",
+      "Recommended next steps you can take with UHM Tech or internally",
+    ],
+    engagement: [
+      { title: "Scope", text: "We agree which systems, teams, and processes are in the review." },
+      { title: "Review", text: "We inspect tools, data flow, and how people actually work." },
+      { title: "Report", text: "You receive a Technology Health Report with findings and options." },
+      { title: "Decide", text: "You choose what to improve next — integration, tools, dashboards, or support." },
+    ],
+    faqs: [
+      { q: "Is this a full security audit?", a: "No. We note basic security practices and obvious risks. A specialist security assessment is a different engagement if you need one." },
+      { q: "Do we have to replace our software afterwards?", a: "Not necessarily. Many reviews conclude that the existing tools can work better once they are connected, cleaned up, or used more consistently." },
+      { q: "How do we start?", a: "Request a Technology Health Check and tell us which systems you already use. We will confirm scope before the review begins." },
+    ],
+    ctaLabel: "Request a Technology Health Check",
+    related: ["business-system-integration", "digital-operations-optimization", "managed-technology-support"],
+  },
+  {
+    slug: "business-system-integration",
+    name: "Business System Integration",
+    navGroup: "partner",
+    seoTitle: "CRM, Website & Business System Integration",
+    seoDescription:
+      "Connect CRM, website forms, email, WhatsApp, payments, accounting, and dashboards so your existing software can share data without repetitive work.",
+    summary: "Connect the tools a business already uses so information moves once — instead of adding more software.",
+    description:
+      "Businesses often don't need more software; they need their existing software to communicate properly. We connect CRM, websites, forms, messaging, payments, accounting, and internal applications so people stop re-entering the same record.",
+    heroHeadline: "Connect your systems. Eliminate repetitive work. Keep your business data moving.",
+    heroSupport:
+      "UHM Tech designs integrations around the workflow you already have — for example website to CRM to email or WhatsApp to a spreadsheet or dashboard — with ownership and error handling, not one-off scripts.",
+    capabilities: [
+      "CRM, website, and form connections",
+      "Email, WhatsApp, and messaging",
+      "Payments and accounting",
+      "Sheets, APIs, and internal apps",
+      "A path data can actually follow",
+    ],
+    problem:
+      "Sales lives in the CRM, support lives in inboxes, finance lives in accounting software, and operations live in spreadsheets. Each tool works, but the business still copies data by hand.",
+    solution:
+      "We map the real handoff — who needs which record, and when — then connect the systems you already pay for. New software is only recommended when a gap cannot be closed by integration.",
+    workflow: ["Website", "CRM", "Email / WhatsApp", "Accounting", "Dashboard"],
+    offerings: [
+      { title: "CRM", description: "Keep customer and deal records aligned with the rest of the stack." },
+      { title: "Website & forms", description: "Inquiries land in the right system with the fields teams actually use." },
+      { title: "Email & WhatsApp", description: "Conversations stay attached to the customer record instead of living only in a personal inbox." },
+      { title: "Payment systems", description: "Successful payments create or update operational records." },
+      { title: "Accounting software", description: "Invoices and customer data stay consistent with sales and delivery." },
+      { title: "Google Sheets", description: "Spreadsheets can remain in the loop where they are still the working view — without being the only copy of the truth." },
+      { title: "Business dashboards", description: "Connected sources feed a single operating picture." },
+      { title: "APIs & internal applications", description: "Custom and third-party systems join the same flow." },
+    ],
+    deliverables: [
+      "Integration map of current tools",
+      "Connected workflow for the agreed process",
+      "Documented field mapping and ownership",
+      "Error handling and a way to see failed updates",
+    ],
+    benefits: [
+      "Less duplicate entry between teams",
+      "Customer and operational data that can be trusted",
+      "Room to add another system later without starting over",
+    ],
+    outcomes: [
+      "A defined path for a customer or order record across tools",
+      "Fewer spreadsheet workarounds for the connected process",
+      "Integrations that can be maintained after launch",
+    ],
+    engagement: [
+      { title: "Map", text: "We document the current tools and the process that should move between them." },
+      { title: "Design", text: "We agree the system of record, events, and what happens when a step fails." },
+      { title: "Connect", text: "We implement APIs, webhooks, or platform connectors as the process requires." },
+      { title: "Handover", text: "You get a working flow and notes your team can operate." },
+    ],
+    faqs: [
+      { q: "What if a tool has no public API?", a: "We look at official connectors, exports, middleware, or a small custom service — and we will say when an integration is too fragile to be worth it." },
+      { q: "Will you force us onto one platform?", a: "No. The point of this service is to connect what you already use, then change tools only where they block the process." },
+    ],
+    ctaLabel: "Connect My Systems",
+    related: ["api-integrations", "business-intelligence-dashboards", "technology-health-check"],
+  },
+  {
+    slug: "custom-internal-tools",
+    name: "Custom Internal Tools",
+    navGroup: "partner",
+    seoTitle: "Custom Internal Tools & Business Workflow Software",
+    seoDescription:
+      "Purpose-built internal software for employee portals, admin dashboards, inventory, appointments, approvals, and reporting — fitted to how your business already works.",
+    summary: "Purpose-built tools for the way your business actually works — not generic SaaS you have to squeeze into.",
+    description:
+      "UHM Tech can build lightweight internal software around a company's real workflow: employee portals, admin views, inventory, appointments, customer portals, expenses, tasks, documents, approvals, and internal reporting. These are systems for your process, not a product catalogue.",
+    heroHeadline: "Purpose-built tools for the way your business actually works.",
+    heroSupport:
+      "When spreadsheets and borrowed SaaS cannot represent the process, we build focused internal applications with modern web technologies and connect them to the software you already run.",
+    capabilities: [
+      "Employee and customer portals",
+      "Admin and reporting views",
+      "Inventory and appointments",
+      "Approvals and document flow",
+      "Tied into existing software",
+    ],
+    problem:
+      "Teams stretch a CRM, a spreadsheet, or a consumer app into an operating system. The process still lives in people's heads, and every exception becomes a workaround.",
+    solution:
+      "We design a small, specific application for the workflow that is actually blocking you — then integrate it with CRM, accounting, or other systems so it does not become another silo.",
+    workflow: ["Workflow", "Lightweight tool", "Existing software", "Daily operations"],
+    offerings: [
+      { title: "Employee portal", description: "A place for staff records, requests, and internal processes." },
+      { title: "Admin dashboard", description: "Operational control for the people who run the business day to day." },
+      { title: "Inventory management", description: "Stock and movements that match how you actually fulfil work." },
+      { title: "Appointment management", description: "Booking and reminders connected to customers and staff." },
+      { title: "Customer portal", description: "A limited view for clients, vendors, or partners." },
+      { title: "Expense tracker", description: "Capture and approval of spend without a separate paper trail." },
+      { title: "Task management", description: "Work queues that follow your stages, not a generic board." },
+      { title: "Document management", description: "Files and versions attached to the records that need them." },
+      { title: "Approval systems", description: "Clear owners, statuses, and an audit-friendly history." },
+      { title: "Internal reporting tools", description: "Views built from your data model, not a canned report pack." },
+    ],
+    deliverables: [
+      "Process and role definition",
+      "A working internal application scoped to the agreed workflow",
+      "Integration with existing business software where it is needed",
+      "Handover so your team can use and extend it",
+    ],
+    benefits: [
+      "Software that follows the business instead of the other way around",
+      "Less time spent maintaining parallel spreadsheets",
+      "A foundation you can grow without buying an unrelated platform",
+    ],
+    outcomes: [
+      "An internal tool that matches the real process",
+      "Roles and permissions that fit the team",
+      "Connection to CRM or other systems where records must stay in sync",
+    ],
+    engagement: [
+      { title: "Define", text: "We pick one workflow that is worth a dedicated tool." },
+      { title: "Design", text: "Data model, screens, and integrations are agreed before build." },
+      { title: "Build", text: "We deliver a focused first version with modern web technologies." },
+      { title: "Connect", text: "The tool talks to existing software where that avoids duplicate entry." },
+    ],
+    faqs: [
+      { q: "Is this a product you sell off the shelf?", a: "No. Examples such as portals or inventory tools show the kinds of systems we build. Each one is designed around your process." },
+      { q: "Can this replace our CRM?", a: "Usually not. Internal tools sit beside CRM and operations systems. We integrate rather than duplicate customer records without a reason." },
+    ],
+    ctaLabel: "Build My Internal Tool",
+    related: ["software-development", "management-systems", "business-intelligence-dashboards"],
+  },
+  {
+    slug: "business-intelligence-dashboards",
+    name: "Business Intelligence & Dashboards",
+    navGroup: "partner",
+    seoTitle: "Business Intelligence & Management Dashboards",
+    seoDescription:
+      "Connect sales, CRM, operations, and finance data into simple management dashboards so owners and managers can see what is happening in the business.",
+    summary: "Bring scattered business information into one place so owners and managers can see operations clearly.",
+    description:
+      "UHM Tech connects different data sources and creates straightforward management dashboards — sales, leads, customers, employees, revenue, tasks, and operations — so leadership is not reconstructing the week from five exports.",
+    heroHeadline: "Know what is happening in your business right now.",
+    heroSupport:
+      "We build dashboards from the systems you already have. The goal is a usable operating picture, not a decorative wall of charts.",
+    capabilities: [
+      "Sales, leads, and CRM views",
+      "Operations and delivery",
+      "People and task tracking",
+      "Financial overviews",
+      "Connected source data",
+    ],
+    problem:
+      "Numbers live in CRM, accounting, spreadsheets, and chat. By the time someone compiles a report, the question has already changed.",
+    solution:
+      "We agree the questions that matter, connect the sources that hold those answers, and design dashboards for the people who will actually use them.",
+    workflow: ["Multiple data sources", "Data integration", "Centralized dashboard", "Business insights"],
+    offerings: [
+      { title: "Sales dashboard", description: "Pipeline and activity in a form sales and leadership can read." },
+      { title: "CRM dashboard", description: "Customer and deal health from the CRM, not a parallel spreadsheet." },
+      { title: "Operations dashboard", description: "Work in progress, bottlenecks, and throughput." },
+      { title: "Employee performance dashboard", description: "Team views based on agreed operational measures — not surveillance theatre." },
+      { title: "Financial overview", description: "A management view of revenue and related figures from connected sources." },
+      { title: "Lead conversion dashboard", description: "How inquiries move from first contact to a qualified next step." },
+      { title: "Project dashboard", description: "Delivery status for the work that is actually in flight." },
+      { title: "Executive dashboard", description: "A short list of measures owners and managers check regularly." },
+    ],
+    deliverables: [
+      "Agreed metrics and definitions",
+      "Connected data sources",
+      "Dashboard views for the intended roles",
+      "Notes on how to keep the numbers trustworthy",
+    ],
+    benefits: [
+      "Less time assembling status by hand",
+      "A shared definition of the numbers that matter",
+      "A view that can grow as more systems are connected",
+    ],
+    outcomes: [
+      "Dashboards tied to real source systems",
+      "Clearer visibility of sales, operations, or delivery — depending on scope",
+      "Fewer conflicting versions of the same report",
+    ],
+    engagement: [
+      { title: "Questions", text: "We start with the decisions the dashboard should support." },
+      { title: "Sources", text: "We connect CRM, operations, finance, or sheets as available." },
+      { title: "Views", text: "We design the screens for owners, managers, or teams." },
+      { title: "Review", text: "We check the numbers against how the business actually works." },
+    ],
+    faqs: [
+      { q: "Do you need a data warehouse first?", a: "Not always. Many teams start with direct connections to CRM and operations tools. We recommend more infrastructure only when the volume or complexity requires it." },
+      { q: "Will this work if our data is messy?", a: "Dashboards inherit the quality of the source. We will say when the first step is cleaning CRM or process data rather than adding charts." },
+    ],
+    ctaLabel: "Build My Business Dashboard",
+    related: ["business-system-integration", "custom-internal-tools", "digital-operations-optimization"],
+  },
+  {
+    slug: "managed-technology-support",
+    name: "Managed Technology Support",
+    navGroup: "partner",
+    seoTitle: "Managed Technology Support & System Maintenance",
+    seoDescription:
+      "Ongoing technical support after launch: website and CRM maintenance, automation changes, bug fixes, monitoring, and consultation — without inventing a price list.",
+    summary: "Your technology should keep working after launch. We stay with you on a recurring support engagement.",
+    description:
+      "Managed Technology Support is an ongoing monthly relationship after a project is live. It can include technical support, website and CRM maintenance, automation changes, bug fixes, small improvements, reports, monitoring, integration care, workflow tweaks, and consultation. Scope is agreed; it is not a promise that every request is included.",
+    heroHeadline: "Your technology should keep working after launch. We stay with you.",
+    heroSupport:
+      "Once a site, CRM, integration, or internal tool is in production, UHM Tech can remain the technical partner for maintenance and measured change — with a clear monthly scope rather than an open-ended promise.",
+    capabilities: [
+      "Technical support after launch",
+      "Website and CRM maintenance",
+      "Automation and integration care",
+      "Small improvements and fixes",
+      "Monitoring and consultation",
+    ],
+    problem:
+      "Projects end and the system is left with whoever is nearest. Small breaks pile up, automations drift, and nobody owns the next improvement.",
+    solution:
+      "We agree a recurring support model: what is included, how requests are raised, and how larger work is scoped separately. The relationship is practical, not a guarantee of unlimited delivery.",
+    workflow: ["Live system", "Support requests", "Fixes & maintenance", "Measured improvements"],
+    offerings: [
+      { title: "Technical support", description: "A known place to raise issues with the systems we help you run." },
+      { title: "Website maintenance", description: "Updates and fixes so the public site stays usable." },
+      { title: "CRM updates", description: "Fields, workflows, and user changes that keep the CRM aligned to the process." },
+      { title: "Automation changes", description: "Adjustments when the business process moves." },
+      { title: "Bug fixes", description: "Repair of defects in the software and integrations we maintain." },
+      { title: "Small feature improvements", description: "Limited enhancements that fit the agreed monthly capacity." },
+      { title: "Reports", description: "Help keeping operational reports accurate as data changes." },
+      { title: "System monitoring", description: "Watching the parts of the stack we have agreed to observe." },
+      { title: "Integration maintenance", description: "Keeping connected tools working when vendors or processes change." },
+      { title: "Workflow improvements", description: "Small process changes in the live system." },
+      { title: "Technical consultation", description: "Advice on what to change next — and what to leave alone." },
+    ],
+    deliverables: [
+      "Agreed support scope and request path",
+      "Ongoing maintenance of the included systems",
+      "A record of work done in the period",
+      "Separate estimates when a request is larger than the retainer",
+    ],
+    benefits: [
+      "Continuity after launch",
+      "Smaller issues handled before they become rebuilds",
+      "A partner who already knows the system",
+    ],
+    outcomes: [
+      "A named support relationship instead of ad-hoc emergency work",
+      "Maintenance and small changes inside an agreed capacity",
+      "Clearer handling of work that needs a new project",
+    ],
+    engagement: [
+      { title: "Agree", text: "We define systems, hours or request types, and response expectations." },
+      { title: "Support", text: "Your team raises work through the path we set up." },
+      { title: "Maintain", text: "We fix, update, and monitor within the retainer." },
+      { title: "Review", text: "We look at what should stay in support and what should become a project." },
+    ],
+    faqs: [
+      { q: "Is everything included in the monthly fee?", a: "No. We agree what the retainer covers. Larger features, new integrations, or new products are scoped separately." },
+      { q: "Do you publish a price list?", a: "Support is scoped to the systems and capacity you need. We discuss that directly rather than posting a generic package price." },
+    ],
+    ctaLabel: "Talk About Ongoing Support",
+    related: ["technology-health-check", "digital-operations-optimization", "business-automation"],
+  },
+  {
+    slug: "digital-operations-optimization",
+    name: "Digital Operations Optimization",
+    navGroup: "partner",
+    seoTitle: "Digital Operations Optimization & Workflow Improvement",
+    seoDescription:
+      "Improve how technology supports daily operations: workflow and CRM optimization, automation, data organization, integrations, reporting, and operational visibility.",
+    summary: "Make your technology work better for your business by improving workflows, data, and the way systems support daily operations.",
+    description:
+      "Digital Operations Optimization pulls the other partnership services together: workflow and CRM improvement, automation, cleaner data, fewer redundant tools, better integrations, clearer reporting, and visibility for the people running the company.",
+    heroHeadline: "Make your technology work better for your business.",
+    heroSupport:
+      "This is for teams that already have software in place and need it to support operations more cleanly — not a greenfield rebuild unless that is genuinely required.",
+    capabilities: [
+      "Workflow and CRM optimization",
+      "Process automation",
+      "Data and software consolidation",
+      "Integration improvements",
+      "Reporting and visibility",
+    ],
+    problem:
+      "The tools exist, but operations still feel heavy: extra steps, duplicate records, reports nobody trusts, and employees working around the system.",
+    solution:
+      "We look at how technology supports the day-to-day process, then improve the parts that matter — process, data, integrations, and reporting — using Health Check, integration, internal tools, dashboards, or support as needed.",
+    workflow: ["Current operations", "Bottlenecks", "Process & systems changes", "Clearer day-to-day work"],
+    offerings: [
+      { title: "Workflow optimization", description: "Remove steps that exist only because the tools don't line up." },
+      { title: "Process automation", description: "Automate the repeatable parts once the process is clear." },
+      { title: "CRM optimization", description: "Pipelines, fields, and adoption so the CRM matches real work." },
+      { title: "Data organization", description: "Cleaner records and less conflicting information." },
+      { title: "Software consolidation", description: "Retire overlap where two tools do the same job poorly." },
+      { title: "Integration improvements", description: "Tighten the connections that operations already depend on." },
+      { title: "Employee workflow improvements", description: "Change the system so people spend less time on workarounds." },
+      { title: "Reporting", description: "Operational numbers that follow from cleaner process and data." },
+      { title: "Operational visibility", description: "A clearer picture of work in motion for managers." },
+    ],
+    deliverables: [
+      "A picture of current operations and friction",
+      "A sequenced set of improvements",
+      "Implementation of the agreed first changes",
+      "A way to see whether the process actually got easier",
+    ],
+    benefits: [
+      "Technology that supports the working day instead of interrupting it",
+      "Less tool sprawl",
+      "A path that can include audit, integration, tools, dashboards, or support",
+    ],
+    outcomes: [
+      "Fewer manual patches in the target process",
+      "Clearer ownership of systems and data",
+      "A practical improvement sequence rather than a wholesale replacement",
+    ],
+    engagement: [
+      { title: "Observe", text: "We look at the operating process and the tools around it." },
+      { title: "Prioritize", text: "We pick changes that reduce friction without boiling the ocean." },
+      { title: "Improve", text: "We implement process, CRM, integration, or reporting changes as agreed." },
+      { title: "Steady", text: "We leave you with a cleaner baseline — and support if you want it to continue." },
+    ],
+    faqs: [
+      { q: "How is this different from a Health Check?", a: "A Health Check produces a report. Optimization is the work of changing operations afterwards — or a combined path if you already know the pain." },
+      { q: "Do we have to buy new software?", a: "Often the first wins come from using and connecting what you already have. New software is only in scope when the current stack cannot support the process." },
+    ],
+    ctaLabel: "Optimize My Operations",
+    related: ["technology-health-check", "business-system-integration", "managed-technology-support"],
+  },
 ];
 
 export const primaryServiceSlugs = [
@@ -547,12 +959,27 @@ export const primaryServiceSlugs = [
   "management-systems",
 ] as const;
 
+export const partnerServiceSlugs = [
+  "technology-health-check",
+  "business-system-integration",
+  "custom-internal-tools",
+  "business-intelligence-dashboards",
+  "managed-technology-support",
+  "digital-operations-optimization",
+] as const;
+
 export function getService(slug: string) {
   return services.find((s) => s.slug === slug);
 }
 
 export function getPrimaryServices() {
   return primaryServiceSlugs
+    .map((slug) => getService(slug))
+    .filter((s): s is ServiceItem => Boolean(s));
+}
+
+export function getPartnerServices() {
+  return partnerServiceSlugs
     .map((slug) => getService(slug))
     .filter((s): s is ServiceItem => Boolean(s));
 }
