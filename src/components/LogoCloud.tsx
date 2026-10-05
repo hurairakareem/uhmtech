@@ -28,8 +28,8 @@ export function LogoCloud() {
   return (
     <section className="logo-marquee border-y border-line bg-paper/70" aria-label="Technology stack">
       <div className="container-xl py-7">
-        <div className="flex items-center gap-6 overflow-hidden">
-          <p className="hidden shrink-0 text-sm font-extrabold uppercase tracking-[0.18em] text-accent sm:block">
+        <div className="flex flex-col gap-3 overflow-hidden sm:flex-row sm:items-center sm:gap-6">
+          <p className="shrink-0 text-sm font-extrabold uppercase tracking-[0.18em] text-accent">
             Our stack
           </p>
           <div className="logo-marquee-window min-w-0 flex-1 overflow-hidden">
