@@ -40,7 +40,7 @@ export const services: ServiceItem[] = [
       "Automate repetitive processes and connect your business systems to improve efficiency and growth.",
     description:
       "We design and implement automation that follows how your business actually works — from lead capture and approvals to operations, reporting, and customer lifecycle workflows.",
-    heroHeadline: "Automate operations without losing control of the process.",
+    heroHeadline: "Business process automation built around your operations.",
     heroSupport:
       "UHM Tech maps your workflows, then builds reliable automation across CRM, operations, finance, and support systems — including custom logic where platforms fall short.",
     outcomes: [
@@ -75,15 +75,15 @@ export const services: ServiceItem[] = [
   {
     slug: "crm-solutions",
     name: "CRM Solutions",
-    seoTitle: "CRM Implementation & Consulting in Pakistan",
+    seoTitle: "CRM Consulting, Implementation & Automation",
     seoDescription:
-      "Plan, implement, customize, and integrate Zoho, HubSpot, Salesforce, or Odoo CRM around your sales and service workflows.",
+      "CRM consulting, implementation, customization, automation, and integration for Zoho, HubSpot, Salesforce, Odoo, or a custom CRM built for your workflows.",
     navGroup: "core",
     summary:
-      "Design, customize, integrate, and automate CRM platforms around your business processes.",
+      "CRM implementation, consulting, customization, and automation for sales, marketing, service, and operations teams.",
     description:
       "We implement CRM as an operating system for customer work — sales, marketing, service, and operations — across Zoho, HubSpot, Salesforce, Odoo, and custom CRM builds.",
-    heroHeadline: "A CRM that matches your process, not a generic pipeline.",
+    heroHeadline: "CRM implementation and automation around your sales process.",
     heroSupport:
       "From discovery and data model design to customization, integration, training, and automation, we help teams actually use the CRM they invest in.",
     outcomes: [
@@ -139,17 +139,17 @@ export const services: ServiceItem[] = [
   {
     slug: "zoho-crm",
     name: "Zoho CRM & Zoho Ecosystem",
-    seoTitle: "Zoho CRM Implementation in Pakistan",
+    seoTitle: "Zoho CRM Consultant in Lahore",
     seoDescription:
-      "Zoho CRM setup, customization, migration, automation, and integrations for teams in Pakistan, delivered around your actual sales process.",
+      "Zoho CRM consulting, setup, customization, migration, automation, and integrations in Lahore and across Pakistan, fitted to your sales process.",
     shortName: "Zoho",
     navGroup: "core",
-    summary: "Implement, customize, and automate Zoho CRM and the wider Zoho suite around your operations.",
+    summary: "Zoho CRM consulting, implementation, customization, and automation, with connected Zoho apps where they fit your operations.",
     description:
-      "Zoho can cover CRM, finance, projects, support, analytics, and custom apps. We help you use the right mix — and connect it to everything else.",
-    heroHeadline: "Make Zoho work as one connected business system.",
+      "UHM Tech helps teams plan Zoho CRM implementation, customize their sales workflows, and connect selected Zoho apps for finance, projects, support, analytics, and custom applications.",
+    heroHeadline: "Zoho CRM consulting, implementation and automation.",
     heroSupport:
-      "We implement Zoho CRM and related Zoho products with clean data models, automations, and integrations that teams can actually run day to day.",
+      "Based in Lahore and working with businesses across Pakistan, we configure Zoho CRM and related Zoho products with clear data models, maintainable automation, and practical integrations.",
     outcomes: [
       "Zoho configured around your sales and service process",
       "Connected Books, Desk, Campaigns, and custom Creator apps where needed",

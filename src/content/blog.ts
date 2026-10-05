@@ -26,13 +26,14 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "what-to-automate-first",
-    title: "What to automate first when your team is still growing",
+    title: "Business Process Automation: What to Automate First",
     description:
-      "A practical way to choose the first business processes to automate without creating fragile workflows.",
+      "A practical guide to choosing the first business processes to automate, from lead assignment to approvals, without creating fragile workflows.",
     category: "Business Automation",
     tags: ["automation", "operations", "crm"],
     author: "UHM Tech",
     publishedAt: "2026-08-12",
+    updatedAt: "2026-10-05",
     featured: true,
     content: [
       {
@@ -92,13 +93,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "crm-is-not-a-spreadsheet",
-    title: "A CRM is not a prettier spreadsheet",
+    title: "CRM Implementation: Design the Process Before the Fields",
     description:
-      "Why CRM implementations stall when the data model is copied from columns instead of from the customer journey.",
+      "A practical CRM implementation starts with customer stages, ownership, and handoffs, rather than copying spreadsheet columns into CRM fields.",
     category: "CRM",
     tags: ["crm", "implementation", "data-model"],
     author: "UHM Tech",
     publishedAt: "2026-07-21",
+    updatedAt: "2026-10-05",
     featured: true,
     content: [
       {
@@ -117,13 +119,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-choose-a-crm-platform",
-    title: "How to choose between Zoho, HubSpot, Salesforce, Odoo, or custom CRM",
+    title: "Choosing a CRM: Zoho, HubSpot, Salesforce, Odoo or Custom",
     description:
       "A decision frame based on process complexity, team size, and integration needs — not brand preference.",
     category: "CRM",
     tags: ["crm", "zoho", "hubspot", "salesforce", "odoo"],
     author: "UHM Tech",
     publishedAt: "2026-08-04",
+    updatedAt: "2026-10-05",
     featured: true,
     content: [
       {
@@ -149,13 +152,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "zoho-crm-blueprints-that-teams-use",
-    title: "Zoho CRM blueprints that teams actually follow",
+    title: "Zoho CRM Lead Assignment & Blueprint Automation",
     description:
-      "How to design Zoho blueprints, layouts, and assignment so the process is visible without becoming a maze.",
+      "A practical guide to Zoho CRM lead assignment, blueprints, layouts, and workflows that keep ownership clear without making the process hard to use.",
     category: "Zoho",
     tags: ["zoho", "crm", "automation"],
     author: "UHM Tech",
     publishedAt: "2026-07-02",
+    updatedAt: "2026-10-05",
     featured: false,
     content: [
       {
@@ -166,6 +170,8 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Start with one commercial motion",
         paragraphs: [
+          "Define what makes a lead ready for assignment, which team or owner should receive it, and what should happen when a record matches no rule. A clear fallback prevents new inquiries from sitting without an owner.",
+          "Use territory, product, or team rules only when those distinctions change who should follow up. Keep assignment criteria visible so sales managers can explain why a lead reached a particular person.",
           "Implement the primary pipeline first. Add a second blueprint only when the first has a stable owner and reporting.",
           "Pair blueprints with assignment rules and a small set of required fields. Use Zoho Creator when the work is an application, not a CRM record.",
         ],

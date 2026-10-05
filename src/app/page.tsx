@@ -50,9 +50,9 @@ export default function HomePage() {
         <div className="container-xl">
           <SectionHeader
             light
-            eyebrow="Selected work"
-            title="Projects shaped around the real operating problem"
-            description="A few examples of the systems, products, and workflows we help teams bring into focus."
+            eyebrow="Illustrative project profiles"
+            title="Solutions shaped around real operating problems"
+            description="These profiles illustrate how we approach common delivery challenges. They are examples, not claims about named client projects or measured results."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {caseStudies.slice(0, 3).map((item) => (

@@ -19,8 +19,8 @@ export default function CaseStudiesPage() {
     <>
       <PageHero
         eyebrow="Case studies"
-        title="How we structure real delivery stories"
-        description="Until clients approve public case studies, these pages show the format: challenge, solution, tech, automation, and results notes — without invented numbers."
+        title="Illustrative project profiles"
+        description="These examples explain our delivery approach. They are not published client case studies; verified client stories and measured results will be added only with permission."
         crumbs={[
           { name: "Home", href: "/" },
           { name: "Case Studies", href: "/case-studies" },

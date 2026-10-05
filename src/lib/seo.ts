@@ -5,6 +5,11 @@ import { publicSiteOrigin } from "@/lib/site-origin";
 type JsonLd = Record<string, unknown>;
 
 export function organizationJsonLd(): JsonLd {
+  const addressParts = siteConfig.address.split(",").map((part) => part.trim()).filter(Boolean);
+  const country = addressParts.at(-1)?.toLowerCase() === "pakistan" ? addressParts.pop() : undefined;
+  const locality = addressParts.length > 1 ? addressParts.pop() : addressParts[0] || "Lahore";
+  const streetAddress = addressParts.length > 0 ? addressParts.join(", ") : undefined;
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -14,8 +19,9 @@ export function organizationJsonLd(): JsonLd {
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",
-      addressLocality: siteConfig.address.split(",")[0]?.trim() || "Lahore",
-      addressCountry: siteConfig.address.toLowerCase().includes("pakistan") ? "PK" : undefined,
+      ...(streetAddress ? { streetAddress } : {}),
+      addressLocality: locality,
+      ...(country ? { addressCountry: "PK" } : {}),
     },
     telephone: siteConfig.phone || undefined,
     description: siteConfig.description,

@@ -6,7 +6,7 @@ export const siteConfig = {
     "UHM Tech helps businesses automate operations, implement CRM platforms, build software and SaaS products, integrate systems, and deliver professional customer experiences.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://uhmtech.com",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@uhmtech.com",
-  address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "Lahore, Pakistan",
+  address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "122 K Johar Town, Lahore, Pakistan",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "",
   hours: "Monday – Friday, 9:00 AM – 6:00 PM (local time)",
   social: {

@@ -38,9 +38,9 @@ export function Hero() {
         </div>
       </div>
       <div className="home-hero-bottom" aria-hidden="true">
-        <span>Automation</span>
-        <span>CRM & integrations</span>
-        <span>Custom software</span>
+        <span>CRM & business automation</span>
+        <span>Custom software & SaaS</span>
+        <span>AI & system integrations</span>
         <span>Customer operations</span>
       </div>
     </section>
