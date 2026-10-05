@@ -1,17 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /uhm-console
-Disallow: /admin-portal
-Disallow: /employee-portal
-Disallow: /api/admin
-Disallow: /api/portal
-
-User-agent: Googlebot
-Allow: /
-Disallow: /uhm-console
-Disallow: /admin-portal
-Disallow: /employee-portal
-Disallow: /api/admin
-Disallow: /api/portal
 
 Sitemap: https://uhmtech.com/sitemap.xml

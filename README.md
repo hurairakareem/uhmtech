@@ -29,20 +29,17 @@ Open [http://localhost:3000](http://localhost:3000).
 | `NEXT_PUBLIC_CONTACT_PHONE` | Public phone (optional) |
 | `NEXT_PUBLIC_CONTACT_ADDRESS` | Public address (optional) |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics (optional) |
-| `GMAIL_IMAP_USER` / `GMAIL_IMAP_PASS` | Gmail inbox for `/admin-portal/inquiries` (`infouhmtech@gmail.com` + App Password) |
 | `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` | Gmail SMTP (`smtp.gmail.com` / `usamarayan80@gmail.com` / App Password) |
 | `SMTP_FROM` | From header, e.g. `UHM Tech <usamarayan80@gmail.com>` |
 | `SMTP_SECURE` | `true` for port 465, otherwise leave `false` and use 587 |
 | `RESEND_API_KEY` | Optional alternative to SMTP (Resend) |
 | `CRM_WEBHOOK_URL` | Optional extra CRM / form webhook |
-| `ADMIN_USERNAME` / `ADMIN_PASSWORD` | Private console login (`/uhm-console`) |
-| `ADMIN_SESSION_SECRET` | Long random string used to sign the admin session cookie |
 
 Do not put API keys in client components.
 
 ## Deploy on Netlify
 
-This is a Next.js app with a contact API and staff console. Do **not** drag-and-drop a folder. Use the GitHub repo [hurairakareem/uhmtech](https://github.com/hurairakareem/uhmtech).
+This is a Next.js public website with a contact API. Do **not** drag-and-drop a folder. Use the GitHub repo [hurairakareem/uhmtech](https://github.com/hurairakareem/uhmtech).
 
 ### 1. Connect the repo
 
@@ -67,18 +64,13 @@ Scope: **All scopes**. Deploy contexts: **All**. Add each of these:
 | `NEXT_PUBLIC_SITE_URL` | `https://uhmtech.com` (or your `https://….netlify.app` URL until the domain is attached) |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | `info@uhmtech.com` |
 | `NEXT_PUBLIC_CONTACT_PHONE` | `03080007173` |
-| `NEXT_PUBLIC_CONTACT_ADDRESS` | `Lahore, Pakistan` |
+| `NEXT_PUBLIC_CONTACT_ADDRESS` | `122 K Johar Town, Lahore, Pakistan` |
 | `CONTACT_TO_EMAIL` | `info@uhmtech.com` |
 | `SMTP_HOST` | `smtp.gmail.com` |
 | `SMTP_PORT` | `587` |
 | `SMTP_SECURE` | `false` |
 | `SMTP_USER` | `usamarayan80@gmail.com` |
 | `SMTP_PASS` | Gmail App Password from local `.env.local` |
-| `GMAIL_IMAP_USER` | `infouhmtech@gmail.com` |
-| `GMAIL_IMAP_PASS` | Gmail App Password for that inbox |
-| `ADMIN_USERNAME` | `uhmadmin` |
-| `ADMIN_PASSWORD` | console password from `.env.local` |
-| `ADMIN_SESSION_SECRET` | session secret from `.env.local` |
 
 Do not commit `.env.local` to GitHub.
 
@@ -89,8 +81,6 @@ After saving, **Deploys → Trigger deploy → Deploy site**.
 **Domain management → Add custom domain → `uhmtech.com`**, then add the DNS records Netlify shows.
 
 Public site: `https://uhmtech.com`  
-Staff console: `https://uhmtech.com/uhm-console`
-
 Gmail SMTP sometimes fails from Netlify. If the form does not send, the site can still be live; sending can be switched to an HTTP email API.
 
 ## Scripts

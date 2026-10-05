@@ -5,12 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  async redirects() {
-    return [
-      { source: "/uhm-console", destination: "/admin-portal", permanent: false },
-      { source: "/uhm-console/:path*", destination: "/admin-portal/:path*", permanent: false },
-    ];
-  },
   async headers() {
     return [
       {

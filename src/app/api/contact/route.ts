@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { sanitize, validateContact, type ContactPayload } from "@/lib/contact";
 import { parseDataUrl, sendContactEmail } from "@/lib/email";
-import { saveInquiry } from "@/lib/inquiries";
 
 export const runtime = "nodejs";
 
@@ -44,12 +43,6 @@ export async function POST(request: Request) {
   }
   if (Object.keys(errors).length) {
     return NextResponse.json({ ok: false, errors, message: "Please correct the highlighted fields." }, { status: 422 });
-  }
-
-  try {
-    await saveInquiry(payload);
-  } catch (error) {
-    console.error("Inquiry store failed", error);
   }
 
   try {
