@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { getNavServices } from "@/content/services";
 import { industries } from "@/content/industries";
 import { siteConfig } from "@/content/site";
@@ -9,7 +9,6 @@ const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/technologies", label: "Tech" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -94,15 +93,9 @@ export function Footer() {
                 {siteConfig.email}
               </a>
             </p>
-            <p className="flex items-center gap-2">
-              <Phone size={16} strokeWidth={2} className="shrink-0 text-cyan" aria-hidden="true" />
-              <a href={`tel:${siteConfig.phoneHref}`} className="hover:text-white">
-                {siteConfig.phone}
-              </a>
-            </p>
           </address>
           <div className="mt-5">
-            <SocialLinks compact />
+            <SocialLinks compact hideX />
           </div>
         </div>
       </div>

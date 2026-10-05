@@ -6,8 +6,6 @@ export const siteConfig = {
     "UHM Tech helps businesses automate operations, implement CRM platforms, build software and SaaS products, integrate systems, and deliver professional customer experiences.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://uhmtech.com",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@uhmtech.com",
-  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "03080007173",
-  phoneHref: `+92${(process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "03080007173").replace(/\D/g, "").replace(/^0/, "")}`,
   address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "Lahore, Pakistan",
   hours: "Monday – Friday, 9:00 AM – 6:00 PM (local time)",
   social: {
@@ -29,6 +27,5 @@ export const navLinks = [
   { href: "/products", label: "Products" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/technologies", label: "Tech" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;

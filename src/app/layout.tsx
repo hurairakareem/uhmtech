@@ -68,8 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <style
           dangerouslySetInnerHTML={{
             __html: `
-:root{--navy:#082f6b;--ink:#102a4a;--accent:#0b63ce;--cyan:#70c7ff;--line:#d5e3f2;--muted:#60758c;--paper:#f4f8fc;--white:#fff}
-html[data-theme=dark]{--ink:#edf6ff;--line:#2e527b;--muted:#a8bdd3;--paper:#0b2145;--white:#06152f}
+:root{--navy:#082f6b;--navy-2:#0d4f9e;--ink:#102a4a;--accent:#0b63ce;--accent-2:#287fe3;--cyan:#70c7ff;--line:#d5e3f2;--muted:#60758c;--paper:#f4f8fc;--white:#fff}
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0}
 body{background:#fff;color:var(--ink);font-family:var(--font-plus-jakarta),ui-sans-serif,system-ui,sans-serif}
@@ -88,8 +87,6 @@ img{max-width:100%;height:auto}
 .menu-toggle{display:inline-flex;height:2.5rem;width:2.5rem;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:.75rem;background:var(--white);color:var(--ink)}
 .mobile-nav{display:flex;flex-direction:column;gap:.25rem;border-top:1px solid var(--line);padding:1rem 0;background:var(--white);color:var(--ink)}
 @media(min-width:1024px){.site-nav{display:flex}.menu-toggle,.mobile-nav{display:none}}
-html[data-theme=dark] .site-header{background:rgba(8,22,41,.94);border-bottom-color:#2e527b}
-html[data-theme=dark] .site-header .brand,html[data-theme=dark] .site-header .site-nav a,html[data-theme=dark] .site-header .menu-toggle{color:#edf4f1}
 .container-xl{width:min(1180px,calc(100% - 2rem));margin-inline:auto}
 .eyebrow{display:inline-flex;font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
 .btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:.85rem 1.35rem;font-weight:700;cursor:pointer}

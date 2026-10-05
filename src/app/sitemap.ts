@@ -1,5 +1,4 @@
 import { MetadataRoute } from "next";
-import { blogPosts } from "@/content/blog";
 import { caseStudies } from "@/content/caseStudies";
 import { industries } from "@/content/industries";
 import { products } from "@/content/products";
@@ -30,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/products", "monthly", 0.7),
     page("/case-studies", "monthly", 0.6),
     page("/technologies", "monthly", 0.6),
-    page("/blog", "weekly", 0.7),
     page("/contact", "monthly", 0.7),
     page("/privacy", "yearly", 0.3),
     page("/terms", "yearly", 0.3),
@@ -42,7 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...industries.map((i) => page(`/industries/${i.slug}`, "monthly", 0.6)),
     ...products.map((p) => page(`/products/${p.slug}`, "monthly", 0.6)),
     ...caseStudies.map((c) => page(`/case-studies/${c.slug}`, "monthly", 0.5)),
-    ...blogPosts.map((b) => page(`/blog/${b.slug}`, "monthly", 0.5)),
   ];
 
   return [...staticRoutes, ...detailRoutes];

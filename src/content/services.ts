@@ -545,6 +545,130 @@ export const services: ServiceItem[] = [
     related: ["software-development", "odoo", "saas-development"],
   },
   {
+    slug: "business-process-audit",
+    name: "Business Process Audit",
+    navGroup: "partner",
+    seoTitle: "Business Process Audit & Automation Assessment",
+    seoDescription:
+      "Review business processes to find bottlenecks, repetitive manual work, and practical opportunities for digitization and automation.",
+    summary:
+      "Understand how work moves through your business and identify where clearer processes or automation can help.",
+    description:
+      "UHM Tech reviews selected business processes with the people who use them, maps the steps and handoffs, and identifies delays, repeated work, data gaps, and improvement opportunities. The result is a practical view of what to address first, based on how the business operates today.",
+    heroHeadline: "Understand your process before you automate it.",
+    heroSupport:
+      "We assess the way work moves across your teams, then recommend realistic improvements to the process, tools, or automation around it.",
+    capabilities: [
+      "Process mapping and handoff review",
+      "Manual and repetitive work analysis",
+      "Bottlenecks and data gaps",
+      "Automation and digitization opportunities",
+      "Prioritized improvement roadmap",
+    ],
+    problem:
+      "As businesses grow, processes often spread across conversations, spreadsheets, forms, and software. People create workarounds, but managers may not have a clear picture of where delays or repeated tasks come from.",
+    solution:
+      "We document the selected process as it works today, identify friction with the people involved, and provide practical recommendations. The assessment can inform future automation, software changes, or simpler process updates.",
+    workflow: ["Select a process", "Map current steps", "Find friction", "Prioritize improvements"],
+    offerings: [
+      { title: "Process mapping", description: "Document the steps, roles, decisions, and handoffs in a selected workflow." },
+      { title: "Manual work review", description: "Find repeated entry, follow-ups, approvals, and tasks that rely on memory." },
+      { title: "Lead and customer journeys", description: "Review how inquiries, customer records, and service requests move between teams." },
+      { title: "Employee workflows", description: "Understand internal requests, onboarding, approvals, and team coordination." },
+      { title: "Data and reporting gaps", description: "Identify missing information, duplicate records, and reporting steps that consume time." },
+      { title: "Improvement roadmap", description: "Prioritize process changes, digitization, integrations, or automation by practical impact." },
+    ],
+    deliverables: [
+      "Current process maps for agreed workflows",
+      "Bottlenecks and manual work findings",
+      "Digitization and automation opportunities",
+      "Prioritized recommendations and next steps",
+    ],
+    benefits: [
+      "A shared understanding of how work currently gets done",
+      "A clearer basis for choosing what to improve first",
+      "Recommendations grounded in existing teams and tools",
+    ],
+    outcomes: [
+      "Clear view of the selected processes and their handoffs",
+      "Identified sources of delay, duplication, and avoidable manual work",
+      "Practical options for improving processes before investing in automation",
+    ],
+    engagement: [
+      { title: "Scope", text: "Choose the process, teams, and questions for the assessment." },
+      { title: "Understand", text: "Talk with the people involved and map the current workflow." },
+      { title: "Recommend", text: "Review bottlenecks and agree on practical improvement priorities." },
+    ],
+    ctaLabel: "Request a Business Process Assessment",
+    faqs: [
+      { q: "Do you automate the process as part of the audit?", a: "The audit first documents and assesses the process. Implementation can be scoped separately once priorities are clear." },
+      { q: "Do we need to prepare documentation?", a: "Existing process notes are useful but not required. We can map the workflow through discussions with the people who carry it out." },
+    ],
+    related: ["business-automation", "digital-operations-optimization", "technology-health-check"],
+  },
+  {
+    slug: "business-process-consulting",
+    name: "Business Process & Platform Consulting",
+    navGroup: "partner",
+    seoTitle: "Business Process, Software & Platform Consulting",
+    seoDescription:
+      "Get practical advice on business processes, software platforms, and digital forms that fit the way your teams work.",
+    summary:
+      "Get guidance on improving a business process and choosing the right platforms, forms, and tools to support it.",
+    description:
+      "UHM Tech helps businesses think through how a process should work, what information it needs, and which existing or new platforms can support it. Advice can cover digital forms, CRM and operations tools, integrations, and practical rollout steps without assuming that one platform fits every business.",
+    heroHeadline: "Choose processes and platforms that work together.",
+    heroSupport:
+      "Get practical guidance on process design, digital forms, and business software before committing to a new tool or implementation.",
+    capabilities: [
+      "Business process improvement advice",
+      "Platform and software fit assessment",
+      "Digital form and data capture planning",
+      "Integration and workflow considerations",
+      "Implementation and rollout recommendations",
+    ],
+    problem:
+      "Choosing a platform before understanding the process can lead to poor fit, unnecessary features, and forms that collect information teams cannot use. Businesses need a clear link between the work, the data, and the software.",
+    solution:
+      "We clarify the process and its requirements, compare suitable platform approaches, and outline how forms, records, integrations, and user roles should support the work. Recommendations account for tools already in use and can be implemented in phases.",
+    workflow: ["Describe the goal", "Clarify process needs", "Review platform options", "Plan a practical next step"],
+    offerings: [
+      { title: "Process consultation", description: "Discuss process rules, roles, handoffs, exceptions, and opportunities to simplify work." },
+      { title: "Platform selection guidance", description: "Compare suitable CRM, workflow, forms, and business software approaches against your requirements." },
+      { title: "Digital forms", description: "Plan forms for inquiries, internal requests, approvals, onboarding, and data collection." },
+      { title: "Data and workflow design", description: "Decide what information to collect, where it should go, and who needs to act on it." },
+      { title: "Integration planning", description: "Identify how selected platforms should connect to existing systems and reporting." },
+      { title: "Implementation roadmap", description: "Break recommendations into manageable setup, migration, training, and rollout steps." },
+    ],
+    deliverables: [
+      "Documented process and platform requirements",
+      "Platform fit and options summary",
+      "Digital form and data flow recommendations",
+      "Suggested implementation sequence",
+    ],
+    benefits: [
+      "Better alignment between business needs and software choices",
+      "Forms designed around useful data and clear next steps",
+      "A practical plan that can build on existing tools",
+    ],
+    outcomes: [
+      "A clearer view of what the process and its users require",
+      "Guidance on platforms and digital forms that fit those requirements",
+      "A staged path from recommendation to implementation",
+    ],
+    engagement: [
+      { title: "Discuss", text: "Share the business goal, current process, and tools already in use." },
+      { title: "Assess", text: "Clarify requirements, users, data, forms, and integration needs." },
+      { title: "Advise", text: "Receive options and a recommended next step based on fit and scope." },
+    ],
+    ctaLabel: "Discuss Your Process and Platforms",
+    faqs: [
+      { q: "Do you only recommend platforms you implement?", a: "Recommendations focus on fit with your requirements and current systems. If implementation is needed, we can discuss the available options and scope." },
+      { q: "Can you help us improve a process without changing platforms?", a: "Yes. Advice may lead to process changes, better use of existing tools, digital forms, integrations, or a platform change where needed." },
+    ],
+    related: ["business-process-audit", "business-system-integration", "technology-health-check"],
+  },
+  {
     slug: "technology-health-check",
     name: "Technology Health Check",
     navGroup: "partner",
@@ -960,12 +1084,25 @@ export const primaryServiceSlugs = [
 ] as const;
 
 export const partnerServiceSlugs = [
+  "business-process-audit",
+  "business-process-consulting",
   "technology-health-check",
   "business-system-integration",
   "custom-internal-tools",
   "business-intelligence-dashboards",
   "managed-technology-support",
   "digital-operations-optimization",
+] as const;
+
+const navServiceGroups = [
+  {
+    title: "Core Services",
+    slugs: primaryServiceSlugs,
+  },
+  {
+    title: "Specialist Services",
+    slugs: partnerServiceSlugs,
+  },
 ] as const;
 
 export function getService(slug: string) {
@@ -986,4 +1123,20 @@ export function getPartnerServices() {
 
 export function getNavServices() {
   return getPrimaryServices();
+}
+
+export function getNavServiceGroups() {
+  return navServiceGroups.map(({ title, slugs }) => ({
+    title,
+    links: slugs
+      .map((slug) => getService(slug))
+      .filter((service): service is ServiceItem => Boolean(service))
+      .map((service) => ({
+        href: `/services/${service.slug}`,
+        label:
+          service.slug === "call-center-services"
+            ? "Call Center Services"
+            : service.shortName ?? service.name,
+      })),
+  }));
 }

@@ -2,36 +2,97 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { BrandLink } from "@/components/Brand";
-import { ServiceMark } from "@/components/ServiceCard";
-import { getNavServices, getPartnerServices } from "@/content/services";
+import { getNavServiceGroups } from "@/content/services";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services", mega: true },
-  { href: "/solutions", label: "Solutions" },
-  { href: "/industries", label: "Industries" },
-  { href: "/products", label: "Products" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/technologies", label: "Tech" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+const resources = [
+  { href: "/case-studies", label: "Case studies" },
+  { href: "/blog", label: "Insights" },
+  { href: "/technologies", label: "Technology partners" },
 ];
 
-export function Navbar() {
+const companyLinks = [
+  { href: "/industries", label: "Industries we serve" },
+];
+
+function NavGroup({
+  label,
+  href,
+  links,
+  groups,
+  onNavigate,
+}: {
+  label: string;
+  href?: string;
+  links: { href: string; label: string }[];
+  groups?: { title: string; links: { href: string; label: string }[] }[];
+  onNavigate?: () => void;
+}) {
+  const hasGroups = Boolean(groups?.length);
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  const closeDropdown = () => {
+    if (detailsRef.current) {
+      detailsRef.current.open = false;
+    }
+    onNavigate?.();
+  };
+
+  return (
+    <details
+      ref={detailsRef}
+      className={`nav-group${hasGroups ? " nav-group-services" : ""}`}
+      onMouseLeave={(event) => {
+        event.currentTarget.open = false;
+      }}
+    >
+      <summary>
+        {label}
+        <ChevronDown size={14} aria-hidden="true" />
+      </summary>
+      <div className={`nav-group-menu${hasGroups ? " nav-group-menu-services" : ""}`}>
+        {href ? (
+          <Link className="nav-group-all" href={href} onClick={closeDropdown}>
+            View all {label.toLowerCase()}
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
+        ) : null}
+        {groups?.length ? (
+          <div className="nav-service-groups">
+            {groups.map((group) => (
+              <section className="nav-service-group" key={group.title}>
+                <h2>{group.title}</h2>
+                <div className="nav-service-links">
+                  {group.links.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={closeDropdown}>
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          links.map((link) => (
+            <Link key={link.href} href={link.href} onClick={closeDropdown}>
+              {link.label}
+            </Link>
+          ))
+        )}
+      </div>
+    </details>
+  );
+}
+
+export function Navbar({ overlay = false }: { overlay?: boolean }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [mega, setMega] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const services = getNavServices();
-  const partnerServices = getPartnerServices();
+  const serviceGroups = getNavServiceGroups();
 
   useEffect(() => {
     setOpen(false);
-    setMega(false);
-    setMobileServicesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -41,135 +102,68 @@ export function Navbar() {
     };
   }, [open]);
 
+  const closeMobileMenu = () => setOpen(false);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${overlay ? " site-header-hero" : ""}`}>
       <a href="#main" className="skip-link">
         Skip to content
       </a>
       <div className="container-xl site-header-inner">
-        <BrandLink className="mr-8" />
+        <BrandLink className="site-header-brand" />
 
         <nav className="site-nav" aria-label="Primary">
-          {links.map((link) =>
-            link.mega ? (
-              <div
-                key={link.href}
-                className="relative"
-                onMouseEnter={() => setMega(true)}
-                onMouseLeave={() => setMega(false)}
-              >
-                <Link
-                  href={link.href}
-                  className={`rounded-full px-3 py-2 text-sm font-semibold ${
-                    pathname.startsWith("/services") ? "text-accent" : "text-ink/80 hover:text-accent"
-                  }`}
-                  aria-expanded={mega}
-                  aria-haspopup="true"
-                >
-                  Services
-                </Link>
-                {mega ? (
-                  <div className="absolute left-1/2 top-full z-50 w-[720px] -translate-x-1/3 pt-3">
-                    <div className="mega-panel grid grid-cols-2 gap-2 rounded-2xl border border-line p-4 shadow-2xl">
-                      {services.map((s) => (
-                        <Link
-                          key={s.slug}
-                          href={`/services/${s.slug}`}
-                          className="flex items-center gap-3 rounded-xl p-3 hover:bg-paper"
-                        >
-                          <ServiceMark slug={s.slug} name={s.shortName ?? s.name} />
-                          <span className="text-sm font-bold">{s.shortName ?? s.name}</span>
-                        </Link>
-                      ))}
-                      <p className="col-span-2 mt-2 px-3 text-xs font-bold uppercase tracking-[0.16em] text-muted">
-                        Technology partnership
-                      </p>
-                      {partnerServices.map((s) => (
-                        <Link
-                          key={s.slug}
-                          href={`/services/${s.slug}`}
-                          className="flex items-center gap-3 rounded-xl p-3 hover:bg-paper"
-                        >
-                          <ServiceMark slug={s.slug} name={s.shortName ?? s.name} />
-                          <span className="text-sm font-bold">{s.shortName ?? s.name}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold ${
-                  pathname === link.href ? "text-accent" : "text-ink/80 hover:text-accent"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ),
-          )}
+          <Link href="/" aria-current={pathname === "/" ? "page" : undefined}>
+            Home
+          </Link>
+          <Link href="/about" aria-current={pathname.startsWith("/about") ? "page" : undefined}>
+            About
+          </Link>
+          <NavGroup label="Services" href="/services" links={[]} groups={serviceGroups} />
+          <Link href="/solutions" aria-current={pathname.startsWith("/solutions") ? "page" : undefined}>
+            Solutions
+          </Link>
+          <Link href="/products" aria-current={pathname.startsWith("/products") ? "page" : undefined}>
+            Products
+          </Link>
+          <NavGroup label="Resources" links={resources} />
+          <NavGroup label="Company" links={companyLinks} />
         </nav>
 
         <div className="header-actions">
+          <Link href="/contact" className="btn btn-primary header-contact">
+            Contact us <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
           <button
             type="button"
             className="menu-toggle lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen((value) => !value)}
           >
-            <span aria-hidden="true">{open ? "✕" : "☰"}</span>
+            {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
       {open ? (
-        <div className="mobile-menu border-t border-line lg:hidden">
+        <div id="mobile-navigation" className="mobile-menu border-t border-line lg:hidden">
           <nav className="container-xl mobile-nav lg:hidden" aria-label="Mobile">
-            {links.map((link) =>
-              link.mega ? (
-                <div key={link.href} className="rounded-xl">
-                  <Link
-                    href={link.href}
-                    className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left font-semibold text-ink"
-                    aria-expanded={mobileServicesOpen}
-                    aria-controls="mobile-services-menu"
-                    onClick={(event) => {
-                      if (window.innerWidth < 1024) {
-                        event.preventDefault();
-                        setMobileServicesOpen((value) => !value);
-                      }
-                    }}
-                  >
-                    <span>{link.label}</span>
-                  </Link>
-
-                  {mobileServicesOpen ? (
-                    <div id="mobile-services-menu" className="mt-1 space-y-1 pl-3">
-                      {services.map((s) => (
-                        <Link key={s.slug} href={`/services/${s.slug}`} className="block rounded-xl px-3 py-2 text-sm">
-                          {s.shortName ?? s.name}
-                        </Link>
-                      ))}
-                      <p className="px-3 pt-2 text-xs font-bold uppercase tracking-[0.16em] text-muted">Partnership</p>
-                      {partnerServices.map((s) => (
-                        <Link key={s.slug} href={`/services/${s.slug}`} className="block rounded-xl px-3 py-2 text-sm">
-                          {s.shortName ?? s.name}
-                        </Link>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              ) : (
-                <Link key={link.href} href={link.href} className="rounded-xl px-3 py-2 font-semibold">
-                  {link.label}
-                </Link>
-              ),
-            )}
-
+            <Link href="/" aria-current={pathname === "/" ? "page" : undefined} onClick={closeMobileMenu}>
+              Home
+            </Link>
+            <Link href="/about" aria-current={pathname.startsWith("/about") ? "page" : undefined} onClick={closeMobileMenu}>
+              About
+            </Link>
+            <NavGroup label="Services" href="/services" links={[]} groups={serviceGroups} onNavigate={closeMobileMenu} />
+            <Link href="/solutions" onClick={closeMobileMenu}>Solutions</Link>
+            <Link href="/products" onClick={closeMobileMenu}>Products</Link>
+            <NavGroup label="Resources" links={resources} onNavigate={closeMobileMenu} />
+            <NavGroup label="Company" links={companyLinks} onNavigate={closeMobileMenu} />
+            <Link href="/contact" className="btn btn-primary mobile-contact" onClick={closeMobileMenu}>
+              Contact us <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
           </nav>
         </div>
       ) : null}

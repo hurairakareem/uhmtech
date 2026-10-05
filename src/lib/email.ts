@@ -42,8 +42,6 @@ function brandEmailSignature() {
             <a href="mailto:${escapeHtml(siteConfig.email)}" style="${linkStyle()}">${escapeHtml(siteConfig.email)}</a><br />
             ${escapeHtml(siteConfig.address)}<br />
             <a href="${PUBLIC_SITE_URL}" style="${linkStyle()}">${escapeHtml(web)}</a>
-            &nbsp;·&nbsp;
-            <a href="${escapeHtml(siteConfig.social.linkedin)}" style="${linkStyle()}">LinkedIn</a>
           </p>
         </td>
       </tr>
@@ -59,7 +57,6 @@ function brandEmailSignatureText() {
     `Email: ${siteConfig.email}`,
     siteConfig.address,
     PUBLIC_SITE_URL,
-    `LinkedIn: ${siteConfig.social.linkedin}`,
   ].join("\n");
 }
 

@@ -23,7 +23,7 @@ const LOGO_FILES: Record<string, string> = {
   stripe: "/tech/stripe.svg",
   twilio: "/tech/twilio.svg",
   "whatsapp-api": "/tech/whatsapp-api.svg",
-  "zoho-flow": "/tech/zoho-flow.svg",
+  "zoho-flow": "/tech/zoho.svg",
   make: "/tech/make.svg",
   n8n: "/tech/n8n.svg",
 };

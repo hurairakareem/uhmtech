@@ -1,88 +1,48 @@
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Cta } from "@/components/Cta";
-import { TechLogo } from "@/components/TechLogo";
+import { HeroServiceVisual } from "@/components/HeroServiceVisual";
+
+const serviceShortcuts = [
+  { href: "/services/business-automation", label: "Automate operations" },
+  { href: "/services/crm-solutions", label: "Connect your CRM" },
+  { href: "/services/software-development", label: "Build custom software" },
+];
 
 export function Hero() {
   return (
-    <section className="hero relative overflow-hidden">
-      <div className="surface-grid pointer-events-none absolute inset-0 opacity-30" />
-      <div className="container-xl hero-grid relative items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
-        <div className="rise">
-          <div className="hero-rule" aria-hidden="true" />
-          <p className="eyebrow mt-6">UHM Tech</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight md:text-5xl lg:text-6xl">
-            We Build Technology, Automate Businesses & Generate Growth.
-          </h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-muted md:text-lg">
-            We design the automation, software, CRM, and customer operations behind modern companies. Practical strategy, careful engineering, and systems built to keep moving.
+    <section className="hero home-hero relative overflow-hidden">
+      <HeroServiceVisual />
+      <div className="container-xl home-hero-content relative">
+        <div className="home-hero-copy">
+          <p className="home-hero-eyebrow">UHM Tech <span>·</span> Systems that work together</p>
+          <h1>Technology that moves your business forward.</h1>
+          <p className="home-hero-description">
+            We connect your tools, automate the busywork, and build software around the way your team actually works.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Cta href="/contact">Start a Project</Cta>
-            <Cta href="/case-studies" variant="secondary">
-              View Selected Work
+          <div className="home-hero-actions">
+            <Cta href="/contact" className="home-hero-primary">
+              Start A Project <ArrowUpRight size={17} aria-hidden="true" />
             </Cta>
+            <Link href="/services" className="home-hero-secondary">
+              Explore services <ArrowRight size={17} aria-hidden="true" />
+            </Link>
           </div>
-          <p className="mt-8 text-sm font-semibold text-ink/60">
-            Automation <span className="mx-2 text-accent">/</span> CRM <span className="mx-2 text-accent">/</span> Product engineering <span className="mx-2 text-accent">/</span> AI
-          </p>
+          <nav className="home-hero-shortcuts" aria-label="Popular services">
+            {serviceShortcuts.map((service) => (
+              <Link key={service.href} href={service.href}>
+                {service.label}
+              </Link>
+            ))}
+          </nav>
         </div>
-        <HeroVisual />
+      </div>
+      <div className="home-hero-bottom" aria-hidden="true">
+        <span>Automation</span>
+        <span>CRM & integrations</span>
+        <span>Custom software</span>
+        <span>Customer operations</span>
       </div>
     </section>
-  );
-}
-
-const capabilities = [
-  { label: "Automation", detail: "Workflows & handoffs" },
-  { label: "CRM", detail: "Zoho · HubSpot · Salesforce" },
-  { label: "Software", detail: "Web, mobile & SaaS" },
-  { label: "Support", detail: "Call, chat & email" },
-];
-
-const flow = [
-  "A customer inquiry arrives from the website, phone, or chat.",
-  "It is captured in CRM and assigned to the right owner.",
-  "Automation updates the record, notifies the team, and starts the next step.",
-];
-
-function HeroVisual() {
-  return (
-    <div className="hero-visual relative" aria-hidden="true">
-      <div className="border border-ink/10 bg-white p-3 shadow-xl sm:p-4">
-        <div className="bg-navy p-5 text-white sm:p-7">
-          <div className="flex items-center justify-between border-b border-white/15 pb-4">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan">UHM / Operating view</p>
-            <span className="h-2 w-2 rounded-full bg-cyan" />
-          </div>
-          <p className="mt-6 text-2xl font-extrabold tracking-tight">One connected picture of the work.</p>
-          <p className="mt-3 text-sm leading-6 text-white/65">The right systems remove friction between people, process, and the customer.</p>
-          <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3">
-            {capabilities.map((item) => (
-              <div key={item.label} className="border border-white/10 bg-white/5 px-3 py-3">
-                <p className="text-sm font-bold">{item.label}</p>
-                {item.label === "CRM" ? (
-                  <div className="mt-2 flex items-center gap-1.5">
-                    <TechLogo slug="zoho" name="Zoho" size={18} compact />
-                    <TechLogo slug="hubspot" name="HubSpot" size={18} compact />
-                    <TechLogo slug="salesforce" name="Salesforce" size={18} compact />
-                  </div>
-                ) : (
-                  <p className="mt-1 text-xs leading-5 text-white/55">{item.detail}</p>
-                )}
-              </div>
-            ))}
-          </div>
-          <ol className="mt-5 space-y-2">
-            {flow.map((row, i) => (
-              <li key={row} className="flex gap-3 border-b border-white/10 px-1 py-2.5 last:border-0">
-                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/25 text-[11px] font-bold text-cyan">
-                  {i + 1}
-                </span>
-                <span className="text-sm leading-5 text-white/85">{row}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
-    </div>
   );
 }

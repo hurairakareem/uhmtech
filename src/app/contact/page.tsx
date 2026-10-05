@@ -45,14 +45,6 @@ export default async function ContactPage({
                 {siteConfig.email}
               </a>
             </p>
-            {siteConfig.phone ? (
-              <p className="mt-2 text-sm">
-                Phone:{" "}
-                <a className="text-accent" href={`tel:${siteConfig.phoneHref}`}>
-                  {siteConfig.phone}
-                </a>
-              </p>
-            ) : null}
             {siteConfig.address ? <p className="mt-2 text-sm">{siteConfig.address}</p> : null}
           </div>
           <div className="card px-7 py-8">

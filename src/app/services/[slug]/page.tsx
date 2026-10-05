@@ -216,7 +216,7 @@ export default async function ServicePage({ params }: Props) {
           href: service.ctaLabel ? "/contact?service=Book%20a%20Technology%20Consultation" : "/contact",
           label: service.ctaLabel ? "Book a Technology Consultation" : "Start a Project",
         }}
-        secondary={{ href: contactHref, label: service.ctaLabel ?? "Request a Quote" }}
+        secondary={service.ctaLabel ? { href: contactHref, label: service.ctaLabel } : undefined}
       />
     </>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
@@ -14,11 +13,10 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <Navbar />
-      <Link href="/contact" className="btn btn-primary sticky-project-button">
-        Start a Project
-      </Link>
-      <main id="main">{children}</main>
+      <div className="public-page-shell">
+        <Navbar overlay />
+        <main id="main">{children}</main>
+      </div>
       <Footer />
       <Analytics />
     </>

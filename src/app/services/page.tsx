@@ -50,7 +50,7 @@ export default function ServicesPage() {
       <CTASection
         title="Start your digital transformation"
         text="If you are not sure which service fits, tell us the outcome you need. We will map it to automation, software, or customer operations."
-        primary={{ href: "/contact", label: "Request a Quote" }}
+        primary={{ href: "/contact", label: "Start a Project" }}
       />
     </>
   );

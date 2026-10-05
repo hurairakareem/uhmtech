@@ -11,7 +11,6 @@ export function organizationJsonLd(): JsonLd {
     url: siteConfig.url,
     logo: absoluteUrl("/brand/New_logo.png"),
     email: siteConfig.email,
-    telephone: siteConfig.phoneHref,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address,

@@ -129,7 +129,7 @@ export function CaseStudyCard({ item }: { item: CaseStudy }) {
 export function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link href={`/blog/${post.slug}`} className="card block overflow-hidden">
-      <div className="h-28 bg-[linear-gradient(120deg,#0b1f45,#1a6dff)]" aria-hidden="true" />
+      <div className="h-28 bg-[linear-gradient(120deg,var(--navy),var(--accent-2))]" aria-hidden="true" />
       <div className="px-7 py-7">
         <p className="text-xs font-bold uppercase tracking-widest text-accent">{post.category}</p>
         <h3 className="mt-3 text-lg font-bold leading-snug">{post.title}</h3>

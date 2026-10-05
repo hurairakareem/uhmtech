@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export function PageHero({
@@ -12,9 +13,16 @@ export function PageHero({
   crumbs: { name: string; href: string }[];
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-line bg-paper">
-      <div className="circuit pointer-events-none absolute inset-0 opacity-50" />
-      <div className="container-xl relative py-14 md:py-20">
+    <section className="page-hero relative overflow-hidden">
+      <Image
+        src="/brand/hero-ai-services.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="page-hero-image"
+      />
+      <div className="page-hero-shade" aria-hidden="true" />
+      <div className="container-xl page-hero-content relative">
         <Breadcrumbs items={crumbs} />
         {eyebrow ? <p className="eyebrow mt-6">{eyebrow}</p> : null}
         <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">{title}</h1>

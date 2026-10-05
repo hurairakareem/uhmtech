@@ -28,7 +28,7 @@ export function ServiceCard({ service }: { service: ServiceItem }) {
       </div>
       <p className="mt-5 text-sm leading-7 text-muted">{service.summary}</p>
       {capabilities.length ? (
-        <ul className="mt-5 space-y-2 text-sm leading-6 text-ink/80">
+        <ul className="service-capabilities mt-5 space-y-2 text-sm leading-6 text-ink/80">
           {capabilities.map((item) => (
             <li key={item} className="flex gap-2">
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />

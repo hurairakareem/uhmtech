@@ -46,10 +46,10 @@ export const socialLinks: SocialIcon[] = [
   },
 ];
 
-export function SocialLinks({ compact = false }: { compact?: boolean }) {
+export function SocialLinks({ compact = false, hideX = false }: { compact?: boolean; hideX?: boolean }) {
   return (
     <ul className={`social-links${compact ? " social-links-compact" : ""}`}>
-      {socialLinks.map((item) => (
+      {socialLinks.filter((item) => !hideX || item.name !== "X").map((item) => (
         <li key={item.name}>
           <a
             href={item.href}
