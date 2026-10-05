@@ -3,35 +3,31 @@ import { TechLogo } from "@/components/TechLogo";
 
 export function Hero() {
   return (
-
-    <>
-     <h1> Hello word</h1> 
-    </>
-    // <section className="hero relative overflow-hidden">
-    //   <div className="surface-grid pointer-events-none absolute inset-0 opacity-30" />
-    //   <div className="container-xl hero-grid relative items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
-    //     <div className="rise">
-    //       <div className="hero-rule" aria-hidden="true" />
-    //       <p className="eyebrow mt-6">UHM Tech</p>
-    //       <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight md:text-5xl lg:text-6xl">
-    //         We Build Technology, Automate Businesses & Generate Growth.
-    //       </h1>
-    //       <p className="mt-6 max-w-xl text-base leading-7 text-muted md:text-lg">
-    //         We design the automation, software, CRM, and customer operations behind modern companies. Practical strategy, careful engineering, and systems built to keep moving.
-    //       </p>
-    //       <div className="mt-8 flex flex-wrap gap-3">
-    //         <Cta href="/contact">Start a Project</Cta>
-    //         <Cta href="/case-studies" variant="secondary">
-    //           View Selected Work
-    //         </Cta>
-    //       </div>
-    //       <p className="mt-8 text-sm font-semibold text-ink/60">
-    //         Automation <span className="mx-2 text-accent">/</span> CRM <span className="mx-2 text-accent">/</span> Product engineering <span className="mx-2 text-accent">/</span> AI
-    //       </p>
-    //     </div>
-    //     <HeroVisual />
-    //   </div>
-    // </section>
+    <section className="hero relative overflow-hidden">
+      <div className="surface-grid pointer-events-none absolute inset-0 opacity-30" />
+      <div className="container-xl hero-grid relative items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+        <div className="rise">
+          <div className="hero-rule" aria-hidden="true" />
+          <p className="eyebrow mt-6">UHM Tech</p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight md:text-5xl lg:text-6xl">
+            We Build Technology, Automate Businesses & Generate Growth.
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-7 text-muted md:text-lg">
+            We design the automation, software, CRM, and customer operations behind modern companies. Practical strategy, careful engineering, and systems built to keep moving.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Cta href="/contact">Start a Project</Cta>
+            <Cta href="/case-studies" variant="secondary">
+              View Selected Work
+            </Cta>
+          </div>
+          <p className="mt-8 text-sm font-semibold text-ink/60">
+            Automation <span className="mx-2 text-accent">/</span> CRM <span className="mx-2 text-accent">/</span> Product engineering <span className="mx-2 text-accent">/</span> AI
+          </p>
+        </div>
+        <HeroVisual />
+      </div>
+    </section>
   );
 }
 
