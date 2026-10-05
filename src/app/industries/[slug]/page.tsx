@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props) {
   const industry = getIndustry(slug);
   if (!industry) return {};
   return createMetadata({
-    title: `${industry.name} technology solutions`,
+    title: `${industry.name} Software & Automation in Pakistan`,
     description: industry.summary,
     path: `/industries/${industry.slug}`,
   });

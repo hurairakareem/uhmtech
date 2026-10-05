@@ -4,12 +4,15 @@ import { PageHero } from "@/components/PageHero";
 import { products } from "@/content/products";
 import { createMetadata } from "@/lib/metadata";
 
-export const metadata = createMetadata({
-  title: "Business Software & Automation Products",
-  description:
-    "UHM Tech product lines for operations, CRM, support, automation, and AI — structured so new products can be added over time.",
-  path: "/products",
-});
+export const metadata = {
+  ...createMetadata({
+    title: "Business Software & Automation Products",
+    description:
+      "UHM Tech product lines for operations, CRM, support, automation, and AI — structured so new products can be added over time.",
+    path: "/products",
+  }),
+  robots: { index: false, follow: true },
+};
 
 export default function ProductsPage() {
   return (

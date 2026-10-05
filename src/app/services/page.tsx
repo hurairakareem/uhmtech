@@ -6,9 +6,9 @@ import { getPartnerServices, getPrimaryServices, services } from "@/content/serv
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Technology, Automation & CRM Services",
+  title: "CRM, Automation & Software Services in Pakistan",
   description:
-    "UHM Tech services: automation, CRM, software, SaaS, plus technology health checks, system integration, internal tools, dashboards, managed support, and operations improvement.",
+    "Explore CRM implementation, business process automation, custom software development, system integration, and technology consulting from UHM Tech in Lahore, Pakistan.",
   path: "/services",
 });
 

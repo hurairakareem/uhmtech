@@ -12,7 +12,7 @@ import { resolveTech } from "@/content/technologies";
 import { getService, serviceContactHref, services } from "@/content/services";
 import { createMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/utils";
-import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo";
 
 function OfferingIcon({ title }: { title: string }) {
   const commonProps = {
@@ -116,7 +116,6 @@ export default async function ServicePage({ params }: Props) {
           url: absoluteUrl(`/services/${service.slug}`),
         })}
       />
-      <JsonLd data={faqJsonLd(service.faqs)} />
       <PageHero
         eyebrow="Service"
         title={service.heroHeadline}

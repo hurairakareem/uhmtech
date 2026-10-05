@@ -8,15 +8,12 @@ import { ServiceGrid } from "@/components/ServiceCard";
 import { CaseStudyCard, ProductCard } from "@/components/Cards";
 import { caseStudies } from "@/content/caseStudies";
 import { whyChoose } from "@/content/company";
-import { faqs } from "@/content/faqs";
 import { products } from "@/content/products";
 import { getPartnerServices, getPrimaryServices } from "@/content/services";
-import { faqJsonLd } from "@/lib/seo";
 
 export default function HomePage() {
   return (
     <>
-      <JsonLd data={faqJsonLd(faqs)} />
       <Hero />
       <LogoCloud />
       <section className="border-b border-line bg-white">
@@ -31,8 +28,8 @@ export default function HomePage() {
       <section className="container-xl py-20 md:py-28">
         <SectionHeader
           eyebrow="What we do"
-          title="A clear route from friction to forward motion"
-          description="We bring strategy, systems, and engineering into one accountable engagement, so the technology supports the way your team actually works."
+          title="CRM, automation and software that fit your business"
+          description="From CRM implementation and business process automation to custom software and system integration, we connect the tools and workflows your team relies on."
         />
         <div className="mt-12">
           <ServiceGrid services={getPrimaryServices()} />
@@ -40,8 +37,8 @@ export default function HomePage() {
         <div className="mt-20">
           <SectionHeader
             eyebrow="Technology partnership"
-            title="Help for the systems you already run"
-            description="Audit, integrate, build internal tools, surface operations in dashboards, and keep technology working after launch."
+            title="Improve the systems you already run"
+            description="Review your current technology, integrate disconnected business systems, build internal tools and dashboards, and support your team after launch."
           />
           <div className="mt-12">
             <ServiceGrid services={getPartnerServices()} />

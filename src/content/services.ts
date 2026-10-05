@@ -32,6 +32,9 @@ export const services: ServiceItem[] = [
   {
     slug: "business-automation",
     name: "Business Automation",
+    seoTitle: "Business Process Automation in Pakistan",
+    seoDescription:
+      "Automate approvals, sales follow-ups, customer support, and daily operations. UHM Tech connects your workflows and business systems across Pakistan.",
     navGroup: "core",
     summary:
       "Automate repetitive processes and connect your business systems to improve efficiency and growth.",
@@ -72,6 +75,9 @@ export const services: ServiceItem[] = [
   {
     slug: "crm-solutions",
     name: "CRM Solutions",
+    seoTitle: "CRM Implementation & Consulting in Pakistan",
+    seoDescription:
+      "Plan, implement, customize, and integrate Zoho, HubSpot, Salesforce, or Odoo CRM around your sales and service workflows.",
     navGroup: "core",
     summary:
       "Design, customize, integrate, and automate CRM platforms around your business processes.",
@@ -133,6 +139,9 @@ export const services: ServiceItem[] = [
   {
     slug: "zoho-crm",
     name: "Zoho CRM & Zoho Ecosystem",
+    seoTitle: "Zoho CRM Implementation in Pakistan",
+    seoDescription:
+      "Zoho CRM setup, customization, migration, automation, and integrations for teams in Pakistan, delivered around your actual sales process.",
     shortName: "Zoho",
     navGroup: "core",
     summary: "Implement, customize, and automate Zoho CRM and the wider Zoho suite around your operations.",
@@ -165,6 +174,9 @@ export const services: ServiceItem[] = [
   {
     slug: "hubspot",
     name: "HubSpot Implementation",
+    seoTitle: "HubSpot CRM Implementation in Pakistan",
+    seoDescription:
+      "Configure HubSpot CRM, Sales Hub, Marketing Hub, and Service Hub with clean lifecycle stages, practical automation, and reliable reporting.",
     shortName: "HubSpot",
     navGroup: "core",
     summary: "HubSpot CRM, Sales Hub, Marketing Hub, and Service Hub implementation with practical automation.",
@@ -193,6 +205,9 @@ export const services: ServiceItem[] = [
   {
     slug: "salesforce",
     name: "Salesforce Solutions",
+    seoTitle: "Salesforce CRM Consulting in Pakistan",
+    seoDescription:
+      "Salesforce CRM configuration, customization, automation, integration, and reporting aligned to how your teams sell and support customers.",
     shortName: "Salesforce",
     navGroup: "core",
     summary: "Salesforce CRM customization, automation, reporting, and integrations for growing operations.",
@@ -221,6 +236,9 @@ export const services: ServiceItem[] = [
   {
     slug: "odoo",
     name: "Odoo Implementation",
+    seoTitle: "Odoo ERP & CRM Implementation in Pakistan",
+    seoDescription:
+      "Implement and customize Odoo CRM, sales, accounting, inventory, and operations with connected workflows for your business.",
     shortName: "Odoo",
     navGroup: "core",
     summary: "Odoo CRM, sales, accounting, inventory, HR, projects, and custom modules — implemented as one system.",
@@ -249,6 +267,9 @@ export const services: ServiceItem[] = [
   {
     slug: "software-development",
     name: "Software Development",
+    seoTitle: "Custom Software Development in Lahore",
+    seoDescription:
+      "Plan and build custom web applications, internal tools, and business software in Lahore, with maintainable architecture and integrations.",
     navGroup: "build",
     summary:
       "Build scalable web applications, mobile apps, SaaS products, and enterprise systems.",
@@ -283,6 +304,9 @@ export const services: ServiceItem[] = [
   {
     slug: "saas-development",
     name: "SaaS Development",
+    seoTitle: "SaaS Product Development in Pakistan",
+    seoDescription:
+      "Build SaaS products from MVP to launch with clear user workflows, secure architecture, and a practical path to future growth.",
     navGroup: "build",
     summary: "Design, build, and scale multi-tenant SaaS products, portals, and subscription platforms.",
     description:
@@ -399,7 +423,10 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "call-center-services",
-    name: "Services Provider",
+    name: "Call Center Services",
+    seoTitle: "Call Center & Customer Support Services",
+    seoDescription:
+      "Inbound and outbound call support, appointment setting, quality monitoring, and CRM-connected customer service for growing teams.",
     navGroup: "experience",
     summary:
       "Deliver reliable customer support and sales operations through professional call center solutions.",

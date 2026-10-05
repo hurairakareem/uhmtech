@@ -5,9 +5,9 @@ import { siteConfig } from "@/content/site";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Contact Us for Technology Solutions",
+  title: "Contact a CRM & Software Company in Lahore",
   description:
-    "Contact UHM Tech to discuss automation, CRM, software, SaaS, integrations, technology audits, or customer experience operations.",
+    "Talk to UHM Tech in Lahore, Pakistan about CRM implementation, business automation, system integration, custom software, or SaaS development.",
   path: "/contact",
 });
 

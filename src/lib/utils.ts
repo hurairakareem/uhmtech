@@ -1,7 +1,7 @@
-import { siteConfig } from "@/content/site";
+import { publicSiteOrigin } from "@/lib/site-origin";
 
 export function absoluteUrl(path = "/") {
-  const base = siteConfig.url.replace(/\/$/, "");
+  const base = publicSiteOrigin().replace(/\/$/, "");
   const p = path.startsWith("/") ? path : `/${path}`;
   return `${base}${p === "/" ? "" : p}` || base;
 }

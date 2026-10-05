@@ -71,9 +71,9 @@ function PrincipleIcon({ title }: { title: string }) {
 }
 
 export const metadata = createMetadata({
-  title: "About Our Digital Transformation Partnership",
+  title: "Technology Company in Lahore",
   description:
-    "UHM Tech is a technology and digital transformation partner for automation, CRM, software, SaaS, integrations, and customer experience operations.",
+    "Meet UHM Tech, a Lahore-based technology partner helping businesses across Pakistan with CRM implementation, automation, integrations, and custom software.",
   path: "/about",
 });
 

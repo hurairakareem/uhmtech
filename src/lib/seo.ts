@@ -1,5 +1,6 @@
 import { siteConfig } from "@/content/site";
 import { absoluteUrl } from "@/lib/utils";
+import { publicSiteOrigin } from "@/lib/site-origin";
 
 type JsonLd = Record<string, unknown>;
 
@@ -8,24 +9,25 @@ export function organizationJsonLd(): JsonLd {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteConfig.name,
-    url: siteConfig.url,
+    url: publicSiteOrigin(),
     logo: absoluteUrl("/brand/New_logo.png"),
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: siteConfig.address,
+      addressLocality: siteConfig.address.split(",")[0]?.trim() || "Lahore",
+      addressCountry: siteConfig.address.toLowerCase().includes("pakistan") ? "PK" : undefined,
     },
+    telephone: siteConfig.phone || undefined,
     description: siteConfig.description,
     sameAs: Object.values(siteConfig.social).filter(Boolean),
   };
 }
-
 export function websiteJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
-    url: siteConfig.url,
+    url: publicSiteOrigin(),
     publisher: { "@type": "Organization", name: siteConfig.name },
   };
 }
@@ -76,17 +78,5 @@ export function articleJsonLd(input: {
     author: { "@type": "Organization", name: siteConfig.name },
     publisher: { "@type": "Organization", name: siteConfig.name },
     mainEntityOfPage: input.url,
-  };
-}
-
-export function faqJsonLd(faqs: { q: string; a: string }[]): JsonLd {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
   };
 }

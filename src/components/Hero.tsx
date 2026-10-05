@@ -16,9 +16,9 @@ export function Hero() {
       <div className="container-xl home-hero-content relative">
         <div className="home-hero-copy">
           <p className="home-hero-eyebrow">UHM Tech <span>·</span> Systems that work together</p>
-          <h1>Technology that moves your business forward.</h1>
+          <h1>CRM, automation and software for the way you work.</h1>
           <p className="home-hero-description">
-            We connect your tools, automate the busywork, and build software around the way your team actually works.
+            Based in Lahore, Pakistan, UHM Tech connects business systems, automates manual processes, and builds custom software around the way your team works.
           </p>
           <div className="home-hero-actions">
             <Cta href="/contact" className="home-hero-primary">

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { SiteChrome } from "@/components/SiteChrome";
 import { siteConfig } from "@/content/site";
+import { publicSiteOrigin } from "@/lib/site-origin";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
@@ -18,43 +19,31 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(publicSiteOrigin()),
   title: {
-    default: `${siteConfig.name} | Technology, Automation & Intelligent Solutions`,
+    default: "CRM, Automation & Software Development in Lahore, Pakistan",
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description:
+    "UHM Tech helps businesses in Lahore and across Pakistan implement CRM, automate business processes, integrate systems, and build custom software and SaaS products.",
+  alternates: { canonical: "/" },
   applicationName: siteConfig.name,
-  keywords: [
-    "business automation",
-    "CRM implementation",
-    "software development",
-    "SaaS development",
-    "Zoho",
-    "HubSpot",
-    "Salesforce",
-    "Odoo",
-    "call center",
-    "AI automation",
-    "technology consulting",
-    "business technology audit",
-    "CRM integration",
-    "business dashboards",
-  ],
   authors: [{ name: siteConfig.name }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteConfig.url,
+    url: publicSiteOrigin(),
     siteName: siteConfig.name,
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: "CRM, Automation & Custom Software | UHM Tech",
+    description:
+      "Lahore-based technology partner for CRM implementation, business automation, system integration, and custom software.",
     images: [{ url: "/brand/New_logo.png", alt: `${siteConfig.name} logo` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: "CRM, Automation & Custom Software | UHM Tech",
+    description:
+      "Lahore-based technology partner for CRM implementation, business automation, system integration, and custom software.",
     images: ["/brand/New_logo.png"],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
