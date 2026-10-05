@@ -95,7 +95,7 @@ export function Footer() {
             </p>
           </address>
           <div className="mt-5">
-            <SocialLinks compact hideX />
+            <SocialLinks compact />
           </div>
         </div>
       </div>
