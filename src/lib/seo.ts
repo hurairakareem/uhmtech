@@ -13,6 +13,7 @@ export function organizationJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": absoluteUrl("/#organization"),
     name: siteConfig.name,
     url: publicSiteOrigin(),
     logo: absoluteUrl("/brand/New_logo.png"),
@@ -34,7 +35,7 @@ export function websiteJsonLd(): JsonLd {
     "@type": "WebSite",
     name: siteConfig.name,
     url: publicSiteOrigin(),
-    publisher: { "@type": "Organization", name: siteConfig.name },
+    publisher: { "@id": absoluteUrl("/#organization") },
   };
 }
 
@@ -59,11 +60,16 @@ export function serviceJsonLd(input: {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${input.url}#service`,
     name: input.name,
+    serviceType: input.name,
     description: input.description,
-    provider: { "@type": "Organization", name: siteConfig.name },
+    provider: { "@id": absoluteUrl("/#organization") },
     url: input.url,
-    areaServed: "Worldwide",
+    areaServed: [
+      { "@type": "City", name: "Lahore" },
+      { "@type": "Country", name: "Pakistan" },
+    ],
   };
 }
 

@@ -338,6 +338,9 @@ export const services: ServiceItem[] = [
   {
     slug: "app-development",
     name: "App Development",
+    seoTitle: "Web & Mobile App Development in Lahore",
+    seoDescription:
+      "UHM Tech builds custom web and mobile apps in Lahore, Pakistan, including business applications, customer portals, and dashboards integrated with your workflows.",
     navGroup: "build",
     summary: "Build modern web and mobile applications that support operations, customer experience, and growth.",
     description:
@@ -366,6 +369,9 @@ export const services: ServiceItem[] = [
   {
     slug: "apps-customization",
     name: "Apps Customization",
+    seoTitle: "Business App Customization in Pakistan",
+    seoDescription:
+      "Customize business apps in Lahore, Pakistan. UHM Tech adapts workflows, features, permissions, reports, and integrations to your existing software.",
     navGroup: "build",
     summary: "Customize existing applications so they match your workflows, processes, and business rules.",
     description:
@@ -394,6 +400,9 @@ export const services: ServiceItem[] = [
   {
     slug: "ai-automation",
     name: "AI & Intelligent Automation",
+    seoTitle: "AI Automation Services in Pakistan",
+    seoDescription:
+      "AI automation in Lahore, Pakistan for support, sales, documents, and operations. UHM Tech connects assistants and AI workflows to your existing systems.",
     navGroup: "build",
     summary: "Practical AI for support, qualification, documents, workflows, and product features.",
     description:
@@ -457,6 +466,9 @@ export const services: ServiceItem[] = [
   {
     slug: "chat-support",
     name: "Chat & Live Support",
+    seoTitle: "Live Chat & Customer Support in Pakistan",
+    seoDescription:
+      "Live chat and customer support in Lahore, Pakistan: website chat, lead qualification, chatbots, and CRM-connected agent workflows from UHM Tech.",
     navGroup: "experience",
     summary: "Live chat, website chat, sales chat, and AI-assisted conversations for customer engagement.",
     description:
@@ -485,6 +497,9 @@ export const services: ServiceItem[] = [
   {
     slug: "email-services",
     name: "Email Services",
+    seoTitle: "Email Automation & Support Services in Pakistan",
+    seoDescription:
+      "Email automation and support operations in Lahore, Pakistan. UHM Tech connects shared inboxes, campaigns, follow-ups, and CRM workflows.",
     navGroup: "experience",
     summary: "Support inboxes, email automation, campaigns, and CRM-connected customer communication.",
     description:
@@ -515,6 +530,9 @@ export const services: ServiceItem[] = [
   {
     slug: "api-integrations",
     name: "API & Integrations",
+    seoTitle: "API Integration Services in Pakistan",
+    seoDescription:
+      "API integration services in Lahore, Pakistan. Connect CRM, payments, messaging, ecommerce, and internal tools with documented, maintainable workflows.",
     navGroup: "build",
     summary: "Connect CRM, payments, messaging, telephony, commerce, and internal systems through APIs and webhooks.",
     description:
@@ -545,6 +563,9 @@ export const services: ServiceItem[] = [
   {
     slug: "management-systems",
     name: "Business Management Systems",
+    seoTitle: "Business Management Software in Pakistan",
+    seoDescription:
+      "Business management software in Lahore, Pakistan: CRM, ERP, HR, inventory, booking, and workflow systems designed around your operations.",
     navGroup: "build",
     summary: "CRM, ERP, HR, inventory, ticketing, booking, and workflow systems — custom or platform-based.",
     description:

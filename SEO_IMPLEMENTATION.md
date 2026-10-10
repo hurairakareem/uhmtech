@@ -41,6 +41,8 @@ The homepage now expresses four connected pillars in its existing content slots:
 - Removed the `keywords` metadata field, which is not a substitute for clear, useful page content.
 - Removed the Insights/blog link from the desktop and mobile navigation. Kept the blog routes available for later configuration, but marked the listing and individual posts `noindex, follow` and removed them from the sitemap.
 - Added a Google Analytics `generate_lead` event after a successful contact-form submission. It sends only the form name; it is emitted only when the optional GA tag is configured.
+- Added unique search titles and descriptions to the remaining app, AI automation, chat, email, API integration, and management-system service pages, using the stated Lahore/Pakistan service area.
+- Connected Organization, WebSite, and Service JSON-LD entities through a stable organization `@id`; service markup now identifies Lahore and Pakistan rather than claiming worldwide service coverage.
 
 ## Search and local visibility notes
 
@@ -70,11 +72,13 @@ The homepage now expresses four connected pillars in its existing content slots:
 - On 10 October 2026, the live `robots.txt` and `sitemap.xml` returned HTTP 200. The then-deployed sitemap still listed the blog, so deploy these changes and resubmit the updated sitemap in Search Console.
 - Live browser checks at 390 × 844 found no horizontal overflow on the homepage or contact page. The homepage's navigation exposed the Insights link, which this change removes. One homepage load reported DOMContentLoaded at about 1.69 seconds and the load event at about 2.02 seconds; these single-run timings are not Core Web Vitals measurements or a performance score.
 - No Google Analytics tag was present on the live homepage during the check. Configure `NEXT_PUBLIC_GA_MEASUREMENT_ID` in the deployment environment to collect pageviews and the new successful-lead event.
+- Service-page metadata and structured-data changes were checked in the production build; verify final rendered output with Search Console URL Inspection and a structured-data validator after deployment.
 
 ## External references
 
 - Google recommends descriptive, useful page titles and people-first content in its [SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide).
 - Google's [sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap) says a sitemap is a discovery hint, not a guarantee of crawling or indexing, and should list canonical URLs intended for Search.
+- Google's [SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) explicitly states there is no automatic change that guarantees a first-place ranking; content usefulness, crawlability, and earned discovery all matter.
 - Google Search Central's [June 2026 documentation updates](https://developers.google.com/search/updates) record that FAQ rich results were removed from Search in May 2026.
 - Google's [Business Profile guidance for service businesses](https://support.google.com/business/answer/10514743) explains service-area and hybrid businesses; [eligibility rules](https://support.google.com/business/answer/13763036) require in-person customer contact.
 
