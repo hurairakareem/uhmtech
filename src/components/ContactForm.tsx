@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { budgetOptions, serviceInterestOptions, type ContactPayload } from "@/lib/contact";
+import { trackEvent } from "@/lib/analytics";
 
 const initial: ContactPayload = {
   name: "",
@@ -75,6 +76,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       }
       setStatus("success");
       setMessage("Thank you. We received your request and will respond shortly.");
+      trackEvent("generate_lead", { form_name: "contact_form" });
       setForm(initial);
     } catch {
       setStatus("error");

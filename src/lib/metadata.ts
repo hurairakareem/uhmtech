@@ -7,11 +7,13 @@ export function createMetadata({
   description,
   path = "/",
   ogType = "website",
+  robots,
 }: {
   title: string;
   description: string;
   path?: string;
   ogType?: "website" | "article";
+  robots?: Metadata["robots"];
 }): Metadata {
   const url = absoluteUrl(path);
   const fullTitle = title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`;
@@ -20,6 +22,7 @@ export function createMetadata({
     title,
     description,
     alternates: { canonical: url },
+    ...(robots ? { robots } : {}),
     openGraph: {
       title: fullTitle,
       description,

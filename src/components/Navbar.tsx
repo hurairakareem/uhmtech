@@ -9,7 +9,6 @@ import { getNavServiceGroups } from "@/content/services";
 
 const resources = [
   { href: "/case-studies", label: "Case studies" },
-  { href: "/blog", label: "Insights" },
   { href: "/technologies", label: "Technology partners" },
 ];
 

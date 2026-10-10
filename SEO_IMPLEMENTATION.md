@@ -1,7 +1,7 @@
 # SEO implementation notes
 
 **Website:** https://uhmtech.com/  
-**Updated:** 5 October 2026
+**Updated:** 10 October 2026
 
 ## Keyword focus
 
@@ -39,19 +39,21 @@ The homepage now expresses four connected pillars in its existing content slots:
 - Normalized canonical, Open Graph, sitemap, and Organization/WebSite URLs through the production-origin helper. The first build inspection caught `http://localhost:3000` in the generated homepage canonical when local environment config supplied localhost; this is now emitted as `https://uhmtech.com`.
 - Removed FAQPage markup. Google announced the FAQ rich result feature was no longer shown starting 7 May 2026; the site's visible FAQ content remains available to visitors.
 - Removed the `keywords` metadata field, which is not a substitute for clear, useful page content.
+- Removed the Insights/blog link from the desktop and mobile navigation. Kept the blog routes available for later configuration, but marked the listing and individual posts `noindex, follow` and removed them from the sitemap.
+- Added a Google Analytics `generate_lead` event after a successful contact-form submission. It sends only the form name; it is emitted only when the optional GA tag is configured.
 
 ## Search and local visibility notes
 
 - A general web search for `site:uhmtech.com` during this review did not return the site's pages. This is an observation from the search results available here, not a definitive index coverage report. Search Console's Page indexing and URL Inspection reports are the sources to use for confirmed indexing status.
 - The repository contains a Google site-verification HTML file, but no Search Console account/report access was available. Once the changes are deployed, verify the domain property, inspect the homepage and key service URLs, submit `https://uhmtech.com/sitemap.xml`, then check indexing and sitemap processing in Search Console.
 - A Google Business Profile is appropriate only if the business makes in-person contact with customers at a location or serves customers in person as a service-area business. Use the true business name, phone, hours, and eligible location/service area; do not publish a virtual office as a storefront. Keep the same real business details on the site and legitimate directories.
-- The local street address above came from the user-supplied live review; I could not independently fetch the live website from this environment. The production `NEXT_PUBLIC_CONTACT_ADDRESS` setting overrides repository defaults, so confirm it is the correct real address in Netlify before deploying. The public contact block and schema read from this setting.
+- The local street address above came from the user-supplied live review. The public website was reachable during the 10 October check, but that does not independently verify the address or the active Netlify environment setting. Confirm `NEXT_PUBLIC_CONTACT_ADDRESS` is the correct real address before deploying; the public contact block and schema read from this setting.
 - No search-volume figures, backlink scores, or ranking promises are included. Those require account-level tools and/or independent measurement. Build authority through real client-approved case studies, useful expert material, partner/vendor listings that are genuine, and relevant local business citations; do not buy or fabricate links or reviews.
 
 ## Actions requiring the site owner's accounts or evidence
 
 1. In Netlify, set `NEXT_PUBLIC_CONTACT_ADDRESS` to the exact public address you want shown (`122 K Johar Town, Lahore, Pakistan` if this is correct), then deploy. Check both the contact page and footer after deployment.
-2. In Google Search Console, inspect the home page and priority service URLs, review the Page indexing reasons in the supplied audit, and submit the sitemap again after deployment. A `noindex` exclusion for Products and Case Studies is expected for now.
+2. In Google Search Console, inspect the home page and priority service URLs, review the Page indexing reasons in the supplied audit, and submit the sitemap again after deployment. A `noindex` exclusion for Products, Case Studies, and the unconfigured blog is expected for now.
 3. Confirm Search Console reports the canonical host as `https://uhmtech.com`, and check whether any redirects, robots blocks, server errors, or duplicate canonicals explain the missing site results. Search operators are not a substitute for the Pages report.
 4. Create/claim a Google Business Profile only if UHM Tech meets Google's in-person eligibility rules. If this is a service-area business, configure it as such and hide an address where customers are not received; do not use a virtual office.
 5. To turn case studies into indexable SEO pages, provide verified project facts, client permission, before/after context, actual implementation details, and publishable results/screenshots. Then remove `noindex` and add the approved URLs to the sitemap.
@@ -62,9 +64,12 @@ The homepage now expresses four connected pillars in its existing content slots:
 - `npm.cmd run build` completed successfully, including TypeScript and static page generation.
 - Inspected generated homepage metadata: the title and description are present, and the canonical URL is `https://uhmtech.com/` even though the local build environment uses localhost.
 - Inspected generated Organization data: the supplied address renders as street `122 K Johar Town`, locality `Lahore`, country `PK`.
-- Inspected generated pages: unavailable product pages and illustrative case studies emit `noindex`; blog articles remain indexable and have production-domain canonicals. The generated sitemap contains blog pages and excludes product/case-study placeholder routes.
+- Inspected generated pages: unavailable product pages, illustrative case studies, and blog pages emit `noindex`; the sitemap excludes product/case-study placeholders and blog URLs.
 - `npm.cmd run lint` could not complete because the existing ESLint flat-config compatibility setup throws a circular-structure error while loading `next/core-web-vitals`; this occurs before file-level lint results are produced.
 - `git diff --check` completed without whitespace errors.
+- On 10 October 2026, the live `robots.txt` and `sitemap.xml` returned HTTP 200. The then-deployed sitemap still listed the blog, so deploy these changes and resubmit the updated sitemap in Search Console.
+- Live browser checks at 390 × 844 found no horizontal overflow on the homepage or contact page. The homepage's navigation exposed the Insights link, which this change removes. One homepage load reported DOMContentLoaded at about 1.69 seconds and the load event at about 2.02 seconds; these single-run timings are not Core Web Vitals measurements or a performance score.
+- No Google Analytics tag was present on the live homepage during the check. Configure `NEXT_PUBLIC_GA_MEASUREMENT_ID` in the deployment environment to collect pageviews and the new successful-lead event.
 
 ## External references
 
@@ -75,4 +80,4 @@ The homepage now expresses four connected pillars in its existing content slots:
 
 ## Not completed from this repository
 
-Search Console submission, indexing requests, Business Profile verification, backlink outreach, and production crawl/Core Web Vitals review require live Google/property or website access. The public site was not reachable from the audit environment, so production HTTP status, rendered page titles, mobile behavior, and Core Web Vitals still need an external check after deploy.
+Search Console submission, indexing requests, Business Profile verification, backlink outreach, and field Core Web Vitals review require live Google/property access or a post-deployment measurement. The live site is reachable and its crawler files and mobile layout were checked, but Search Console index coverage and Core Web Vitals have not been verified.
