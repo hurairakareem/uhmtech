@@ -17,14 +17,11 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const item = getCaseStudy(slug);
   if (!item) return {};
-  return {
-    ...createMetadata({
-      title: item.title,
-      description: item.summary,
-      path: `/case-studies/${item.slug}`,
-    }),
-    robots: { index: false, follow: true },
-  };
+  return createMetadata({
+    title: item.title,
+    description: item.summary,
+    path: `/case-studies/${item.slug}`,
+  });
 }
 
 export default async function CaseStudyPage({ params }: Props) {

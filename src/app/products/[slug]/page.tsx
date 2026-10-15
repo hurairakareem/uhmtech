@@ -17,14 +17,11 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
-  return {
-    ...createMetadata({
-      title: product.name,
-      description: product.summary,
-      path: `/products/${product.slug}`,
-    }),
-    ...(product.status === "available" ? {} : { robots: { index: false, follow: true } }),
-  };
+  return createMetadata({
+    title: product.name,
+    description: product.summary,
+    path: `/products/${product.slug}`,
+  });
 }
 
 export default async function ProductPage({ params }: Props) {

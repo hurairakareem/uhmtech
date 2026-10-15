@@ -4,15 +4,12 @@ import { PageHero } from "@/components/PageHero";
 import { caseStudies } from "@/content/caseStudies";
 import { createMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  ...createMetadata({
-    title: "Digital Transformation Case Studies",
-    description:
-      "Illustrative engagement profiles from UHM Tech. Real client names, metrics, and screenshots are published only with permission.",
-    path: "/case-studies",
-  }),
-  robots: { index: false, follow: true },
-};
+export const metadata = createMetadata({
+  title: "Digital Transformation Case Studies",
+  description:
+    "Illustrative engagement profiles from UHM Tech. Real client names, metrics, and screenshots are published only with permission.",
+  path: "/case-studies",
+});
 
 export default function CaseStudiesPage() {
   return (
