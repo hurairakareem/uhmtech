@@ -64,7 +64,7 @@ Scope: **All scopes**. Deploy contexts: **All**. Add each of these:
 | `NEXT_PUBLIC_SITE_URL` | `https://uhmtech.com` (or your `https://….netlify.app` URL until the domain is attached) |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | `info@uhmtech.com` |
 | `NEXT_PUBLIC_CONTACT_PHONE` | `03080007173` |
-| `NEXT_PUBLIC_CONTACT_ADDRESS` | `122 K Johar Town, Lahore, Pakistan` |
+| `NEXT_PUBLIC_CONTACT_ADDRESS` | `159 N-Block, Sabzazar, Lahore, Punjab, Pakistan` |
 | `CONTACT_TO_EMAIL` | `info@uhmtech.com` |
 | `SMTP_HOST` | `smtp.gmail.com` |
 | `SMTP_PORT` | `587` |

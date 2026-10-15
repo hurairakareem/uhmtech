@@ -33,6 +33,6 @@ export const faqs = [
   },
   {
     q: "Where are you based, and do you work internationally?",
-    a: "UHM Tech is based in Johar Town, Lahore, Pakistan, and works with local and international clients through structured remote delivery.",
+    a: "UHM Tech is based in Sabzazar, Lahore, Pakistan, and works with local and international clients through structured remote delivery.",
   },
 ];

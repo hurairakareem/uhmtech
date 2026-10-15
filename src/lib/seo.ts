@@ -7,7 +7,12 @@ type JsonLd = Record<string, unknown>;
 export function organizationJsonLd(): JsonLd {
   const addressParts = siteConfig.address.split(",").map((part) => part.trim()).filter(Boolean);
   const country = addressParts.at(-1)?.toLowerCase() === "pakistan" ? addressParts.pop() : undefined;
-  const locality = addressParts.length > 1 ? addressParts.pop() : addressParts[0] || "Lahore";
+  const region = addressParts.at(-1)?.toLowerCase() === "punjab" ? addressParts.pop() : undefined;
+  const locality = region
+    ? addressParts.pop() || "Lahore"
+    : addressParts.length > 1
+      ? addressParts.pop()
+      : addressParts[0] || "Lahore";
   const streetAddress = addressParts.length > 0 ? addressParts.join(", ") : undefined;
 
   return {
@@ -22,6 +27,7 @@ export function organizationJsonLd(): JsonLd {
       "@type": "PostalAddress",
       ...(streetAddress ? { streetAddress } : {}),
       addressLocality: locality,
+      ...(region ? { addressRegion: region } : {}),
       ...(country ? { addressCountry: "PK" } : {}),
     },
     telephone: siteConfig.phone || undefined,
