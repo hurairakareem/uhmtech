@@ -8,7 +8,6 @@ export const metadata = createMetadata({
   description:
     "Insights from UHM Tech on business automation, CRM, SaaS, AI, software development, and digital transformation.",
   path: "/blog",
-  robots: { index: false, follow: true },
 });
 
 export default function BlogPage() {

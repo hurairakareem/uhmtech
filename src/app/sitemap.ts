@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/content/blog";
 import { industries } from "@/content/industries";
 import { services } from "@/content/services";
 import { publicSiteOrigin } from "@/lib/site-origin";
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     page("/"),
     page("/about"),
+    page("/blog"),
     page("/services"),
     page("/solutions"),
     page("/industries"),
@@ -24,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const detailRoutes = [
+    ...blogPosts.map((post) => page(`/blog/${post.slug}`, new Date(post.updatedAt ?? post.publishedAt))),
     ...services.map((s) => page(`/services/${s.slug}`)),
     ...industries.map((i) => page(`/industries/${i.slug}`)),
   ];
