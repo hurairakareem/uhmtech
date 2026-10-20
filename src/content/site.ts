@@ -15,7 +15,7 @@ export const siteConfig = {
     facebook: "https://www.facebook.com/people/UHM-Tech/61594981400937/",
     instagram: "https://www.instagram.com/uhmtech/",
     youtube: "https://www.youtube.com/@uhmtech",
-    github: "https://github.com/uhmtech",
+    github: "https://github.com/infouhmtech-ship-it",
   },
 } as const;
 
